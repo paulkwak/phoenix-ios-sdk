@@ -27,17 +27,7 @@
     self.clientCredential = [AFOAuthCredential retrieveCredentialWithIdentifier:kPhoenixClientAuthenticationCredentialKey];
 
     self.userCredential = [AFOAuthCredential retrieveCredentialWithIdentifier:kPhoenixUserAuthenticationCredentialKey];
-    
-    if (self.userCredential) {
-//        [self.client setAuthorizationHeaderWithCredential:self.userCredential];
-        [self.client setAuthorizationHeaderWithCredential:self.userCredential];
-        self.isUserAuthenticated = YES;
-    }
-    else if (self.clientCredential) {
-//        [self.client setAuthorizationHeaderWithCredential:self.clientCredential];
-        [self.client setAuthorizationHeaderWithCredential:self.clientCredential];
-    }
-    
+
     NSAssert(self.client.clientID, @"Missing Client ID");
     NSAssert(self.client.clientSecret, @"Missing Client Secret");
     
@@ -46,7 +36,53 @@
                                                               secret:self.client.clientSecret];
     
     self.oauth2Client = oauth2Client;
+
     
+    // Restore Authorization header
+    if (self.userCredential) {
+        [self.client setAuthorizationHeaderWithCredential:self.userCredential];
+        self.isUserAuthenticated = YES;
+    }
+    else if (self.clientCredential) {
+        if (self.clientCredential.expired) {
+            // Bin expired token
+            // Don't refresh client credential. Only refresh user ones.
+            self.clientCredential = nil;
+            [AFOAuthCredential deleteCredentialWithIdentifier:kPhoenixClientAuthenticationCredentialKey];
+        } else
+            [self.client setAuthorizationHeaderWithCredential:self.clientCredential];
+    }
+    
+    dispatch_block_t checkExpirationBlock = ^(void){
+        // See if user token needs to be refreshed
+        if (self.isUserAuthenticated && self.userCredential.expired) {
+            [self refreshTokenWithSuccess:^(AFOAuthCredential *credential) {
+                NSLog(@"Phoenix Identity: Refresh token success!");
+            } failure:^(NSError *error) {
+                NSLog(@"Phoenix Identity: Refresh token failed. Logging out");
+                [self logout];
+            }];
+        }
+        
+        // See if client credential is still useful
+        if (self.clientCredential && self.clientCredential.expired) {
+            // Bin expired token
+            // Don't refresh client credential. Only refresh user ones.
+            self.clientCredential = nil;
+            [AFOAuthCredential deleteCredentialWithIdentifier:kPhoenixClientAuthenticationCredentialKey];
+        }
+    };
+    
+    checkExpirationBlock();
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidBecomeActiveNotification
+                                                      object:nil
+                                                       queue:[NSOperationQueue mainQueue]
+                                                  usingBlock:^(NSNotification *note) {
+                                                      checkExpirationBlock();
+                                                  }];
+    
+
     return self;
 }
 
@@ -338,7 +374,6 @@
     
     return _companyProject;
 }
-
 
 @end
 
