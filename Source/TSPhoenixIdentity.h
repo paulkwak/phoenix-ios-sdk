@@ -173,15 +173,3 @@
 
 @end
 
-
-// This is a temporary fix for Bug 1242:Phoenix Identity OAuth2: Wrong Token Type
-//https://phoenixplatform.visualstudio.com/DefaultCollection/Tigerspike.Phoenix/_workItems#id=1242&_a=edit
-
-@interface AFOAuth2Client (SetToken)
-
-- (void)setAuthorizationHeaderWithToken:(NSString *)token;
-
-- (void)setAuthorizationHeaderWithToken:(NSString *)token
-                                 ofType:(NSString *)type;
-
-@end

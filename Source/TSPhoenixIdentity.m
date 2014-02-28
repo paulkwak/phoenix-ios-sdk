@@ -30,12 +30,12 @@
     
     if (self.userCredential) {
 //        [self.client setAuthorizationHeaderWithCredential:self.userCredential];
-        [self.client setAuthorizationHeaderWithToken:self.userCredential.accessToken];
+        [self.client setAuthorizationHeaderWithCredential:self.userCredential];
         self.isUserAuthenticated = YES;
     }
     else if (self.clientCredential) {
 //        [self.client setAuthorizationHeaderWithCredential:self.clientCredential];
-        [self.client setAuthorizationHeaderWithToken:self.clientCredential.accessToken];
+        [self.client setAuthorizationHeaderWithCredential:self.clientCredential];
     }
     
     NSAssert(self.client.clientID, @"Missing Client ID");
@@ -63,7 +63,7 @@
                                                   
 //                                                  [self.oauth2Client setAuthorizationHeaderWithCredential:credential];
 //                                                  [self.client setAuthorizationHeaderWithCredential:credential];
-                                                  [self.oauth2Client setAuthorizationHeaderWithToken:credential.accessToken];
+                                                  [self.oauth2Client setAuthorizationHeaderWithCredential:credential];
                                                   [self.client setAuthorizationHeaderWithToken:credential.accessToken];
                                                   
                                                   [AFOAuthCredential storeCredential:credential
@@ -103,7 +103,7 @@
                                      
 //                                     [self.oauth2Client setAuthorizationHeaderWithCredential:credential];
 //                                     [self.client setAuthorizationHeaderWithCredential:credential];
-                                     [self.oauth2Client setAuthorizationHeaderWithToken:credential.accessToken];
+                                     [self.oauth2Client setAuthorizationHeaderWithCredential:credential];
                                      [self.client setAuthorizationHeaderWithToken:credential.accessToken];
 
                                      
@@ -143,7 +143,7 @@
                                                   
 //                                                  [self.oauth2Client setAuthorizationHeaderWithCredential:credential];
 //                                                  [self.client setAuthorizationHeaderWithCredential:credential];
-                                                  [self.oauth2Client setAuthorizationHeaderWithToken:credential.accessToken];
+                                                  [self.oauth2Client setAuthorizationHeaderWithCredential:credential];
                                                   [self.client setAuthorizationHeaderWithToken:credential.accessToken];
                                                   
                                                   self.isUserAuthenticated = YES;
