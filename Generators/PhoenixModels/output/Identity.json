@@ -229,8 +229,8 @@
                 "type": "relationship.array",
                 "href": "#Domain",
                 "ObjCPropertyType": "NSArray",
-                "ObjCPropertyName": "domains",
-                "ObjCArrayPropertyContentType": "TSDomain"
+                "ObjCArrayPropertyContentType": "TSDomain",
+                "ObjCPropertyName": "domains"
             }
         ],
         "ObjCName": "TSCompany"
@@ -678,6 +678,48 @@
         "ObjCName": "TSModule"
     },
     {
+        "name": "PlatformInstance",
+        "properties": [
+            {
+                "name": "Id",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "platformInstanceID"
+            },
+            {
+                "name": "Name",
+                "type": "System.String",
+                "ObjCPropertyType": "NSString",
+                "ObjCPropertyName": "name"
+            },
+            {
+                "name": "ConsoleUrl",
+                "type": "System.String",
+                "ObjCPropertyType": "NSString",
+                "ObjCPropertyName": "consoleUrl"
+            },
+            {
+                "name": "ApiUrl",
+                "type": "System.String",
+                "ObjCPropertyType": "NSString",
+                "ObjCPropertyName": "apiUrl"
+            },
+            {
+                "name": "CreateDate",
+                "type": "System.DateTime",
+                "ObjCPropertyType": "NSDate",
+                "ObjCPropertyName": "createDate"
+            },
+            {
+                "name": "ModifyDate",
+                "type": "System.DateTime",
+                "ObjCPropertyType": "NSDate",
+                "ObjCPropertyName": "modifyDate"
+            }
+        ],
+        "ObjCName": "TSPlatformInstance"
+    },
+    {
         "name": "Project",
         "properties": [
             {
@@ -795,6 +837,20 @@
                 "type": "System.String",
                 "ObjCPropertyType": "NSString",
                 "ObjCPropertyName": "metaData"
+            },
+            {
+                "name": "PhoenixInstanceId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "phoenixInstanceID"
+            },
+            {
+                "name": "PlatformInstance",
+                "anchor": "/Api/Identity#PlatformInstance",
+                "type": "relationship",
+                "href": "#PlatformInstance",
+                "ObjCPropertyType": "TSPlatformInstance",
+                "ObjCPropertyName": "platformInstance"
             }
         ],
         "ObjCName": "TSProvider"
@@ -929,18 +985,6 @@
                 "ObjCPropertyName": "actionID"
             },
             {
-                "name": "CreateDate",
-                "type": "System.DateTime",
-                "ObjCPropertyType": "NSDate",
-                "ObjCPropertyName": "createDate"
-            },
-            {
-                "name": "ModifyDate",
-                "type": "System.DateTime",
-                "ObjCPropertyType": "NSDate",
-                "ObjCPropertyName": "modifyDate"
-            },
-            {
                 "name": "EntityId",
                 "type": "System.Int32",
                 "ObjCPropertyType": "NSNumber",
@@ -951,6 +995,18 @@
                 "type": "System.Boolean",
                 "ObjCPropertyType": "NSNumber",
                 "ObjCPropertyName": "isGrant"
+            },
+            {
+                "name": "CreateDate",
+                "type": "System.DateTime",
+                "ObjCPropertyType": "NSDate",
+                "ObjCPropertyName": "createDate"
+            },
+            {
+                "name": "ModifyDate",
+                "type": "System.DateTime",
+                "ObjCPropertyType": "NSDate",
+                "ObjCPropertyName": "modifyDate"
             },
             {
                 "name": "Action",
@@ -994,12 +1050,8 @@
                     "name": "UserTypeEnum",
                     "type": "enum",
                     "values": [
-                        "Platform_Administrator",
-                        "Phoenix_Component",
-                        "Provider_Administrator",
-                        "Company_Administrator",
-                        "Restricted_Application",
-                        "Restricted_Application_User"
+                        "Application",
+                        "User"
                     ]
                 },
                 "type": "enumList",
@@ -1105,8 +1157,8 @@
                 "type": "relationship.array",
                 "href": "#Identifier",
                 "ObjCPropertyType": "NSArray",
-                "ObjCPropertyName": "identifiers",
-                "ObjCArrayPropertyContentType": "TSIdentifier"
+                "ObjCArrayPropertyContentType": "TSIdentifier",
+                "ObjCPropertyName": "identifiers"
             }
         ],
         "ObjCName": "TSUser"
@@ -1139,22 +1191,22 @@
                 "ObjCPropertyName": "actionID"
             },
             {
+                "name": "ProviderId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "providerID"
+            },
+            {
+                "name": "CompanyId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "companyID"
+            },
+            {
                 "name": "ProjectId",
                 "type": "System.Int32",
                 "ObjCPropertyType": "NSNumber",
                 "ObjCPropertyName": "projectID"
-            },
-            {
-                "name": "CreateDate",
-                "type": "System.DateTime",
-                "ObjCPropertyType": "NSDate",
-                "ObjCPropertyName": "createDate"
-            },
-            {
-                "name": "ModifyDate",
-                "type": "System.DateTime",
-                "ObjCPropertyType": "NSDate",
-                "ObjCPropertyName": "modifyDate"
             },
             {
                 "name": "EntityId",
@@ -1167,6 +1219,18 @@
                 "type": "System.Boolean",
                 "ObjCPropertyType": "NSNumber",
                 "ObjCPropertyName": "isGrant"
+            },
+            {
+                "name": "CreateDate",
+                "type": "System.DateTime",
+                "ObjCPropertyType": "NSDate",
+                "ObjCPropertyName": "createDate"
+            },
+            {
+                "name": "ModifyDate",
+                "type": "System.DateTime",
+                "ObjCPropertyType": "NSDate",
+                "ObjCPropertyName": "modifyDate"
             },
             {
                 "name": "Action",
@@ -1199,6 +1263,22 @@
                 "href": "#User",
                 "ObjCPropertyType": "TSUser",
                 "ObjCPropertyName": "user"
+            },
+            {
+                "name": "Company",
+                "anchor": "/Api/Identity#Company",
+                "type": "relationship",
+                "href": "#Company",
+                "ObjCPropertyType": "TSCompany",
+                "ObjCPropertyName": "company"
+            },
+            {
+                "name": "Provider",
+                "anchor": "/Api/Identity#Provider",
+                "type": "relationship",
+                "href": "#Provider",
+                "ObjCPropertyType": "TSProvider",
+                "ObjCPropertyName": "provider"
             }
         ],
         "ObjCName": "TSUserPermission"

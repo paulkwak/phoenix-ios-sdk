@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSAsset.m
 //
-//  Created by Steve on January 23rd 2014.
+//  Created by Steve on March 18th 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -120,7 +120,8 @@
 		@"FileSize" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"fileSize"},
 		@"Reference" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"reference"},
 		@"CreateDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"createDate"},
-		@"ModifyDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"modifyDate"}
+		@"ModifyDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"modifyDate"},
+		@"Metadata" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"metadata"}
 	};
 }
 

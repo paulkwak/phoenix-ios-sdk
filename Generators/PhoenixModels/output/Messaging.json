@@ -442,8 +442,8 @@
                 "type": "relationship.array",
                 "href": "#Recipient",
                 "ObjCPropertyType": "NSArray",
-                "ObjCPropertyName": "recipients",
-                "ObjCArrayPropertyContentType": "TSRecipient"
+                "ObjCArrayPropertyContentType": "TSRecipient",
+                "ObjCPropertyName": "recipients"
             }
         ],
         "ObjCName": "TSMessage"

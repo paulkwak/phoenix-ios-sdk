@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSUser.h
 //
-//  Created by Steve on January 23rd 2014.
+//  Created by Steve on March 18th 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -14,12 +14,8 @@
 #ifndef UserTypeIdEnum
 #define UserTypeIdEnum
 typedef NS_ENUM(NSUInteger, UserTypeId) {
-	kUserTypeIdPlatform_Administrator = 1,
-	kUserTypeIdPhoenix_Component,
-	kUserTypeIdProvider_Administrator,
-	kUserTypeIdCompany_Administrator,
-	kUserTypeIdRestricted_Application,
-	kUserTypeIdRestricted_Application_User,
+	kUserTypeIdApplication = 1,
+	kUserTypeIdUser,
 };
 
 #endif

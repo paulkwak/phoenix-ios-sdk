@@ -624,8 +624,8 @@
                 "type": "relationship.array",
                 "href": "#MediaFile",
                 "ObjCPropertyType": "NSArray",
-                "ObjCPropertyName": "mediaFiles",
-                "ObjCArrayPropertyContentType": "TSMediaFile"
+                "ObjCArrayPropertyContentType": "TSMediaFile",
+                "ObjCPropertyName": "mediaFiles"
             },
             {
                 "name": "Project",
@@ -1060,6 +1060,48 @@
                 "type": "System.DateTime",
                 "ObjCPropertyType": "NSDate",
                 "ObjCPropertyName": "modifyDate"
+            },
+            {
+                "name": "PreviewFileWidth",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "previewFileWidth"
+            },
+            {
+                "name": "PreviewFileHeight",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "previewFileHeight"
+            },
+            {
+                "name": "PreviewFileSizeLimit",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "previewFileSizeLimit"
+            },
+            {
+                "name": "PreviewFileMaintainAspectRatio",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "previewFileMaintainAspectRatio"
+            },
+            {
+                "name": "PreviewFileCropPosition",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "previewFileCropPosition"
+            },
+            {
+                "name": "PreviewFileOutputFormat",
+                "type": "System.String",
+                "ObjCPropertyType": "NSString",
+                "ObjCPropertyName": "previewFileOutputFormat"
+            },
+            {
+                "name": "PreviewFileQuality",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "previewFileQuality"
             }
         ],
         "ObjCName": "TSProject"

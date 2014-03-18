@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSFeedLog.h
 //
-//  Created by Steve on January 23rd 2014.
+//  Created by Steve on March 18th 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -13,10 +13,16 @@
 #ifndef StatusTypeIdEnum
 #define StatusTypeIdEnum
 typedef NS_ENUM(NSUInteger, StatusTypeId) {
-	kStatusTypeIdPending = 1,
-	kStatusTypeIdProcessing,
-	kStatusTypeIdSuccess,
-	kStatusTypeIdFailure,
+	kStatusTypeIdNew = 1,
+	kStatusTypeIdImportInProgress,
+	kStatusTypeIdImportFailed,
+	kStatusTypeIdImportSucceeded,
+	kStatusTypeIdPackagingInProgress,
+	kStatusTypeIdPackagingFailed,
+	kStatusTypeIdPackagingSucceeded,
+	kStatusTypeIdBroadcastInProgress,
+	kStatusTypeIdBroadcastFailed,
+	kStatusTypeIdBroadcastSucceeded,
 };
 
 #endif

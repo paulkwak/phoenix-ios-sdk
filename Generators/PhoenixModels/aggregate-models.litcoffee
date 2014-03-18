@@ -11,7 +11,7 @@ env.json defines a set of URLs containing Phoenix API documentations.
 using different config.json allows us to switch between environments (live, uat, dev, whatever)
 
     # config = JSON.parse(fs.readFileSync('config.json', 'utf8'))
-    config = JSON.parse(fs.readFileSync('env-uat.json', 'utf8'))
+    config = JSON.parse(fs.readFileSync('env-live.json', 'utf8'))
     
     urls = config.urls
     

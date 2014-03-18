@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSEdition.m
 //
-//  Created by Steve on January 23rd 2014.
+//  Created by Steve on March 18th 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -119,6 +119,7 @@
 		@"IsActive" : @{@"type": @"System.Boolean", @"mappedType":@"NSNumber", @"mappedName": @"isActive"},
 		@"CreateDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"createDate"},
 		@"ModifyDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"modifyDate"},
+		@"Metadata" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"metadata"},
 		@"Project" : @{@"type": @"relationship", @"mappedType":@"TSProject", @"mappedName": @"project"}
 	};
 }

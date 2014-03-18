@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSUserPermission.m
 //
-//  Created by Steve on January 23rd 2014.
+//  Created by Steve on March 18th 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -109,15 +109,19 @@
 		@"UserId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"userID"},
 		@"ResourceId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"resourceID"},
 		@"ActionId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"actionID"},
+		@"ProviderId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"providerID"},
+		@"CompanyId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"companyID"},
 		@"ProjectId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"projectID"},
-		@"CreateDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"createDate"},
-		@"ModifyDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"modifyDate"},
 		@"EntityId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"entityID"},
 		@"IsGrant" : @{@"type": @"System.Boolean", @"mappedType":@"NSNumber", @"mappedName": @"isGrant"},
+		@"CreateDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"createDate"},
+		@"ModifyDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"modifyDate"},
 		@"Action" : @{@"type": @"relationship", @"mappedType":@"TSAction", @"mappedName": @"action"},
 		@"Project" : @{@"type": @"relationship", @"mappedType":@"TSProject", @"mappedName": @"project"},
 		@"Resource" : @{@"type": @"relationship", @"mappedType":@"TSResource", @"mappedName": @"resource"},
-		@"User" : @{@"type": @"relationship", @"mappedType":@"TSUser", @"mappedName": @"user"}
+		@"User" : @{@"type": @"relationship", @"mappedType":@"TSUser", @"mappedName": @"user"},
+		@"Company" : @{@"type": @"relationship", @"mappedType":@"TSCompany", @"mappedName": @"company"},
+		@"Provider" : @{@"type": @"relationship", @"mappedType":@"TSProvider", @"mappedName": @"provider"}
 	};
 }
 
@@ -156,7 +160,9 @@
    @"action",
 @"project",
 @"resource",
-@"user"
+@"user",
+@"company",
+@"provider"
   ];
 }
 

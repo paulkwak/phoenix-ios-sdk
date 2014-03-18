@@ -2,13 +2,13 @@
 //  TSPhoenix
 //	TSProvider.h
 //
-//  Created by Steve on January 23rd 2014.
+//  Created by Steve on March 18th 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
 #import "TSModelAbstract.h"
 
-
+@class TSPlatformInstance;
 
 
 
@@ -25,12 +25,14 @@
 @property (nonatomic, strong) NSDate *createDate;
 @property (nonatomic, strong) NSDate *modifyDate;
 @property (nonatomic, copy) NSString *metaData;
+@property (nonatomic, strong) NSNumber *phoenixInstanceID;
 
 
 
 // Expanded properties
 // These will be nil, unless specific parameters "expand=propertyname" are set to expand these properties
 
+@property (nonatomic, strong) TSPlatformInstance *platformInstance;
 
 
 

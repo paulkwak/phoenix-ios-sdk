@@ -633,8 +633,8 @@
                 "type": "relationship.array",
                 "href": "#TriggerActionMap",
                 "ObjCPropertyType": "NSArray",
-                "ObjCPropertyName": "triggerActionMaps",
-                "ObjCArrayPropertyContentType": "TSTriggerActionMap"
+                "ObjCArrayPropertyContentType": "TSTriggerActionMap",
+                "ObjCPropertyName": "triggerActionMaps"
             }
         ],
         "ObjCName": "TSTrigger"

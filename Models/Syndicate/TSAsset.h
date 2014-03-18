@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSAsset.h
 //
-//  Created by Steve on January 23rd 2014.
+//  Created by Steve on March 18th 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -45,6 +45,7 @@ typedef NS_ENUM(NSUInteger, AssetTypeId) {
 @property (nonatomic, copy) NSString *reference;
 @property (nonatomic, strong) NSDate *createDate;
 @property (nonatomic, strong) NSDate *modifyDate;
+@property (nonatomic, copy) NSString *metadata;
 
 
 

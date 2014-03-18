@@ -92,8 +92,8 @@
                 "type": "relationship.array",
                 "href": "#Asset",
                 "ObjCPropertyType": "NSArray",
-                "ObjCPropertyName": "assets",
-                "ObjCArrayPropertyContentType": "TSAsset"
+                "ObjCArrayPropertyContentType": "TSAsset",
+                "ObjCPropertyName": "assets"
             },
             {
                 "name": "Project",
@@ -357,6 +357,12 @@
                 "type": "System.DateTime",
                 "ObjCPropertyType": "NSDate",
                 "ObjCPropertyName": "modifyDate"
+            },
+            {
+                "name": "Metadata",
+                "type": "System.String",
+                "ObjCPropertyType": "NSString",
+                "ObjCPropertyName": "metadata"
             }
         ],
         "ObjCName": "TSAsset"
@@ -450,10 +456,16 @@
                     "name": "StatusTypeEnum",
                     "type": "enum",
                     "values": [
-                        "Pending",
-                        "Processing",
-                        "Success",
-                        "Failure"
+                        "New",
+                        "ImportInProgress",
+                        "ImportFailed",
+                        "ImportSucceeded",
+                        "PackagingInProgress",
+                        "PackagingFailed",
+                        "PackagingSucceeded",
+                        "BroadcastInProgress",
+                        "BroadcastFailed",
+                        "BroadcastSucceeded"
                     ]
                 },
                 "type": "enumList",
@@ -526,6 +538,12 @@
                 "type": "System.DateTime",
                 "ObjCPropertyType": "NSDate",
                 "ObjCPropertyName": "modifyDate"
+            },
+            {
+                "name": "Metadata",
+                "type": "System.String",
+                "ObjCPropertyType": "NSString",
+                "ObjCPropertyName": "metadata"
             },
             {
                 "name": "Project",
@@ -643,10 +661,16 @@
                     "name": "StatusTypeEnum",
                     "type": "enum",
                     "values": [
-                        "Pending",
-                        "Processing",
-                        "Success",
-                        "Failure"
+                        "New",
+                        "ImportInProgress",
+                        "ImportFailed",
+                        "ImportSucceeded",
+                        "PackagingInProgress",
+                        "PackagingFailed",
+                        "PackagingSucceeded",
+                        "BroadcastInProgress",
+                        "BroadcastFailed",
+                        "BroadcastSucceeded"
                     ]
                 },
                 "type": "enumList",
@@ -690,6 +714,62 @@
         "ObjCName": "TSFeedLog"
     },
     {
+        "name": "ImporterPlugin",
+        "properties": [
+            {
+                "name": "Id",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "importerPluginID"
+            },
+            {
+                "name": "AssemblyName",
+                "type": "System.String",
+                "ObjCPropertyType": "NSString",
+                "ObjCPropertyName": "assemblyName"
+            },
+            {
+                "name": "TypeName",
+                "type": "System.String",
+                "ObjCPropertyType": "NSString",
+                "ObjCPropertyName": "typeName"
+            },
+            {
+                "name": "AssemblyBytes",
+                "type": "System.Byte",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "assemblyBytes"
+            },
+            {
+                "name": "CreateDate",
+                "type": "System.DateTime",
+                "ObjCPropertyType": "NSDate",
+                "ObjCPropertyName": "createDate"
+            },
+            {
+                "name": "ModifyDate",
+                "type": "System.DateTime",
+                "ObjCPropertyType": "NSDate",
+                "ObjCPropertyName": "modifyDate"
+            },
+            {
+                "name": "ProjectId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "projectID"
+            },
+            {
+                "name": "Project",
+                "anchor": "/Api/Syndicate#Project",
+                "type": "relationship",
+                "href": "#Project",
+                "ObjCPropertyType": "TSProject",
+                "ObjCPropertyName": "project"
+            }
+        ],
+        "ObjCName": "TSImporterPlugin"
+    },
+    {
         "name": "Project",
         "properties": [
             {
@@ -715,6 +795,54 @@
                 "type": "System.DateTime",
                 "ObjCPropertyType": "NSDate",
                 "ObjCPropertyName": "modifyDate"
+            },
+            {
+                "name": "EditionPackageTypeId",
+                "enumList": {
+                    "name": "EditionPackageTypeEnum",
+                    "type": "enum",
+                    "values": [
+                        "None",
+                        "Newsstand",
+                        "Legacy"
+                    ]
+                },
+                "type": "enumList",
+                "href": "#editionpackagetypeenummodal",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "editionPackageTypeID"
+            },
+            {
+                "name": "EditionBroadcastTemplateGroupId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "editionBroadcastTemplateGroupID"
+            },
+            {
+                "name": "EditionBroadcastGroupId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "editionBroadcastGroupID"
+            },
+            {
+                "name": "Metadata",
+                "type": "System.String",
+                "ObjCPropertyType": "NSString",
+                "ObjCPropertyName": "metadata"
+            },
+            {
+                "name": "ImporterPluginId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "importerPluginID"
+            },
+            {
+                "name": "ImporterPlugin",
+                "anchor": "/Api/Syndicate#ImporterPlugin",
+                "type": "relationship",
+                "href": "#ImporterPlugin",
+                "ObjCPropertyType": "TSImporterPlugin",
+                "ObjCPropertyName": "importerPlugin"
             }
         ],
         "ObjCName": "TSProject"

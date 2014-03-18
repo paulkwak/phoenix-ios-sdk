@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSRolePermission.h
 //
-//  Created by Steve on January 23rd 2014.
+//  Created by Steve on March 18th 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -24,10 +24,10 @@
 @property (nonatomic, strong) NSNumber *roleID;
 @property (nonatomic, strong) NSNumber *resourceID;
 @property (nonatomic, strong) NSNumber *actionID;
-@property (nonatomic, strong) NSDate *createDate;
-@property (nonatomic, strong) NSDate *modifyDate;
 @property (nonatomic, strong) NSNumber *entityID;
 @property (nonatomic, strong) NSNumber *isGrant;
+@property (nonatomic, strong) NSDate *createDate;
+@property (nonatomic, strong) NSDate *modifyDate;
 
 
 

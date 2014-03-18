@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSRolePermission.m
 //
-//  Created by Steve on January 23rd 2014.
+//  Created by Steve on March 18th 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -109,10 +109,10 @@
 		@"RoleId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"roleID"},
 		@"ResourceId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"resourceID"},
 		@"ActionId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"actionID"},
-		@"CreateDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"createDate"},
-		@"ModifyDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"modifyDate"},
 		@"EntityId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"entityID"},
 		@"IsGrant" : @{@"type": @"System.Boolean", @"mappedType":@"NSNumber", @"mappedName": @"isGrant"},
+		@"CreateDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"createDate"},
+		@"ModifyDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"modifyDate"},
 		@"Action" : @{@"type": @"relationship", @"mappedType":@"TSAction", @"mappedName": @"action"},
 		@"Resource" : @{@"type": @"relationship", @"mappedType":@"TSResource", @"mappedName": @"resource"},
 		@"Role" : @{@"type": @"relationship", @"mappedType":@"TSRole", @"mappedName": @"role"}

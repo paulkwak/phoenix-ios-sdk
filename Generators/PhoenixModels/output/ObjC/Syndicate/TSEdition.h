@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSEdition.h
 //
-//  Created by Steve on January 23rd 2014.
+//  Created by Steve on March 18th 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -13,10 +13,16 @@
 #ifndef StatusTypeIdEnum
 #define StatusTypeIdEnum
 typedef NS_ENUM(NSUInteger, StatusTypeId) {
-	kStatusTypeIdPending = 1,
-	kStatusTypeIdProcessing,
-	kStatusTypeIdSuccess,
-	kStatusTypeIdFailure,
+	kStatusTypeIdNew = 1,
+	kStatusTypeIdImportInProgress,
+	kStatusTypeIdImportFailed,
+	kStatusTypeIdImportSucceeded,
+	kStatusTypeIdPackagingInProgress,
+	kStatusTypeIdPackagingFailed,
+	kStatusTypeIdPackagingSucceeded,
+	kStatusTypeIdBroadcastInProgress,
+	kStatusTypeIdBroadcastFailed,
+	kStatusTypeIdBroadcastSucceeded,
 };
 
 #endif
@@ -43,6 +49,7 @@ typedef NS_ENUM(NSUInteger, StatusTypeId) {
 @property (nonatomic, strong) NSNumber *isActive;
 @property (nonatomic, strong) NSDate *createDate;
 @property (nonatomic, strong) NSDate *modifyDate;
+@property (nonatomic, copy) NSString *metadata;
 
 
 

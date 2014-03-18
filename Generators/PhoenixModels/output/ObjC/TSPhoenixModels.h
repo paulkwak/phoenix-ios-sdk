@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSModels.h
 //
-//  Created by Steve on January 23rd 2014.
+//  Created by Steve on March 18th 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -46,6 +46,8 @@
 #import "TSMembership.h"
 
 #import "TSModule.h"
+
+#import "TSPlatformInstance.h"
 
 #import "TSProject.h"
 
@@ -118,6 +120,8 @@
 #import "TSFeed.h"
 
 #import "TSFeedLog.h"
+
+#import "TSImporterPlugin.h"
 
 #import "TSSection.h"
 
