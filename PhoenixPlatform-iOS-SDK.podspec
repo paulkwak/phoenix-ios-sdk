@@ -2,12 +2,12 @@ Pod::Spec.new do |s|
 # warning This podspec is under development
 
   s.name         = 'PhoenixPlatform-iOS-SDK'
-  s.version      = '0.5.2'
+  s.version      = '0.5.3'
   s.license      = 'GPL'
   s.homepage     = 'http://phoenixplatform.com.sg'
   s.authors      =  {'Tigerspike Products' => 'steven.zhang+phoenixsdk@tigerspike.com' }
   s.summary      = 'TSPhoenix is a framework providing access to Tigerspike Phoenix Rest APIs at http://phoenixplatform.com.sg'
-  s.source       =  { :git => 'https://github.com/phoenixplatform/phoenix-ios-sdk.git', :tag => '0.5.2' }
+  s.source       =  { :git => 'https://github.com/phoenixplatform/phoenix-ios-sdk.git', :tag => '0.5.3' }
   s.source_files = 'Source/*.{h,m}', 'Models/**/*.{h,m}', 'Source/Categories/*.{h,m}'
   s.frameworks   = 'SystemConfiguration', 'MobileCoreServices', 'Security'
   
