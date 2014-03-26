@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSArticle.h
 //
-//  Created by Steve on March 18th 2014.
+//  Created by Steve on March 26th 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
