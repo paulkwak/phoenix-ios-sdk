@@ -46,8 +46,6 @@
 
 #define kPhoenixIdentityRetrievePasswordResetTokenPath @"identity/v1/projects/%d/users/retrievepassword?username=%@&templateId=%d&target = Email"
 
-#warning These will be moved to Fuse project. In the future, we will explore automatically generate these from server side code
-
 
 #define kGetMyUserPath @"users/me"
 
@@ -63,24 +61,7 @@
 
 
 
-///////////////////////////////////
-#pragma mark - Syndicate
 
-#define kListSectionsPath @"syndicate/v1/projects/%d/sections"
-#define kListSectionsPattern @"syndicate/v1/projects/:project/sections"
-
-#define kListArticlesPath @"syndicate/v1/projects/%d/articles"
-#define kListArticlesPattern @"syndicate/v1/projects/:project/articles"
-
-#define kArticleInterationPath @"syndicate/v1/projects/%d/articleinteractions" // PUT, GET
-#define kArticleInterationPattern @"syndicate/v1/projects/:project/articleinteractions" // PUT, GET
-
-
-#define kDeleteArticleInteractionPath @"syndicate/v1/projects/%d/articles/%d/articleinteractions?interactionTypeId=%d" // DELETE
-
-#define kListArticleCollectionMapsPath @"syndicate/v1/projects/%d/collections/%d/ArticleCollectionMaps"
-
-#define kListCollectionsPath @"syndicate/v1/projects/%d/collections"
 
 
 

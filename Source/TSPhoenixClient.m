@@ -213,47 +213,8 @@ static NSInteger phoenix_projectID;
     NSInteger statusCode = operation.response.statusCode;
     if (statusCode == 401 || statusCode == 403) {
         
-        // Attempt to refresh token
-        // Success: re-queue all HTTP requests with new token
-        // Failure: log out
-        
-        static dispatch_once_t refreshOnceToken;
-        dispatch_once(&refreshOnceToken, ^{
-            // 1. Store and stop all URL requests
-            NSArray *httpOperations = self.operationQueue.operations;
-            
-            [self.operationQueue cancelAllOperations];
-            
-            // 2. Refresh token
-            [self.identity refreshTokenWithSuccess:^(AFOAuthCredential *credential) {
-                
-                // Re-queue all request operations
-                [httpOperations enumerateObjectsUsingBlock:^(AFHTTPRequestOperation *op, NSUInteger idx, BOOL *stop) {
-                    // Re-construct the requests, swap in new Authorization header field, enqueue the reqeust operation
-                    NSMutableURLRequest *request = [op.request mutableCopy];
-                    
-                    NSMutableDictionary *headers = [[request allHTTPHeaderFields] mutableCopy];
-                    NSString *token = credential.accessToken;
-                    headers[@"Authorization"] = [NSString stringWithFormat:@"Bearer %@", token];
-                    
-                    [request setAllHTTPHeaderFields:headers];
-                    
-                    AFHTTPRequestOperation *newOp = [self HTTPRequestOperationWithRequest:request
-                                                                                  success:nil
-                                                                                  failure:nil];
-                    
-                    // Restore the success / failure blocks
-                    newOp.completionBlock = op.completionBlock;
-                    
-                    [self.operationQueue addOperation:newOp];
-                    
-                    
-                }];
-            }
-            failure:^(NSError *error) {
-                [self.identity logout];
-            }];
-        });
+        // Token expired
+        [self.identity logout];
 
     }
     

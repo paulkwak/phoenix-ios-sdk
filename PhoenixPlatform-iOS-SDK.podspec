@@ -2,12 +2,12 @@ Pod::Spec.new do |s|
 # warning This podspec is under development
 
   s.name         = 'PhoenixPlatform-iOS-SDK'
-  s.version      = '0.5.3'
+  s.version      = '0.5.4'
   s.license      = 'GPL'
-  s.homepage     = 'http://phoenixplatform.com.sg'
+  s.homepage     = 'http://phoenixplatform.com'
   s.authors      =  {'Tigerspike Products' => 'steven.zhang+phoenixsdk@tigerspike.com' }
-  s.summary      = 'TSPhoenix is a framework providing access to Tigerspike Phoenix Rest APIs at http://phoenixplatform.com.sg'
-  s.source       =  { :git => 'https://github.com/phoenixplatform/phoenix-ios-sdk.git', :tag => '0.5.3' }
+  s.summary      = 'TSPhoenix is a framework providing access to Tigerspike Phoenix Rest APIs at http://phoenixplatform.com'
+  s.source       =  { :git => 'https://github.com/phoenixplatform/phoenix-ios-sdk.git', :tag => '0.5.4' }
   s.source_files = 'Source/*.{h,m}', 'Models/**/*.{h,m}', 'Source/Categories/*.{h,m}'
   s.frameworks   = 'SystemConfiguration', 'MobileCoreServices', 'Security'
   
@@ -19,8 +19,8 @@ Pod::Spec.new do |s|
   
   # dependencies
   
-  s.dependency 'AFNetworking', '~> 2.1'
+  s.dependency 'AFNetworking', '~> 2.2'
   s.dependency 'AFOAuth2Client@phoenixplatform', '~> 0.1.1'
-  s.dependency 'YapDatabase', '~>2.3'
+  s.dependency 'YapDatabase', '~>2.4'
   
 end

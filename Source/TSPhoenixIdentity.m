@@ -54,15 +54,14 @@
     }
     
     dispatch_block_t checkExpirationBlock = ^(void){
-        // See if user token needs to be refreshed
-        if (self.isUserAuthenticated && self.userCredential.expired) {
-            [self refreshTokenWithSuccess:^(AFOAuthCredential *credential) {
-                NSLog(@"Phoenix Identity: Refresh token success!");
-            } failure:^(NSError *error) {
-                NSLog(@"Phoenix Identity: Refresh token failed. Logging out");
-                [self logout];
-            }];
-        }
+        // refresh user token
+        [self refreshTokenWithSuccess:^(AFOAuthCredential *credential) {
+            NSLog(@"Phoenix Identity: Refresh token success!");
+        } failure:^(NSError *error) {
+            NSLog(@"Phoenix Identity: Refresh token failed. Logging out");
+            [self logout];
+        }];
+
         
         // See if client credential is still useful
         if (self.clientCredential && self.clientCredential.expired) {
@@ -374,6 +373,7 @@
     
     return _companyProject;
 }
+
 
 @end
 
