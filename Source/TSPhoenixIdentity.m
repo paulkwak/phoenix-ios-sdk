@@ -38,22 +38,9 @@
     self.oauth2Client = oauth2Client;
 
     
-    // Restore Authorization header
-    if (self.userCredential) {
-        [self.client setAuthorizationHeaderWithCredential:self.userCredential];
-        self.isUserAuthenticated = YES;
-    }
-    else if (self.clientCredential) {
-        if (self.clientCredential.expired) {
-            // Bin expired token
-            // Don't refresh client credential. Only refresh user ones.
-            self.clientCredential = nil;
-            [AFOAuthCredential deleteCredentialWithIdentifier:kPhoenixClientAuthenticationCredentialKey];
-        } else
-            [self.client setAuthorizationHeaderWithCredential:self.clientCredential];
-    }
+
     
-    dispatch_block_t checkExpirationBlock = ^(void){
+    dispatch_block_t rewewTokenBlock = ^(void){
         // refresh user token
         [self refreshTokenWithSuccess:^(AFOAuthCredential *credential) {
             NSLog(@"Phoenix Identity: Refresh token success!");
@@ -72,14 +59,25 @@
         }
     };
     
-    checkExpirationBlock();
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidBecomeActiveNotification
-                                                      object:nil
-                                                       queue:[NSOperationQueue mainQueue]
-                                                  usingBlock:^(NSNotification *note) {
-                                                      checkExpirationBlock();
-                                                  }];
+    // Restore Authorization header
+    if (self.userCredential) {
+        [self.client setAuthorizationHeaderWithCredential:self.userCredential];
+        self.isUserAuthenticated = YES;
+        
+        rewewTokenBlock();
+
+    }
+    else if (self.clientCredential) {
+        if (self.clientCredential.expired) {
+            // Bin expired token
+            // Don't refresh client credential. Only refresh user ones.
+            self.clientCredential = nil;
+            [AFOAuthCredential deleteCredentialWithIdentifier:kPhoenixClientAuthenticationCredentialKey];
+        } else
+            [self.client setAuthorizationHeaderWithCredential:self.clientCredential];
+    }
+    
     
 
     return self;
