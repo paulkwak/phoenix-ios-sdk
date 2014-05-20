@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 # warning This podspec is under development
 
   s.name         = 'PhoenixPlatform-iOS-SDK'
-  s.version      = '0.5.6'
+  s.version      = '0.5.7'
   s.license      = 'GPL'
   s.homepage     = 'http://phoenixplatform.com'
   s.authors      =  {'Tigerspike Products' => 'steven.zhang+phoenixsdk@tigerspike.com' }
@@ -22,5 +22,5 @@ Pod::Spec.new do |s|
   s.dependency 'AFNetworking', '~> 2.2'
   s.dependency 'AFOAuth2Client@phoenixplatform', '~> 0.1.1'
   s.dependency 'YapDatabase', '~>2.4'
-  
+  s.dependency 'ISO8601DateFormatter', '~> 0.7'
 end

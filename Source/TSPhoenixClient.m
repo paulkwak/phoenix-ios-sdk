@@ -10,7 +10,7 @@
 
 #import "TSPhoenix.h"
 #import "AFOAuth2Client.h"
-#import "RKDotNetDateFormatter.h"
+#import <ISO8601DateFormatter/ISO8601DateFormatter.h>
 
 #import "TSPhoenixIdentity.h"
 #import "TSPhoenixSyndicate.h"
@@ -48,7 +48,7 @@ static NSInteger phoenix_projectID;
 //    [self.requestSerializer setHeader:@"Accept" value:@"application/json"];
 //    [self setDefaultHeader:@"Accept-Encoding" value:@"gzip, deflate"];
 //    self.parameterEncoding = AFJSONParameterEncoding;
-    self.defaultDateFormatter = [RKDotNetDateFormatter dotNetDateFormatterWithTimeZone:nil];
+    self.defaultDateFormatter = (NSDateFormatter *)[[ISO8601DateFormatter alloc] init];
     
     self.identity = [[TSPhoenixIdentity alloc] initWithPhoenixClient:self];
     

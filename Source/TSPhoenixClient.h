@@ -129,7 +129,7 @@ extern NSString * const TSPhoenixKeyValueDatabaseSQLiteName;
 @property (strong) TSPhoenixAnalytics *analytics;
 
 /**
- *  Default .Net date formatter, parses /Date(xxxxxxxxxx)/
+ *  Default Pheonix date formatter, parses ISO 8601 date formats
  */
 @property (strong) NSDateFormatter *defaultDateFormatter;
 
