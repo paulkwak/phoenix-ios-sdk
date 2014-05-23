@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSEdition.m
 //
-//  Created by Steve on March 26th 2014.
+//  Created by Steve on May 23rd 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -33,7 +33,7 @@
         
         NSString *dotNetType = info[@"type"];
         
-        // Dot Net date /Date(xxxxxxxxxx)/
+        // Phoenix date ISO 8601/
         if ([dotNetType isEqualToString:@"System.DateTime"]) {
             NSDate *date = [[TSPhoenixClient sharedInstance].defaultDateFormatter dateFromString:value];
             [self setValue:date forKey:info[@"mappedName"]];
@@ -119,7 +119,7 @@
 		@"IsActive" : @{@"type": @"System.Boolean", @"mappedType":@"NSNumber", @"mappedName": @"isActive"},
 		@"CreateDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"createDate"},
 		@"ModifyDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"modifyDate"},
-		@"Metadata" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"metadata"},
+		@"MetaDataParameters" : @{@"type": @"undefined", @"mappedType":@"undefined", @"mappedName": @"metaDataParameters"},
 		@"Project" : @{@"type": @"relationship", @"mappedType":@"TSProject", @"mappedName": @"project"}
 	};
 }

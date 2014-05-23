@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSModels.h
 //
-//  Created by Steve on March 26th 2014.
+//  Created by Steve on May 23rd 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -20,6 +20,12 @@
 #import "TSActivityLog.h"
 
 #import "TSEventLog.h"
+
+#import "TSEventLogAggregateRetrieve.h"
+
+#import "TSEventLogCreate.h"
+
+#import "TSEventLogRetrieve.h"
 
 #import "TSEventType.h"
 
@@ -51,6 +57,8 @@
 
 #import "TSProject.h"
 
+#import "TSProjectModuleMap.h"
+
 #import "TSProvider.h"
 
 #import "TSResource.h"
@@ -63,6 +71,8 @@
 
 #import "TSUserPermission.h"
 
+#import "TSUserRoleMap.h"
+
 #import "TSAccount.h"
 
 #import "TSAggregator.h"
@@ -70,8 +80,6 @@
 #import "TSBroadcast.h"
 
 #import "TSMessage.h"
-
-#import "TSMessageFile.h"
 
 #import "TSProjectAccountMap.h"
 
@@ -124,5 +132,11 @@
 #import "TSImporterPlugin.h"
 
 #import "TSSection.h"
+
+#import "TSComment.h"
+
+#import "TSForum.h"
+
+#import "TSTopic.h"
 
 

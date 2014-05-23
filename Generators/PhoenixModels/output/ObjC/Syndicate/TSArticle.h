@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSArticle.h
 //
-//  Created by Steve on March 26th 2014.
+//  Created by Steve on May 23rd 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -26,9 +26,11 @@
 @property (nonatomic, copy) NSString *contentData;
 @property (nonatomic, copy) NSString *link;
 @property (nonatomic, strong) NSDate *publishDate;
-@property (nonatomic, copy) NSString *metadata;
 @property (nonatomic, copy) NSString *reference;
 @property (nonatomic, strong) NSNumber *isActive;
+@property (nonatomic, strong) NSNumber *viewCount_Overall;
+@property (nonatomic, strong) NSNumber *voteCount_Overall;
+@property (nonatomic, strong) NSNumber *commentCount_Overall;
 @property (nonatomic, strong) NSDate *createDate;
 @property (nonatomic, strong) NSDate *modifyDate;
 @property (nonatomic, strong) NSNumber *projectID;

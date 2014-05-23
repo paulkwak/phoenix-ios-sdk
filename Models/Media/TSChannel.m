@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSChannel.m
 //
-//  Created by Steve on March 26th 2014.
+//  Created by Steve on May 23rd 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -33,7 +33,7 @@
         
         NSString *dotNetType = info[@"type"];
         
-        // Dot Net date /Date(xxxxxxxxxx)/
+        // Phoenix date ISO 8601/
         if ([dotNetType isEqualToString:@"System.DateTime"]) {
             NSDate *date = [[TSPhoenixClient sharedInstance].defaultDateFormatter dateFromString:value];
             [self setValue:date forKey:info[@"mappedName"]];
@@ -124,8 +124,8 @@
 		@"PhoenixIdentity_GroupId_Subscribers" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"phoenixIDentity_GroupId_Subscribers"},
 		@"PhoenixIdentity_GroupId_Editors" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"phoenixIDentity_GroupId_Editors"},
 		@"OwnerProfile" : @{@"type": @"relationship", @"mappedType":@"TSOwnerProfile", @"mappedName": @"ownerProfile"},
-		@"Project" : @{@"type": @"relationship", @"mappedType":@"TSProject", @"mappedName": @"project"},
-		@"Category" : @{@"type": @"relationship", @"mappedType":@"TSCategory", @"mappedName": @"category"}
+		@"Category" : @{@"type": @"relationship", @"mappedType":@"TSCategory", @"mappedName": @"category"},
+		@"Project" : @{@"type": @"relationship", @"mappedType":@"TSProject", @"mappedName": @"project"}
 	};
 }
 
@@ -162,8 +162,8 @@
 + (NSArray *)expandableProperties {
   return @[
    @"ownerProfile",
-@"project",
-@"category"
+@"category",
+@"project"
   ];
 }
 

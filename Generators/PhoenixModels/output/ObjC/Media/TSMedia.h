@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSMedia.h
 //
-//  Created by Steve on March 26th 2014.
+//  Created by Steve on May 23rd 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -100,7 +100,6 @@ typedef NS_ENUM(NSUInteger, ProcessedTypeId) {
 @property (nonatomic, strong) NSNumber *processedTypeID;
 @property (nonatomic, copy) NSString *sourceFilePath;
 @property (nonatomic, copy) NSString *previewFilePath;
-@property (nonatomic, copy) NSString *metaData;
 @property (nonatomic, strong) NSNumber *replyCount_Daily;
 @property (nonatomic, strong) NSNumber *replyCount_Weekly;
 @property (nonatomic, strong) NSNumber *replyCount_Monthly;

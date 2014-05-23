@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSEdition.h
 //
-//  Created by Steve on March 26th 2014.
+//  Created by Steve on May 23rd 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -49,7 +49,6 @@ typedef NS_ENUM(NSUInteger, StatusTypeId) {
 @property (nonatomic, strong) NSNumber *isActive;
 @property (nonatomic, strong) NSDate *createDate;
 @property (nonatomic, strong) NSDate *modifyDate;
-@property (nonatomic, copy) NSString *metadata;
 
 
 

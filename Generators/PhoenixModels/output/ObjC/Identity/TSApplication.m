@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSApplication.m
 //
-//  Created by Steve on March 26th 2014.
+//  Created by Steve on May 23rd 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -33,7 +33,7 @@
         
         NSString *dotNetType = info[@"type"];
         
-        // Dot Net date /Date(xxxxxxxxxx)/
+        // Phoenix date ISO 8601/
         if ([dotNetType isEqualToString:@"System.DateTime"]) {
             NSDate *date = [[TSPhoenixClient sharedInstance].defaultDateFormatter dateFromString:value];
             [self setValue:date forKey:info[@"mappedName"]];
@@ -110,7 +110,7 @@
 		@"ApplicationTypeId" : @{@"type": @"enumList", @"mappedType":@"NSNumber", @"mappedName": @"applicationTypeID"},
 		@"Name" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"name"},
 		@"Description" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"applicationDescription"},
-		@"MetaData" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"metaData"},
+		@"MetaDataParameters" : @{@"type": @"undefined", @"mappedType":@"undefined", @"mappedName": @"metaDataParameters"},
 		@"ImageUrl" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"imageUrl"},
 		@"UserId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"userID"},
 		@"LatestVersion" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"latestVersion"},

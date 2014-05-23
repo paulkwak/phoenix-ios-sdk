@@ -25,18 +25,21 @@ PODS:
   - CocoaLumberjack/Core (1.6.5.1)
   - CocoaLumberjack/Extensions (1.6.5.1):
     - CocoaLumberjack/Core
+  - ISO8601DateFormatter (0.7)
   - YapDatabase (2.3):
     - CocoaLumberjack (~> 1.6.3)
 
 DEPENDENCIES:
   - AFNetworking
   - AFOAuth2Client@phoenixplatform
+  - ISO8601DateFormatter (~> 0.7)
   - YapDatabase
 
 SPEC CHECKSUMS:
-  AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
-  AFOAuth2Client@phoenixplatform: f68b41548e030fcb37fce9427aeec1c1d811b3ca
-  CocoaLumberjack: 17803afbade3126a377d32b8d23367264b44ced6
-  YapDatabase: b9b58b24092557adc59e3b86a167601c7733b8e7
+  AFNetworking: 7c33510b46f994bc75b75c6e63c1d83414ca40f2
+  AFOAuth2Client@phoenixplatform: 9785fffb216a616da21c76e8cbefff9d7840ae6e
+  CocoaLumberjack: baf4a09a3bcbdfea3363556a90104e026d3504e2
+  ISO8601DateFormatter: 59731cd880cf87e71b4fa95f0d6b713dcbc4cbce
+  YapDatabase: f2e49a93e1e0e010fb84e2ba18d34ca96645012a
 
-COCOAPODS: 0.29.0
+COCOAPODS: 0.33.1

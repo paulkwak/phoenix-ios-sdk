@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSMedia.m
 //
-//  Created by Steve on March 26th 2014.
+//  Created by Steve on May 23rd 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -33,7 +33,7 @@
         
         NSString *dotNetType = info[@"type"];
         
-        // Dot Net date /Date(xxxxxxxxxx)/
+        // Phoenix date ISO 8601/
         if ([dotNetType isEqualToString:@"System.DateTime"]) {
             NSDate *date = [[TSPhoenixClient sharedInstance].defaultDateFormatter dateFromString:value];
             [self setValue:date forKey:info[@"mappedName"]];
@@ -148,7 +148,7 @@
 		@"ProcessedTypeId" : @{@"type": @"enumList", @"mappedType":@"NSNumber", @"mappedName": @"processedTypeID"},
 		@"SourceFilePath" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"sourceFilePath"},
 		@"PreviewFilePath" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"previewFilePath"},
-		@"MetaData" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"metaData"},
+		@"MetaDataParameters" : @{@"type": @"undefined", @"mappedType":@"undefined", @"mappedName": @"metaDataParameters"},
 		@"ReplyCount_Daily" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"replyCount_Daily"},
 		@"ReplyCount_Weekly" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"replyCount_Weekly"},
 		@"ReplyCount_Monthly" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"replyCount_Monthly"},

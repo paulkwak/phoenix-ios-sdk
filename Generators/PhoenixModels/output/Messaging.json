@@ -449,62 +449,6 @@
         "ObjCName": "TSMessage"
     },
     {
-        "name": "MessageFile",
-        "properties": [
-            {
-                "name": "Id",
-                "type": "System.Int32",
-                "ObjCPropertyType": "NSNumber",
-                "ObjCPropertyName": "messageFileID"
-            },
-            {
-                "name": "MessageId",
-                "type": "System.Int32",
-                "ObjCPropertyType": "NSNumber",
-                "ObjCPropertyName": "messageID"
-            },
-            {
-                "name": "Location",
-                "type": "System.String",
-                "ObjCPropertyType": "NSString",
-                "ObjCPropertyName": "location"
-            },
-            {
-                "name": "FileExtension",
-                "type": "System.String",
-                "ObjCPropertyType": "NSString",
-                "ObjCPropertyName": "fileExtension"
-            },
-            {
-                "name": "MimeType",
-                "type": "System.String",
-                "ObjCPropertyType": "NSString",
-                "ObjCPropertyName": "mimeType"
-            },
-            {
-                "name": "CreateDate",
-                "type": "System.DateTime",
-                "ObjCPropertyType": "NSDate",
-                "ObjCPropertyName": "createDate"
-            },
-            {
-                "name": "ModifyDate",
-                "type": "System.DateTime",
-                "ObjCPropertyType": "NSDate",
-                "ObjCPropertyName": "modifyDate"
-            },
-            {
-                "name": "Message",
-                "anchor": "/Api/Messaging#Message",
-                "type": "relationship",
-                "href": "#Message",
-                "ObjCPropertyType": "TSMessage",
-                "ObjCPropertyName": "message"
-            }
-        ],
-        "ObjCName": "TSMessageFile"
-    },
-    {
         "name": "Project",
         "properties": [
             {

@@ -80,10 +80,8 @@
                 "ObjCPropertyName": "applicationDescription"
             },
             {
-                "name": "MetaData",
-                "type": "System.String",
-                "ObjCPropertyType": "NSString",
-                "ObjCPropertyName": "metaData"
+                "name": "MetaDataParameters",
+                "ObjCPropertyName": "metaDataParameters"
             },
             {
                 "name": "ImageUrl",
@@ -210,10 +208,8 @@
                 "ObjCPropertyName": "modifyDate"
             },
             {
-                "name": "MetaData",
-                "type": "System.String",
-                "ObjCPropertyType": "NSString",
-                "ObjCPropertyName": "metaData"
+                "name": "MetaDataParameters",
+                "ObjCPropertyName": "metaDataParameters"
             },
             {
                 "name": "Provider",
@@ -630,7 +626,10 @@
                         "Location",
                         "Commerce",
                         "Analytics",
-                        "Response"
+                        "AppServices",
+                        "Custom",
+                        "Survey",
+                        "Forum"
                     ]
                 },
                 "type": "enumList",
@@ -777,10 +776,8 @@
                 "ObjCPropertyName": "modifyDate"
             },
             {
-                "name": "MetaData",
-                "type": "System.String",
-                "ObjCPropertyType": "NSString",
-                "ObjCPropertyName": "metaData"
+                "name": "MetaDataParameters",
+                "ObjCPropertyName": "metaDataParameters"
             },
             {
                 "name": "Company",
@@ -792,6 +789,67 @@
             }
         ],
         "ObjCName": "TSProject"
+    },
+    {
+        "name": "ProjectModuleMap",
+        "properties": [
+            {
+                "name": "ProjectId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "projectID"
+            },
+            {
+                "name": "ModuleId",
+                "enumList": {
+                    "name": "ModuleEnum",
+                    "type": "enum",
+                    "values": [
+                        "Identity",
+                        "Messaging",
+                        "Media",
+                        "DataCapture",
+                        "Syndicate",
+                        "Location",
+                        "Commerce",
+                        "Analytics",
+                        "AppServices",
+                        "Custom",
+                        "Survey",
+                        "Forum"
+                    ]
+                },
+                "type": "enumList",
+                "href": "#moduleenummodal",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "moduleID"
+            },
+            {
+                "name": "MetaDataParameters",
+                "ObjCPropertyName": "metaDataParameters"
+            },
+            {
+                "name": "CreateDate",
+                "type": "System.DateTime",
+                "ObjCPropertyType": "NSDate",
+                "ObjCPropertyName": "createDate"
+            },
+            {
+                "name": "ModifyDate",
+                "type": "System.DateTime",
+                "ObjCPropertyType": "NSDate",
+                "ObjCPropertyName": "modifyDate"
+            },
+            {
+                "name": "Project",
+                "anchor": "/Api/Identity#Project",
+                "type": "relationship",
+                "href": "#Project",
+                "ObjCPropertyType": "TSProject",
+                "ObjCPropertyName": "project"
+            }
+        ],
+        "ObjCName": "TSProjectModuleMap"
     },
     {
         "name": "Provider",
@@ -833,10 +891,8 @@
                 "ObjCPropertyName": "modifyDate"
             },
             {
-                "name": "MetaData",
-                "type": "System.String",
-                "ObjCPropertyType": "NSString",
-                "ObjCPropertyName": "metaData"
+                "name": "MetaDataParameters",
+                "ObjCPropertyName": "metaDataParameters"
             },
             {
                 "name": "PhoenixInstanceId",
@@ -878,7 +934,10 @@
                         "Location",
                         "Commerce",
                         "Analytics",
-                        "Response"
+                        "AppServices",
+                        "Custom",
+                        "Survey",
+                        "Forum"
                     ]
                 },
                 "type": "enumList",
@@ -1138,10 +1197,8 @@
                 "ObjCPropertyName": "modifyDate"
             },
             {
-                "name": "MetaData",
-                "type": "System.String",
-                "ObjCPropertyType": "NSString",
-                "ObjCPropertyName": "metaData"
+                "name": "MetaDataParameters",
+                "ObjCPropertyName": "metaDataParameters"
             },
             {
                 "name": "Company",
@@ -1282,5 +1339,99 @@
             }
         ],
         "ObjCName": "TSUserPermission"
+    },
+    {
+        "name": "UserRoleMap",
+        "properties": [
+            {
+                "name": "Id",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "userRoleMapID"
+            },
+            {
+                "name": "UserId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "userID"
+            },
+            {
+                "name": "RoleId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "roleID"
+            },
+            {
+                "name": "ProviderId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "providerID"
+            },
+            {
+                "name": "CompanyId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "companyID"
+            },
+            {
+                "name": "ProjectId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "projectID"
+            },
+            {
+                "name": "CreateDate",
+                "type": "System.DateTime",
+                "ObjCPropertyType": "NSDate",
+                "ObjCPropertyName": "createDate"
+            },
+            {
+                "name": "ModifyDate",
+                "type": "System.DateTime",
+                "ObjCPropertyType": "NSDate",
+                "ObjCPropertyName": "modifyDate"
+            },
+            {
+                "name": "Project",
+                "anchor": "/Api/Identity#Project",
+                "type": "relationship",
+                "href": "#Project",
+                "ObjCPropertyType": "TSProject",
+                "ObjCPropertyName": "project"
+            },
+            {
+                "name": "Role",
+                "anchor": "/Api/Identity#Role",
+                "type": "relationship",
+                "href": "#Role",
+                "ObjCPropertyType": "TSRole",
+                "ObjCPropertyName": "role"
+            },
+            {
+                "name": "User",
+                "anchor": "/Api/Identity#User",
+                "type": "relationship",
+                "href": "#User",
+                "ObjCPropertyType": "TSUser",
+                "ObjCPropertyName": "user"
+            },
+            {
+                "name": "Company",
+                "anchor": "/Api/Identity#Company",
+                "type": "relationship",
+                "href": "#Company",
+                "ObjCPropertyType": "TSCompany",
+                "ObjCPropertyName": "company"
+            },
+            {
+                "name": "Provider",
+                "anchor": "/Api/Identity#Provider",
+                "type": "relationship",
+                "href": "#Provider",
+                "ObjCPropertyType": "TSProvider",
+                "ObjCPropertyName": "provider"
+            }
+        ],
+        "ObjCName": "TSUserRoleMap"
     }
 ]

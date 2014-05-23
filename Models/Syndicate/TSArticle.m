@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSArticle.m
 //
-//  Created by Steve on March 26th 2014.
+//  Created by Steve on May 23rd 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -33,7 +33,7 @@
         
         NSString *dotNetType = info[@"type"];
         
-        // Dot Net date /Date(xxxxxxxxxx)/
+        // Phoenix date ISO 8601/
         if ([dotNetType isEqualToString:@"System.DateTime"]) {
             NSDate *date = [[TSPhoenixClient sharedInstance].defaultDateFormatter dateFromString:value];
             [self setValue:date forKey:info[@"mappedName"]];
@@ -113,9 +113,13 @@
 		@"ContentData" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"contentData"},
 		@"Link" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"link"},
 		@"PublishDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"publishDate"},
-		@"Metadata" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"metadata"},
+		@"MetaDataParameters" : @{@"type": @"undefined", @"mappedType":@"undefined", @"mappedName": @"metaDataParameters"},
 		@"Reference" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"reference"},
 		@"IsActive" : @{@"type": @"System.Boolean", @"mappedType":@"NSNumber", @"mappedName": @"isActive"},
+		@"ViewCount_Overall" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"viewCount_Overall"},
+		@"VoteCount_Overall" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"voteCount_Overall"},
+		@"Rating_Overall" : @{@"type": @"System.Double", @"mappedType":@"undefined", @"mappedName": @"rating_Overall"},
+		@"CommentCount_Overall" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"commentCount_Overall"},
 		@"CreateDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"createDate"},
 		@"ModifyDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"modifyDate"},
 		@"ProjectId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"projectID"},

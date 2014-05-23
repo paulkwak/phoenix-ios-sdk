@@ -2,15 +2,15 @@
 //  TSPhoenix
 //	TSChannel.h
 //
-//  Created by Steve on March 26th 2014.
+//  Created by Steve on May 23rd 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
 #import "TSModelAbstract.h"
 
 @class TSOwnerProfile;
-@class TSProject;
 @class TSCategory;
+@class TSProject;
 
 
 
@@ -44,8 +44,8 @@
 // These will be nil, unless specific parameters "expand=propertyname" are set to expand these properties
 
 @property (nonatomic, strong) TSOwnerProfile *ownerProfile;
-@property (nonatomic, strong) TSProject *project;
 @property (nonatomic, strong) TSCategory *category;
+@property (nonatomic, strong) TSProject *project;
 
 
 

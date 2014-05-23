@@ -14,7 +14,7 @@
 
 - (NSString *)dbKey;
 
-+ (NSString *)dbKeyWithID: (NSNumber *)identifier;
++ (NSString *)dbKeyWithID: (id)identifier;
 
 - (NSString *)dbCollection;
 

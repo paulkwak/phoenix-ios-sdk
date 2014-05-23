@@ -15,7 +15,8 @@ TODO: put this in a env.json
       "output/Messaging.json",
       "output/Commerce.json",
       "output/Media.json",
-      "output/Syndicate.json"
+      "output/Syndicate.json",
+      "output/Forum.json"
     ]
     
 A little function to convert a string to lower case

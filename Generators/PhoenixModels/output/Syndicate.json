@@ -51,10 +51,8 @@
                 "ObjCPropertyName": "publishDate"
             },
             {
-                "name": "Metadata",
-                "type": "System.String",
-                "ObjCPropertyType": "NSString",
-                "ObjCPropertyName": "metadata"
+                "name": "MetaDataParameters",
+                "ObjCPropertyName": "metaDataParameters"
             },
             {
                 "name": "Reference",
@@ -67,6 +65,29 @@
                 "type": "System.Boolean",
                 "ObjCPropertyType": "NSNumber",
                 "ObjCPropertyName": "isActive"
+            },
+            {
+                "name": "ViewCount_Overall",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "viewCount_Overall"
+            },
+            {
+                "name": "VoteCount_Overall",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "voteCount_Overall"
+            },
+            {
+                "name": "Rating_Overall",
+                "type": "System.Double",
+                "ObjCPropertyName": "rating_Overall"
+            },
+            {
+                "name": "CommentCount_Overall",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "commentCount_Overall"
             },
             {
                 "name": "CreateDate",
@@ -359,10 +380,8 @@
                 "ObjCPropertyName": "modifyDate"
             },
             {
-                "name": "Metadata",
-                "type": "System.String",
-                "ObjCPropertyType": "NSString",
-                "ObjCPropertyName": "metadata"
+                "name": "MetaDataParameters",
+                "ObjCPropertyName": "metaDataParameters"
             }
         ],
         "ObjCName": "TSAsset"
@@ -540,10 +559,8 @@
                 "ObjCPropertyName": "modifyDate"
             },
             {
-                "name": "Metadata",
-                "type": "System.String",
-                "ObjCPropertyType": "NSString",
-                "ObjCPropertyName": "metadata"
+                "name": "MetaDataParameters",
+                "ObjCPropertyName": "metaDataParameters"
             },
             {
                 "name": "Project",
@@ -799,7 +816,7 @@
             {
                 "name": "EditionPackageTypeId",
                 "enumList": {
-                    "name": "EditionPackageTypeEnum",
+                    "name": "Nullable",
                     "type": "enum",
                     "values": [
                         "None",
@@ -808,7 +825,7 @@
                     ]
                 },
                 "type": "enumList",
-                "href": "#editionpackagetypeenummodal",
+                "href": "#nullable<editionpackagetypeenum>modal",
                 "ObjCPropertyType": "NSNumber",
                 "ObjCPropertyName": "editionPackageTypeID"
             },
@@ -825,10 +842,8 @@
                 "ObjCPropertyName": "editionBroadcastGroupID"
             },
             {
-                "name": "Metadata",
-                "type": "System.String",
-                "ObjCPropertyType": "NSString",
-                "ObjCPropertyName": "metadata"
+                "name": "MetaDataParameters",
+                "ObjCPropertyName": "metaDataParameters"
             },
             {
                 "name": "ImporterPluginId",
@@ -935,10 +950,8 @@
                 "ObjCPropertyName": "pointVersion"
             },
             {
-                "name": "Metadata",
-                "type": "System.String",
-                "ObjCPropertyType": "NSString",
-                "ObjCPropertyName": "metadata"
+                "name": "MetaDataParameters",
+                "ObjCPropertyName": "metaDataParameters"
             },
             {
                 "name": "CreateDate",
@@ -951,14 +964,6 @@
                 "type": "System.DateTime",
                 "ObjCPropertyType": "NSDate",
                 "ObjCPropertyName": "modifyDate"
-            },
-            {
-                "name": "Project",
-                "anchor": "/Api/Syndicate#Project",
-                "type": "relationship",
-                "href": "#Project",
-                "ObjCPropertyType": "TSProject",
-                "ObjCPropertyName": "project"
             }
         ],
         "ObjCName": "TSSection"

@@ -17,7 +17,8 @@ TODO: put this in config.json
     	"output/Messaging.json",
     	"output/Commerce.json",
     	"output/Media.json",
-    	"output/Syndicate.json"
+    	"output/Syndicate.json",
+      "output/Forum.json"
     ]
     
 These are excluded because of duplication
@@ -34,16 +35,17 @@ EventLogAggregate is empty in Documentation site...
     	'Commerce/Project',
     	'Media/Project',
     	'Syndicate/Project',
-    	'Commerce/Application'
+    	'Commerce/Application',
+      'Forum/Project'
     ]
     
 A few outliers that don't follow convention
     
     identifierOverride = {
     	'ProjectAccountMap': 'accountID',
-    	'ArticleInteraction': 'createDate'
+    	'ArticleInteraction': 'createDate',
+    	'ProjectModuleMap': 'moduleID'
     }
-    
     
     collectionNameOverride = {
     	

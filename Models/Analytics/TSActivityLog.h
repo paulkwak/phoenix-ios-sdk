@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSActivityLog.h
 //
-//  Created by Steve on March 26th 2014.
+//  Created by Steve on May 23rd 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -27,7 +27,6 @@
 @property (nonatomic, strong) NSNumber *providerID;
 @property (nonatomic, copy) NSString *correlationID;
 @property (nonatomic, strong) NSNumber *entityCount;
-@property (nonatomic, copy) NSString *metaData;
 @property (nonatomic, strong) NSNumber *responseStatus;
 @property (nonatomic, strong) NSNumber *executionTime;
 @property (nonatomic, copy) NSString *exception;

@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSResource.h
 //
-//  Created by Steve on March 26th 2014.
+//  Created by Steve on May 23rd 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -21,7 +21,10 @@ typedef NS_ENUM(NSUInteger, ModuleId) {
 	kModuleIdLocation,
 	kModuleIdCommerce,
 	kModuleIdAnalytics,
-	kModuleIdResponse,
+	kModuleIdAppServices,
+	kModuleIdCustom,
+	kModuleIdSurvey,
+	kModuleIdForum,
 };
 
 #endif

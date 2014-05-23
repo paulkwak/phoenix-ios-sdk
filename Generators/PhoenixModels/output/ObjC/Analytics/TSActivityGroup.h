@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSActivityGroup.h
 //
-//  Created by Steve on March 26th 2014.
+//  Created by Steve on May 23rd 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -20,6 +20,7 @@
 
 @property (nonatomic, strong) NSNumber *activityGroupID;
 @property (nonatomic, copy) NSString *name;
+@property (nonatomic, strong) NSNumber *parentID;
 @property (nonatomic, copy) NSString *reference;
 @property (nonatomic, strong) NSNumber *isActive;
 @property (nonatomic, strong) NSDate *createDate;

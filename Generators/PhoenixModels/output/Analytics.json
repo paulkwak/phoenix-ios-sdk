@@ -220,6 +220,8 @@
             },
             {
                 "name": "ParentId",
+                "type": "System.Int16",
+                "ObjCPropertyType": "NSNumber",
                 "ObjCPropertyName": "parentID"
             },
             {
@@ -309,10 +311,8 @@
                 "ObjCPropertyName": "entityCount"
             },
             {
-                "name": "MetaData",
-                "type": "System.String",
-                "ObjCPropertyType": "NSString",
-                "ObjCPropertyName": "metaData"
+                "name": "MetaDataParameters",
+                "ObjCPropertyName": "metaDataParameters"
             },
             {
                 "name": "Location",
@@ -396,6 +396,18 @@
                 "ObjCPropertyName": "projectID"
             },
             {
+                "name": "CompanyId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "companyID"
+            },
+            {
+                "name": "ProviderId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "providerID"
+            },
+            {
                 "name": "PhoenixIdentity_UserId",
                 "type": "System.Int32",
                 "ObjCPropertyType": "NSNumber",
@@ -425,22 +437,8 @@
                 "ObjCPropertyName": "value"
             },
             {
-                "name": "MetaData",
-                "type": "System.String",
-                "ObjCPropertyType": "NSString",
-                "ObjCPropertyName": "metaData"
-            },
-            {
-                "name": "CreateDate",
-                "type": "System.DateTime",
-                "ObjCPropertyType": "NSDate",
-                "ObjCPropertyName": "createDate"
-            },
-            {
-                "name": "ModifyDate",
-                "type": "System.DateTime",
-                "ObjCPropertyType": "NSDate",
-                "ObjCPropertyName": "modifyDate"
+                "name": "MetaDataParameters",
+                "ObjCPropertyName": "metaDataParameters"
             },
             {
                 "name": "IpAddress",
@@ -467,16 +465,22 @@
                 "ObjCPropertyName": "success"
             },
             {
-                "name": "ProviderId",
-                "type": "System.Int32",
+                "name": "IsActive",
+                "type": "System.Boolean",
                 "ObjCPropertyType": "NSNumber",
-                "ObjCPropertyName": "providerID"
+                "ObjCPropertyName": "isActive"
             },
             {
-                "name": "CompanyId",
-                "type": "System.Int32",
-                "ObjCPropertyType": "NSNumber",
-                "ObjCPropertyName": "companyID"
+                "name": "CreateDate",
+                "type": "System.DateTime",
+                "ObjCPropertyType": "NSDate",
+                "ObjCPropertyName": "createDate"
+            },
+            {
+                "name": "ModifyDate",
+                "type": "System.DateTime",
+                "ObjCPropertyType": "NSDate",
+                "ObjCPropertyName": "modifyDate"
             },
             {
                 "name": "EventType",
@@ -498,9 +502,397 @@
         "ObjCName": "TSEventLog"
     },
     {
-        "name": "EventLogAggregate",
-        "properties": [],
-        "ObjCName": "TSEventLogAggregate"
+        "name": "EventLogAggregateRetrieve",
+        "properties": [
+            {
+                "name": "EventTypeReference",
+                "type": "System.String",
+                "ObjCPropertyType": "NSString",
+                "ObjCPropertyName": "eventTypeReference"
+            },
+            {
+                "name": "Id",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "eventLogAggregateRetrieveID"
+            },
+            {
+                "name": "ProjectId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "projectID"
+            },
+            {
+                "name": "CompanyId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "companyID"
+            },
+            {
+                "name": "ProviderId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "providerID"
+            },
+            {
+                "name": "PhoenixIdentity_UserId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "phoenixIDentity_UserId"
+            },
+            {
+                "name": "CorrelationId",
+                "type": "System.String",
+                "ObjCPropertyType": "NSString",
+                "ObjCPropertyName": "correlationID"
+            },
+            {
+                "name": "EventParentId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "eventParentID"
+            },
+            {
+                "name": "TargetId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "targetID"
+            },
+            {
+                "name": "Value",
+                "type": "System.Double",
+                "ObjCPropertyName": "value"
+            },
+            {
+                "name": "MetaDataParameters",
+                "ObjCPropertyName": "metaDataParameters"
+            },
+            {
+                "name": "IpAddress",
+                "type": "System.String",
+                "ObjCPropertyType": "NSString",
+                "ObjCPropertyName": "ipAddress"
+            },
+            {
+                "name": "Progress",
+                "type": "System.Byte",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "progress"
+            },
+            {
+                "name": "StatusDescription",
+                "type": "System.String",
+                "ObjCPropertyType": "NSString",
+                "ObjCPropertyName": "statusDescription"
+            },
+            {
+                "name": "Success",
+                "type": "System.Boolean",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "success"
+            },
+            {
+                "name": "IsActive",
+                "type": "System.Boolean",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "isActive"
+            },
+            {
+                "name": "CreateDate",
+                "type": "System.DateTime",
+                "ObjCPropertyType": "NSDate",
+                "ObjCPropertyName": "createDate"
+            },
+            {
+                "name": "ModifyDate",
+                "type": "System.DateTime",
+                "ObjCPropertyType": "NSDate",
+                "ObjCPropertyName": "modifyDate"
+            },
+            {
+                "name": "EventType",
+                "anchor": "/Api/Analytics#EventType",
+                "type": "relationship",
+                "href": "#EventType",
+                "ObjCPropertyType": "TSEventType",
+                "ObjCPropertyName": "eventType"
+            },
+            {
+                "name": "Project",
+                "anchor": "/Api/Analytics#Project",
+                "type": "relationship",
+                "href": "#Project",
+                "ObjCPropertyType": "TSProject",
+                "ObjCPropertyName": "project"
+            }
+        ],
+        "ObjCName": "TSEventLogAggregateRetrieve"
+    },
+    {
+        "name": "EventLogCreate",
+        "properties": [
+            {
+                "name": "EventTypeRef",
+                "type": "System.String",
+                "ObjCPropertyType": "NSString",
+                "ObjCPropertyName": "eventTypeRef"
+            },
+            {
+                "name": "Location",
+                "type": "System.String",
+                "ObjCPropertyType": "NSString",
+                "ObjCPropertyName": "location"
+            },
+            {
+                "name": "Id",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "eventLogCreateID"
+            },
+            {
+                "name": "ProjectId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "projectID"
+            },
+            {
+                "name": "CompanyId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "companyID"
+            },
+            {
+                "name": "ProviderId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "providerID"
+            },
+            {
+                "name": "PhoenixIdentity_UserId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "phoenixIDentity_UserId"
+            },
+            {
+                "name": "CorrelationId",
+                "type": "System.String",
+                "ObjCPropertyType": "NSString",
+                "ObjCPropertyName": "correlationID"
+            },
+            {
+                "name": "EventParentId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "eventParentID"
+            },
+            {
+                "name": "TargetId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "targetID"
+            },
+            {
+                "name": "Value",
+                "type": "System.Double",
+                "ObjCPropertyName": "value"
+            },
+            {
+                "name": "MetaDataParameters",
+                "ObjCPropertyName": "metaDataParameters"
+            },
+            {
+                "name": "IpAddress",
+                "type": "System.String",
+                "ObjCPropertyType": "NSString",
+                "ObjCPropertyName": "ipAddress"
+            },
+            {
+                "name": "Progress",
+                "type": "System.Byte",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "progress"
+            },
+            {
+                "name": "StatusDescription",
+                "type": "System.String",
+                "ObjCPropertyType": "NSString",
+                "ObjCPropertyName": "statusDescription"
+            },
+            {
+                "name": "Success",
+                "type": "System.Boolean",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "success"
+            },
+            {
+                "name": "IsActive",
+                "type": "System.Boolean",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "isActive"
+            },
+            {
+                "name": "CreateDate",
+                "type": "System.DateTime",
+                "ObjCPropertyType": "NSDate",
+                "ObjCPropertyName": "createDate"
+            },
+            {
+                "name": "ModifyDate",
+                "type": "System.DateTime",
+                "ObjCPropertyType": "NSDate",
+                "ObjCPropertyName": "modifyDate"
+            },
+            {
+                "name": "EventType",
+                "anchor": "/Api/Analytics#EventType",
+                "type": "relationship",
+                "href": "#EventType",
+                "ObjCPropertyType": "TSEventType",
+                "ObjCPropertyName": "eventType"
+            },
+            {
+                "name": "Project",
+                "anchor": "/Api/Analytics#Project",
+                "type": "relationship",
+                "href": "#Project",
+                "ObjCPropertyType": "TSProject",
+                "ObjCPropertyName": "project"
+            }
+        ],
+        "ObjCName": "TSEventLogCreate"
+    },
+    {
+        "name": "EventLogRetrieve",
+        "properties": [
+            {
+                "name": "EventTypeId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "eventTypeID"
+            },
+            {
+                "name": "Location",
+                "type": "System.String",
+                "ObjCPropertyType": "NSString",
+                "ObjCPropertyName": "location"
+            },
+            {
+                "name": "Id",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "eventLogRetrieveID"
+            },
+            {
+                "name": "ProjectId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "projectID"
+            },
+            {
+                "name": "CompanyId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "companyID"
+            },
+            {
+                "name": "ProviderId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "providerID"
+            },
+            {
+                "name": "PhoenixIdentity_UserId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "phoenixIDentity_UserId"
+            },
+            {
+                "name": "CorrelationId",
+                "type": "System.String",
+                "ObjCPropertyType": "NSString",
+                "ObjCPropertyName": "correlationID"
+            },
+            {
+                "name": "EventParentId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "eventParentID"
+            },
+            {
+                "name": "TargetId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "targetID"
+            },
+            {
+                "name": "Value",
+                "type": "System.Double",
+                "ObjCPropertyName": "value"
+            },
+            {
+                "name": "MetaDataParameters",
+                "ObjCPropertyName": "metaDataParameters"
+            },
+            {
+                "name": "IpAddress",
+                "type": "System.String",
+                "ObjCPropertyType": "NSString",
+                "ObjCPropertyName": "ipAddress"
+            },
+            {
+                "name": "Progress",
+                "type": "System.Byte",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "progress"
+            },
+            {
+                "name": "StatusDescription",
+                "type": "System.String",
+                "ObjCPropertyType": "NSString",
+                "ObjCPropertyName": "statusDescription"
+            },
+            {
+                "name": "Success",
+                "type": "System.Boolean",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "success"
+            },
+            {
+                "name": "IsActive",
+                "type": "System.Boolean",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "isActive"
+            },
+            {
+                "name": "CreateDate",
+                "type": "System.DateTime",
+                "ObjCPropertyType": "NSDate",
+                "ObjCPropertyName": "createDate"
+            },
+            {
+                "name": "ModifyDate",
+                "type": "System.DateTime",
+                "ObjCPropertyType": "NSDate",
+                "ObjCPropertyName": "modifyDate"
+            },
+            {
+                "name": "EventType",
+                "anchor": "/Api/Analytics#EventType",
+                "type": "relationship",
+                "href": "#EventType",
+                "ObjCPropertyType": "TSEventType",
+                "ObjCPropertyName": "eventType"
+            },
+            {
+                "name": "Project",
+                "anchor": "/Api/Analytics#Project",
+                "type": "relationship",
+                "href": "#Project",
+                "ObjCPropertyType": "TSProject",
+                "ObjCPropertyName": "project"
+            }
+        ],
+        "ObjCName": "TSEventLogRetrieve"
     },
     {
         "name": "EventType",

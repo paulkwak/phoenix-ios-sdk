@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSApplication.h
 //
-//  Created by Steve on March 26th 2014.
+//  Created by Steve on May 23rd 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -35,7 +35,6 @@ typedef NS_ENUM(NSUInteger, ApplicationTypeId) {
 @property (nonatomic, strong) NSNumber *applicationTypeID;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *applicationDescription;
-@property (nonatomic, copy) NSString *metaData;
 @property (nonatomic, copy) NSString *imageUrl;
 @property (nonatomic, strong) NSNumber *userID;
 @property (nonatomic, copy) NSString *latestVersion;

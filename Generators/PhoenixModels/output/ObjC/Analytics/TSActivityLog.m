@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSActivityLog.m
 //
-//  Created by Steve on March 26th 2014.
+//  Created by Steve on May 23rd 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -33,7 +33,7 @@
         
         NSString *dotNetType = info[@"type"];
         
-        // Dot Net date /Date(xxxxxxxxxx)/
+        // Phoenix date ISO 8601/
         if ([dotNetType isEqualToString:@"System.DateTime"]) {
             NSDate *date = [[TSPhoenixClient sharedInstance].defaultDateFormatter dateFromString:value];
             [self setValue:date forKey:info[@"mappedName"]];
@@ -113,7 +113,7 @@
 		@"ProviderId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"providerID"},
 		@"CorrelationId" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"correlationID"},
 		@"EntityCount" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"entityCount"},
-		@"MetaData" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"metaData"},
+		@"MetaDataParameters" : @{@"type": @"undefined", @"mappedType":@"undefined", @"mappedName": @"metaDataParameters"},
 		@"Location" : @{@"type": @"System.Data.Spatial.DbGeography", @"mappedType":@"undefined", @"mappedName": @"location"},
 		@"ResponseStatus" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"responseStatus"},
 		@"ExecutionTime" : @{@"type": @"System.Int64", @"mappedType":@"NSNumber", @"mappedName": @"executionTime"},

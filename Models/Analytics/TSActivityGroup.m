@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSActivityGroup.m
 //
-//  Created by Steve on March 26th 2014.
+//  Created by Steve on May 23rd 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -33,7 +33,7 @@
         
         NSString *dotNetType = info[@"type"];
         
-        // Dot Net date /Date(xxxxxxxxxx)/
+        // Phoenix date ISO 8601/
         if ([dotNetType isEqualToString:@"System.DateTime"]) {
             NSDate *date = [[TSPhoenixClient sharedInstance].defaultDateFormatter dateFromString:value];
             [self setValue:date forKey:info[@"mappedName"]];
@@ -107,7 +107,7 @@
 	return @{
 		@"Id" : @{@"type": @"System.Int16", @"mappedType":@"NSNumber", @"mappedName": @"activityGroupID"},
 		@"Name" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"name"},
-		@"ParentId" : @{@"type": @"undefined", @"mappedType":@"undefined", @"mappedName": @"parentID"},
+		@"ParentId" : @{@"type": @"System.Int16", @"mappedType":@"NSNumber", @"mappedName": @"parentID"},
 		@"Reference" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"reference"},
 		@"IsActive" : @{@"type": @"System.Boolean", @"mappedType":@"NSNumber", @"mappedName": @"isActive"},
 		@"CreateDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"createDate"},

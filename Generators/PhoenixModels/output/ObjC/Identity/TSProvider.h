@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSProvider.h
 //
-//  Created by Steve on March 26th 2014.
+//  Created by Steve on May 23rd 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -24,7 +24,6 @@
 @property (nonatomic, strong) NSNumber *isActive;
 @property (nonatomic, strong) NSDate *createDate;
 @property (nonatomic, strong) NSDate *modifyDate;
-@property (nonatomic, copy) NSString *metaData;
 @property (nonatomic, strong) NSNumber *phoenixInstanceID;
 
 

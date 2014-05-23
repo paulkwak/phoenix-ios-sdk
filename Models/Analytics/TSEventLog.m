@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSEventLog.m
 //
-//  Created by Steve on March 26th 2014.
+//  Created by Steve on May 23rd 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -33,7 +33,7 @@
         
         NSString *dotNetType = info[@"type"];
         
-        // Dot Net date /Date(xxxxxxxxxx)/
+        // Phoenix date ISO 8601/
         if ([dotNetType isEqualToString:@"System.DateTime"]) {
             NSDate *date = [[TSPhoenixClient sharedInstance].defaultDateFormatter dateFromString:value];
             [self setValue:date forKey:info[@"mappedName"]];
@@ -107,20 +107,21 @@
 	return @{
 		@"Id" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"eventLogID"},
 		@"ProjectId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"projectID"},
+		@"CompanyId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"companyID"},
+		@"ProviderId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"providerID"},
 		@"PhoenixIdentity_UserId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"phoenixIDentity_UserId"},
 		@"CorrelationId" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"correlationID"},
 		@"EventParentId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"eventParentID"},
 		@"TargetId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"targetID"},
 		@"Value" : @{@"type": @"System.Double", @"mappedType":@"undefined", @"mappedName": @"value"},
-		@"MetaData" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"metaData"},
-		@"CreateDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"createDate"},
-		@"ModifyDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"modifyDate"},
+		@"MetaDataParameters" : @{@"type": @"undefined", @"mappedType":@"undefined", @"mappedName": @"metaDataParameters"},
 		@"IpAddress" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"ipAddress"},
 		@"Progress" : @{@"type": @"System.Byte", @"mappedType":@"NSNumber", @"mappedName": @"progress"},
 		@"StatusDescription" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"statusDescription"},
 		@"Success" : @{@"type": @"System.Boolean", @"mappedType":@"NSNumber", @"mappedName": @"success"},
-		@"ProviderId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"providerID"},
-		@"CompanyId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"companyID"},
+		@"IsActive" : @{@"type": @"System.Boolean", @"mappedType":@"NSNumber", @"mappedName": @"isActive"},
+		@"CreateDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"createDate"},
+		@"ModifyDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"modifyDate"},
 		@"EventType" : @{@"type": @"relationship", @"mappedType":@"TSEventType", @"mappedName": @"eventType"},
 		@"Project" : @{@"type": @"relationship", @"mappedType":@"TSProject", @"mappedName": @"project"}
 	};
