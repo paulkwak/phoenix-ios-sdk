@@ -28,6 +28,7 @@
 @property (nonatomic, copy) NSString *correlationID;
 @property (nonatomic, strong) NSNumber *eventParentID;
 @property (nonatomic, strong) NSNumber *targetID;
+@property (nonatomic, strong) NSArray *metaDataParameters;
 @property (nonatomic, copy) NSString *ipAddress;
 @property (nonatomic, strong) NSNumber *progress;
 @property (nonatomic, copy) NSString *statusDescription;

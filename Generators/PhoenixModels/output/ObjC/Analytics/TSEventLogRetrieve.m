@@ -116,7 +116,7 @@
 		@"EventParentId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"eventParentID"},
 		@"TargetId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"targetID"},
 		@"Value" : @{@"type": @"System.Double", @"mappedType":@"undefined", @"mappedName": @"value"},
-		@"MetaDataParameters" : @{@"type": @"undefined", @"mappedType":@"undefined", @"mappedName": @"metaDataParameters"},
+		@"MetaDataParameters" : @{@"type": @"List<KeyValuePair<string, string>>", @"mappedType":@"NSArray", @"mappedName": @"metaDataParameters"},
 		@"IpAddress" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"ipAddress"},
 		@"Progress" : @{@"type": @"System.Byte", @"mappedType":@"NSNumber", @"mappedName": @"progress"},
 		@"StatusDescription" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"statusDescription"},

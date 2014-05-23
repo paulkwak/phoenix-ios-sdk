@@ -75,11 +75,20 @@ If the type is not an URL link, it's a primitive type (e.g. string, numbers)
               newProperty.type = type
             else
             
-Otherwise, it is either an enum or relationship
+Otherwise, it is either an enum or relationship, or list of key value pairs
             
               # This is not a primitive type
               # may be a enum
               anchor = $(aRow.children[1]).find('a')[0]
+              
+Special case: list of key value pairs??
+              
+              # if anchor is null
+              #   newProperty.type = $(aRow.children[1]).text()
+              if newProperty.name is 'MetaDataParameters'
+                newProperty.type = "List<KeyValuePair<string, string>>"
+              
+              
               if (anchor)
                 href = $(anchor).attr('href')
 

@@ -23,6 +23,7 @@
 @property (nonatomic, strong) NSDate *createDate;
 @property (nonatomic, strong) NSDate *modifyDate;
 @property (nonatomic, copy) NSString *name;
+@property (nonatomic, strong) NSArray *metaDataParameters;
 
 
 

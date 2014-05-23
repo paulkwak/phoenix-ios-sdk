@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSNumber *isActive;
 @property (nonatomic, strong) NSDate *createDate;
 @property (nonatomic, strong) NSDate *modifyDate;
+@property (nonatomic, strong) NSArray *metaDataParameters;
 @property (nonatomic, strong) NSNumber *phoenixInstanceID;
 
 

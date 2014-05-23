@@ -107,7 +107,7 @@
 	return @{
 		@"ProjectId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"projectID"},
 		@"ModuleId" : @{@"type": @"enumList", @"mappedType":@"NSNumber", @"mappedName": @"moduleID"},
-		@"MetaDataParameters" : @{@"type": @"undefined", @"mappedType":@"undefined", @"mappedName": @"metaDataParameters"},
+		@"MetaDataParameters" : @{@"type": @"List<KeyValuePair<string, string>>", @"mappedType":@"NSArray", @"mappedName": @"metaDataParameters"},
 		@"CreateDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"createDate"},
 		@"ModifyDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"modifyDate"},
 		@"Project" : @{@"type": @"relationship", @"mappedType":@"TSProject", @"mappedName": @"project"}
@@ -116,7 +116,7 @@
 
 - (NSString *)dbKey {
 	
-    return [[self class] dbKeyWithID:self.ModuleId];
+    return [[self class] dbKeyWithID:self.moduleID];
 	
 }
 

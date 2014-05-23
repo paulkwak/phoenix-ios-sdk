@@ -36,6 +36,7 @@ Mapping table: from .Net type to Objective-C type
     typeMapping.add("System.DateTime", "NSDate")
     typeMapping.add("System.Boolean", "NSNumber")
     typeMapping.add("System.Guid", "NSString")
+    typeMapping.add("List<KeyValuePair<string, string>>", "NSArray")
     typeMapping.add("enumList", "NSNumber")
     
 

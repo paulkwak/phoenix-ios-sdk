@@ -113,7 +113,7 @@
 		@"LogoUrl" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"logoUrl"},
 		@"CreateDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"createDate"},
 		@"ModifyDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"modifyDate"},
-		@"MetaDataParameters" : @{@"type": @"undefined", @"mappedType":@"undefined", @"mappedName": @"metaDataParameters"},
+		@"MetaDataParameters" : @{@"type": @"List<KeyValuePair<string, string>>", @"mappedType":@"NSArray", @"mappedName": @"metaDataParameters"},
 		@"Provider" : @{@"type": @"relationship", @"mappedType":@"TSProvider", @"mappedName": @"provider"},
 		@"Domains" : @{@"type": @"relationship.array", @"mappedType":@"NSArray", @"mappedName": @"domains", @"arrayContentType": @"TSDomain"}
 	};

@@ -27,6 +27,7 @@
 @property (nonatomic, strong) NSNumber *providerID;
 @property (nonatomic, copy) NSString *correlationID;
 @property (nonatomic, strong) NSNumber *entityCount;
+@property (nonatomic, strong) NSArray *metaDataParameters;
 @property (nonatomic, strong) NSNumber *responseStatus;
 @property (nonatomic, strong) NSNumber *executionTime;
 @property (nonatomic, copy) NSString *exception;

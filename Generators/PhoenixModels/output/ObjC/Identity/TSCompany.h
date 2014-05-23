@@ -27,6 +27,7 @@
 @property (nonatomic, copy) NSString *logoUrl;
 @property (nonatomic, strong) NSDate *createDate;
 @property (nonatomic, strong) NSDate *modifyDate;
+@property (nonatomic, strong) NSArray *metaDataParameters;
 @property (nonatomic, strong) NSArray *domains;
 
 

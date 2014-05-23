@@ -26,6 +26,7 @@
 @property (nonatomic, copy) NSString *contentData;
 @property (nonatomic, copy) NSString *link;
 @property (nonatomic, strong) NSDate *publishDate;
+@property (nonatomic, strong) NSArray *metaDataParameters;
 @property (nonatomic, copy) NSString *reference;
 @property (nonatomic, strong) NSNumber *isActive;
 @property (nonatomic, strong) NSNumber *viewCount_Overall;

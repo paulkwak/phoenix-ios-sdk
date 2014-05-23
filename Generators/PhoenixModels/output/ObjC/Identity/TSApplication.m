@@ -110,7 +110,7 @@
 		@"ApplicationTypeId" : @{@"type": @"enumList", @"mappedType":@"NSNumber", @"mappedName": @"applicationTypeID"},
 		@"Name" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"name"},
 		@"Description" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"applicationDescription"},
-		@"MetaDataParameters" : @{@"type": @"undefined", @"mappedType":@"undefined", @"mappedName": @"metaDataParameters"},
+		@"MetaDataParameters" : @{@"type": @"List<KeyValuePair<string, string>>", @"mappedType":@"NSArray", @"mappedName": @"metaDataParameters"},
 		@"ImageUrl" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"imageUrl"},
 		@"UserId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"userID"},
 		@"LatestVersion" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"latestVersion"},

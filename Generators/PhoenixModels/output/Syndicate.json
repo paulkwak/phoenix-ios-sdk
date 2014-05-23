@@ -52,6 +52,8 @@
             },
             {
                 "name": "MetaDataParameters",
+                "type": "List<KeyValuePair<string, string>>",
+                "ObjCPropertyType": "NSArray",
                 "ObjCPropertyName": "metaDataParameters"
             },
             {
@@ -381,6 +383,8 @@
             },
             {
                 "name": "MetaDataParameters",
+                "type": "List<KeyValuePair<string, string>>",
+                "ObjCPropertyType": "NSArray",
                 "ObjCPropertyName": "metaDataParameters"
             }
         ],
@@ -560,6 +564,8 @@
             },
             {
                 "name": "MetaDataParameters",
+                "type": "List<KeyValuePair<string, string>>",
+                "ObjCPropertyType": "NSArray",
                 "ObjCPropertyName": "metaDataParameters"
             },
             {
@@ -843,6 +849,8 @@
             },
             {
                 "name": "MetaDataParameters",
+                "type": "List<KeyValuePair<string, string>>",
+                "ObjCPropertyType": "NSArray",
                 "ObjCPropertyName": "metaDataParameters"
             },
             {
@@ -951,6 +959,8 @@
             },
             {
                 "name": "MetaDataParameters",
+                "type": "List<KeyValuePair<string, string>>",
+                "ObjCPropertyType": "NSArray",
                 "ObjCPropertyName": "metaDataParameters"
             },
             {

@@ -119,7 +119,7 @@
 		@"MajorVersion" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"majorVersion"},
 		@"MinorVersion" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"minorVersion"},
 		@"PointVersion" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"pointVersion"},
-		@"MetaDataParameters" : @{@"type": @"undefined", @"mappedType":@"undefined", @"mappedName": @"metaDataParameters"},
+		@"MetaDataParameters" : @{@"type": @"List<KeyValuePair<string, string>>", @"mappedType":@"NSArray", @"mappedName": @"metaDataParameters"},
 		@"CreateDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"createDate"},
 		@"ModifyDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"modifyDate"}
 	};

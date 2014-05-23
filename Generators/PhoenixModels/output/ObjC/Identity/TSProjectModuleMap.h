@@ -39,6 +39,7 @@ typedef NS_ENUM(NSUInteger, ModuleId) {
 
 @property (nonatomic, strong) NSNumber *projectID;
 @property (nonatomic, strong) NSNumber *moduleID;
+@property (nonatomic, strong) NSArray *metaDataParameters;
 @property (nonatomic, strong) NSDate *createDate;
 @property (nonatomic, strong) NSDate *modifyDate;
 

@@ -113,7 +113,7 @@
 		@"ContentData" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"contentData"},
 		@"Link" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"link"},
 		@"PublishDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"publishDate"},
-		@"MetaDataParameters" : @{@"type": @"undefined", @"mappedType":@"undefined", @"mappedName": @"metaDataParameters"},
+		@"MetaDataParameters" : @{@"type": @"List<KeyValuePair<string, string>>", @"mappedType":@"NSArray", @"mappedName": @"metaDataParameters"},
 		@"Reference" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"reference"},
 		@"IsActive" : @{@"type": @"System.Boolean", @"mappedType":@"NSNumber", @"mappedName": @"isActive"},
 		@"ViewCount_Overall" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"viewCount_Overall"},

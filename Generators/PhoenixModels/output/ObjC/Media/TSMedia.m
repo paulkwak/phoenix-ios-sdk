@@ -148,7 +148,7 @@
 		@"ProcessedTypeId" : @{@"type": @"enumList", @"mappedType":@"NSNumber", @"mappedName": @"processedTypeID"},
 		@"SourceFilePath" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"sourceFilePath"},
 		@"PreviewFilePath" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"previewFilePath"},
-		@"MetaDataParameters" : @{@"type": @"undefined", @"mappedType":@"undefined", @"mappedName": @"metaDataParameters"},
+		@"MetaDataParameters" : @{@"type": @"List<KeyValuePair<string, string>>", @"mappedType":@"NSArray", @"mappedName": @"metaDataParameters"},
 		@"ReplyCount_Daily" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"replyCount_Daily"},
 		@"ReplyCount_Weekly" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"replyCount_Weekly"},
 		@"ReplyCount_Monthly" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"replyCount_Monthly"},

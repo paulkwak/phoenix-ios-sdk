@@ -100,6 +100,7 @@ typedef NS_ENUM(NSUInteger, ProcessedTypeId) {
 @property (nonatomic, strong) NSNumber *processedTypeID;
 @property (nonatomic, copy) NSString *sourceFilePath;
 @property (nonatomic, copy) NSString *previewFilePath;
+@property (nonatomic, strong) NSArray *metaDataParameters;
 @property (nonatomic, strong) NSNumber *replyCount_Daily;
 @property (nonatomic, strong) NSNumber *replyCount_Weekly;
 @property (nonatomic, strong) NSNumber *replyCount_Monthly;

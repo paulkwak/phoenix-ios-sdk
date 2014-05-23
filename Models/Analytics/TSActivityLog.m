@@ -113,7 +113,7 @@
 		@"ProviderId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"providerID"},
 		@"CorrelationId" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"correlationID"},
 		@"EntityCount" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"entityCount"},
-		@"MetaDataParameters" : @{@"type": @"undefined", @"mappedType":@"undefined", @"mappedName": @"metaDataParameters"},
+		@"MetaDataParameters" : @{@"type": @"List<KeyValuePair<string, string>>", @"mappedType":@"NSArray", @"mappedName": @"metaDataParameters"},
 		@"Location" : @{@"type": @"System.Data.Spatial.DbGeography", @"mappedType":@"undefined", @"mappedName": @"location"},
 		@"ResponseStatus" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"responseStatus"},
 		@"ExecutionTime" : @{@"type": @"System.Int64", @"mappedType":@"NSNumber", @"mappedName": @"executionTime"},

@@ -45,6 +45,7 @@ typedef NS_ENUM(NSUInteger, AssetTypeId) {
 @property (nonatomic, copy) NSString *reference;
 @property (nonatomic, strong) NSDate *createDate;
 @property (nonatomic, strong) NSDate *modifyDate;
+@property (nonatomic, strong) NSArray *metaDataParameters;
 
 
 

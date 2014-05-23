@@ -560,6 +560,8 @@
             },
             {
                 "name": "MetaDataParameters",
+                "type": "List<KeyValuePair<string, string>>",
+                "ObjCPropertyType": "NSArray",
                 "ObjCPropertyName": "metaDataParameters"
             },
             {

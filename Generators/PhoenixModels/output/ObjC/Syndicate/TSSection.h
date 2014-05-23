@@ -32,6 +32,7 @@
 @property (nonatomic, strong) NSNumber *majorVersion;
 @property (nonatomic, strong) NSNumber *minorVersion;
 @property (nonatomic, strong) NSNumber *pointVersion;
+@property (nonatomic, strong) NSArray *metaDataParameters;
 @property (nonatomic, strong) NSDate *createDate;
 @property (nonatomic, strong) NSDate *modifyDate;
 
