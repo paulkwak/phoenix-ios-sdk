@@ -28,6 +28,7 @@
 #import "TSPhoenixMedia.h"
 #import "TSPhoenixMessaging.h"
 #import "TSPhoenixAnalytics.h"
+#import "TSPhoenixForum.h"
 
 #import "TSPhoenixModels.h"
 
