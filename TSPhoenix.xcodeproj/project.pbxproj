@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6F20300918FD4BCFA0AB70CB /* libPods-TSPhoenixTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3B7BA0A18D8408AB9812782 /* libPods-TSPhoenixTests.a */; };
+		AA28CB81192F3F7C00952ABC /* TSPhoenixForum.m in Sources */ = {isa = PBXBuildFile; fileRef = AA28CB80192F3F7C00952ABC /* TSPhoenixForum.m */; };
 		AA460EE017A8B89200413BD9 /* TSPhoenixMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = AA460EDF17A8B89200413BD9 /* TSPhoenixMedia.m */; };
 		AA48A1A7192F1E6E00DC3A41 /* TSActionType.m in Sources */ = {isa = PBXBuildFile; fileRef = AA48A11F192F1E6E00DC3A41 /* TSActionType.m */; };
 		AA48A1A8192F1E6E00DC3A41 /* TSActionTypeGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = AA48A121192F1E6E00DC3A41 /* TSActionTypeGroup.m */; };
@@ -133,6 +134,8 @@
 
 /* Begin PBXFileReference section */
 		958DC7DE42AC4DD590D0A81B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA28CB7F192F3F7C00952ABC /* TSPhoenixForum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSPhoenixForum.h; sourceTree = "<group>"; };
+		AA28CB80192F3F7C00952ABC /* TSPhoenixForum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSPhoenixForum.m; sourceTree = "<group>"; };
 		AA460EDE17A8B89200413BD9 /* TSPhoenixMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSPhoenixMedia.h; sourceTree = "<group>"; };
 		AA460EDF17A8B89200413BD9 /* TSPhoenixMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSPhoenixMedia.m; sourceTree = "<group>"; };
 		AA48A11E192F1E6E00DC3A41 /* TSActionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSActionType.h; sourceTree = "<group>"; };
@@ -554,6 +557,8 @@
 				AAA3862C188668340038A36D /* TSPhoenixAnalytics.m */,
 				AAA3862E188668410038A36D /* TSPhoenixMessaging.h */,
 				AAA3862F188668410038A36D /* TSPhoenixMessaging.m */,
+				AA28CB7F192F3F7C00952ABC /* TSPhoenixForum.h */,
+				AA28CB80192F3F7C00952ABC /* TSPhoenixForum.m */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -897,6 +902,7 @@
 				AAB74BC917951E70009CD7C6 /* TSPhoenixIdentity.m in Sources */,
 				AA48A1E5192F1E6E00DC3A41 /* TSFeedLog.m in Sources */,
 				AA48A1D6192F1E6E00DC3A41 /* TSAccount.m in Sources */,
+				AA28CB81192F3F7C00952ABC /* TSPhoenixForum.m in Sources */,
 				AA48A1E3192F1E6E00DC3A41 /* TSEdition.m in Sources */,
 				AA48A1C4192F1E6E00DC3A41 /* TSProjectModuleMap.m in Sources */,
 				AA48A1DB192F1E6E00DC3A41 /* TSRecipient.m in Sources */,
