@@ -91,6 +91,7 @@ static NSInteger phoenix_projectID;
     self.messaging = [[TSPhoenixMessaging alloc] initWithPhoenixClient:self];
     self.media = [[TSPhoenixMedia alloc] initWithPhoenixClient:self];
     self.analytics = [[TSPhoenixAnalytics alloc] initWithPhoenixClient:self];
+    self.forum = [[TSPhoenixForum alloc] initWithPhoenixClient:self];
     
     self.paginators = [NSMutableSet new];
     
@@ -130,6 +131,9 @@ static NSInteger phoenix_projectID;
     return [[TSPhoenixClient sharedInstance] analytics];
 }
 
++ (TSPhoenixForum *)forum {
+    return [[TSPhoenixClient sharedInstance] forum];
+}
 
 + (void)setUpWithBaseURL: (NSURL *)baseURL
                 clientID: (NSString *)clientID

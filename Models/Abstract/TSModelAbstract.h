@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TSModelAbstract+DBMetadata.h"
 
 @interface TSModelAbstract : NSObject <NSCoding, NSCopying>
 

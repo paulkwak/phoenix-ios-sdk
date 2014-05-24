@@ -102,6 +102,7 @@
 		AAF1BE45183F0160004FB517 /* TSPhoenixParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF1BE44183F0160004FB517 /* TSPhoenixParameter.m */; };
 		AAFDF43C179FC384008F694E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAFDF43B179FC384008F694E /* SystemConfiguration.framework */; };
 		AAFDF43E179FC38A008F694E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAFDF43D179FC38A008F694E /* MobileCoreServices.framework */; };
+		B080FDCF19307C3700F9155D /* TSModelAbstract+DBMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = B080FDCE19307C3700F9155D /* TSModelAbstract+DBMetadata.m */; };
 		F3F12269C3D54312AB7E6AD9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 958DC7DE42AC4DD590D0A81B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -308,6 +309,8 @@
 		AAF1BE44183F0160004FB517 /* TSPhoenixParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSPhoenixParameter.m; sourceTree = "<group>"; };
 		AAFDF43B179FC384008F694E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AAFDF43D179FC38A008F694E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		B080FDCD19307C3700F9155D /* TSModelAbstract+DBMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TSModelAbstract+DBMetadata.h"; sourceTree = "<group>"; };
+		B080FDCE19307C3700F9155D /* TSModelAbstract+DBMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TSModelAbstract+DBMetadata.m"; sourceTree = "<group>"; };
 		BA999997EBA847149C62FCCE /* Pods-TSPhoenixTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSPhoenixTests.xcconfig"; path = "Pods/Pods-TSPhoenixTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		C713E91B63534EC69DE20272 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		E3B7BA0A18D8408AB9812782 /* libPods-TSPhoenixTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TSPhoenixTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -539,6 +542,8 @@
 			children = (
 				AAA3856E188522EB0038A36D /* TSModelAbstract.h */,
 				AAA3856F188522EB0038A36D /* TSModelAbstract.m */,
+				B080FDCD19307C3700F9155D /* TSModelAbstract+DBMetadata.h */,
+				B080FDCE19307C3700F9155D /* TSModelAbstract+DBMetadata.m */,
 			);
 			path = Abstract;
 			sourceTree = "<group>";
@@ -895,6 +900,7 @@
 				AA48A1A9192F1E6E00DC3A41 /* TSActivity.m in Sources */,
 				AA48A1D2192F1E6E00DC3A41 /* TSPlaylist.m in Sources */,
 				AA48A1D0192F1E6E00DC3A41 /* TSMediaFile.m in Sources */,
+				B080FDCF19307C3700F9155D /* TSModelAbstract+DBMetadata.m in Sources */,
 				AAA71AD71798D7980006570C /* TSPaginator.m in Sources */,
 				AADC1C64188904E1000F98F2 /* NSArray+Mapping.m in Sources */,
 				AA48A1DA192F1E6E00DC3A41 /* TSProjectAccountMap.m in Sources */,

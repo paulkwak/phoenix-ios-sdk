@@ -37,8 +37,7 @@ extern NSString * const TSPhoenixKeyValueDatabaseSQLiteName;
 @class Project;
 @class AFOAuthCredential;
 
-@class TSPhoenixSyndicate, TSPhoenixIdentity, TSPhoenixMedia, TSPhoenixAnalytics, TSPhoenixMessaging;
-
+@class TSPhoenixSyndicate, TSPhoenixIdentity, TSPhoenixMedia, TSPhoenixAnalytics, TSPhoenixMessaging, TSPhoenixForum;
 
 @interface TSPhoenixClient : AFHTTPRequestOperationManager
 
@@ -127,7 +126,7 @@ extern NSString * const TSPhoenixKeyValueDatabaseSQLiteName;
 @property (strong) TSPhoenixMedia *media;
 @property (strong) TSPhoenixMessaging *messaging;
 @property (strong) TSPhoenixAnalytics *analytics;
-
+@property (strong) TSPhoenixForum *forum;
 /**
  *  Default Pheonix date formatter, parses ISO 8601 date formats
  */
