@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSFeedLog.h
 //
-//  Created by Steve on May 23rd 2014.
+//  Created by Steve on May 24th 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 

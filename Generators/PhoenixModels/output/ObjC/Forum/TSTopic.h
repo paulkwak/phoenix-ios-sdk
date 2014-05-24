@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSTopic.h
 //
-//  Created by Steve on May 23rd 2014.
+//  Created by Steve on May 24th 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -15,7 +15,6 @@
 typedef NS_ENUM(NSUInteger, TopicTypeId) {
 	kTopicTypeIdArticle = 1,
 	kTopicTypeIdMedia,
-	kTopicTypeIdExternal,
 };
 
 #endif
