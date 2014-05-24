@@ -7,6 +7,7 @@
 //
 
 #import "TSModelAbstract.h"
+#import <YapDatabase/YapDatabase.h>
 
 @implementation TSModelAbstract
 
@@ -105,6 +106,40 @@
 - (id)valueForUndefinedKey:(NSString *)key {
     NSLog(@"warning: %@ getting value for undefined key: %@", self, key);
     return nil;
+}
+
+- (id)valueForDBMetadataKey: (NSString *)key {
+    __block id value;
+    [[TSPhoenixClient readOnlyDatabaseConnection] readWithBlock:^(YapDatabaseReadTransaction *transaction) {
+        NSDictionary *dict = [transaction metadataForKey:[self dbKey]
+                                            inCollection:[self dbCollection]];
+        
+        value = dict[key];
+    }];
+    
+    return value;
+}
+
+- (void)setValue:(id)value forDBMetadataKey:(NSString *)key {
+    NSParameterAssert(key);
+    [[TSPhoenixClient writeDatabaseConnection] readWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
+        NSDictionary *dict = [transaction metadataForKey:[self dbKey]
+                                            inCollection:[self dbCollection]];
+        NSMutableDictionary *mutableDict = [dict mutableCopy];
+        if (!mutableDict)
+            mutableDict = [NSMutableDictionary new];
+        
+        if (!value)
+            [mutableDict removeObjectForKey:key];
+        else
+            mutableDict[key] = value;
+        
+        dict = [mutableDict copy];
+        [transaction replaceMetadata:dict
+                              forKey:self.dbKey
+                        inCollection:self.dbCollection];
+    }];
+    
 }
 
 @end

@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TSModelAbstract+DBMetadata.h"
 
 @interface TSModelAbstract : NSObject <NSCoding, NSCopying>
 
@@ -22,5 +21,13 @@
 + (NSString *)dbCollection;
 
 + (NSDictionary *)mappingDictionary;
+
+#pragma mark - Metadata field in YapDatabase
+
+// These methods provide easy access to DB metadata column
+
+- (id)valueForDBMetadataKey: (NSString *)key;
+
+- (void)setValue:(id)value forDBMetadataKey:(NSString *)key;
 
 @end
