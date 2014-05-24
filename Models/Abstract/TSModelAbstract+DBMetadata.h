@@ -11,7 +11,6 @@
 @interface TSModelAbstract (DBMetadata)
 
 // These methods provide easy access to DB metadata column
-// They will be moved to Phoenix SDK
 
 - (id)valueForDBMetadataKey: (NSString *)key;
 
