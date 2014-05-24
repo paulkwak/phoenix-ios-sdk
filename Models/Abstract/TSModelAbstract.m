@@ -8,6 +8,8 @@
 
 #import "TSModelAbstract.h"
 #import <YapDatabase/YapDatabase.h>
+#import "TSPhoenixClient.h"
+
 
 @implementation TSModelAbstract
 
