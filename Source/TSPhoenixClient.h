@@ -57,6 +57,9 @@ extern NSString * const TSPhoenixKeyValueDatabaseSQLiteName;
 
 + (TSPhoenixAnalytics *)analytics;
 
++ (TSPhoenixForum *)forum;
+
+
 /**
  Make this a property so that setting up baseURL can be deferred till runtime
  */
