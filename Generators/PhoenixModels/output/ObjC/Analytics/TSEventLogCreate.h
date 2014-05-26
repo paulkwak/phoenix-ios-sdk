@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSEventLogCreate.h
 //
-//  Created by Steve on May 23rd 2014.
+//  Created by Steve on May 26th 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
