@@ -158,7 +158,10 @@
 - (void)getMyUserWithCompletion: (void (^)(TSUser *user, NSError *error))completion;
 
 
-
+- (void)changePasswordWithOldPassword: (NSString *)oldPassword
+                          newPassword: (NSString *)newPassword
+                              success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                              failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 #pragma mark -
 #pragma mark -

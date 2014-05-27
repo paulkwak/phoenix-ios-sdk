@@ -299,6 +299,33 @@
 }
 
 
+- (void)changePasswordWithOldPassword: (NSString *)oldPassword
+                          newPassword: (NSString *)newPassword
+                              success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                              failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    // Change pwd only allowed when the user is logged in
+    NSParameterAssert(self.isUserAuthenticated);
+    
+    NSParameterAssert(oldPassword.length);
+    NSParameterAssert(newPassword.length);
+    
+    if (!self.isClientAuthenticated) {
+        return;
+    }
+    
+    NSAssert(self.client.projectID > 0, @"Missing project id");
+    
+    NSString *path = [NSString stringWithFormat:kPhoenixIdentityChangePasswordPath, self.client.projectID];
+    
+    NSDictionary *parameters = @{@"oldPassword":oldPassword,
+                                 @"newPassword":newPassword};
+    
+    [self.client PUT:path
+          parameters:parameters
+             success:success
+             failure:failure];
+}
+
 - (void)invalidateCredential {
     self.clientCredential = nil;
     [AFOAuthCredential deleteCredentialWithIdentifier:kPhoenixClientAuthenticationCredentialKey];

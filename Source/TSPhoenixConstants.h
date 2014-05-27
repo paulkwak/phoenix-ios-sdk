@@ -52,6 +52,9 @@
 
 #define kPhoenixIdentityResetPasswordPath @"identity/v1/projects/%d/users/resetpassword"
 
+#define kPhoenixIdentityChangePasswordPath @"identity/v1/projects/%d/users/me/changepassword"
+
+
 // GET, POST
 #define kPhoenixIdentityMembershipsPath @"identity/v1/projects/%d/memberships"
 #define kPhoenixIdentityMembershipPattern @"identity/v1/projects/:project/memberships"
