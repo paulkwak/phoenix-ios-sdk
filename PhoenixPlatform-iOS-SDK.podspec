@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 # warning This podspec is under development
 
   s.name         = 'PhoenixPlatform-iOS-SDK'
-  s.version      = '0.5.19'
+  s.version      = '0.5.20'
   s.license      = 'GPL'
   s.homepage     = 'http://phoenixplatform.com'
   s.authors      =  {'Tigerspike Products' => 'steven.zhang+phoenixsdk@tigerspike.com' }

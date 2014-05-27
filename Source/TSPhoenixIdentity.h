@@ -171,8 +171,7 @@
 
 - (void)setUpProject;
 
-
-
+- (void)invalidateCredential;
 
 @end
 
