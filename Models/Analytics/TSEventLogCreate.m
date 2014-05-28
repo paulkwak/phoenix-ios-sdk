@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSEventLogCreate.m
 //
-//  Created by Steve on May 26th 2014.
+//  Created by Steve on May 28th 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -115,7 +115,7 @@
 		@"CorrelationId" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"correlationID"},
 		@"EventParentId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"eventParentID"},
 		@"TargetId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"targetID"},
-		@"Value" : @{@"type": @"System.Double", @"mappedType":@"undefined", @"mappedName": @"value"},
+		@"Value" : @{@"type": @"System.Double", @"mappedType":@"NSNumber", @"mappedName": @"value"},
 		@"MetaDataParameters" : @{@"type": @"List<KeyValuePair<string, string>>", @"mappedType":@"NSArray", @"mappedName": @"metaDataParameters"},
 		@"IpAddress" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"ipAddress"},
 		@"Progress" : @{@"type": @"System.Byte", @"mappedType":@"NSNumber", @"mappedName": @"progress"},
@@ -169,5 +169,10 @@
 + (NSArray *)uncodableProperties {
 	return [self expandableProperties];
 }
+
+- (NSUInteger)hash {
+  return [self.dbKey hash];
+}
+
 
 @end

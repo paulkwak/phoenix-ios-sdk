@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSProfile.h
 //
-//  Created by Steve on May 26th 2014.
+//  Created by Steve on May 28th 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -35,6 +35,7 @@ typedef NS_ENUM(NSUInteger, StatusTypeId) {
 @property (nonatomic, copy) NSString *profileDescription;
 @property (nonatomic, copy) NSString *profileImageUrl;
 @property (nonatomic, strong) NSNumber *voteCount_Overall;
+@property (nonatomic, strong) NSNumber *rating_Overall;
 @property (nonatomic, strong) NSNumber *viewCount_Overall;
 @property (nonatomic, strong) NSNumber *mediaCount_Overall;
 @property (nonatomic, strong) NSDate *lastMediaCreatedDate;

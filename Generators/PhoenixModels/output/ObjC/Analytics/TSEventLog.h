@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSEventLog.h
 //
-//  Created by Steve on May 26th 2014.
+//  Created by Steve on May 28th 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -27,6 +27,7 @@
 @property (nonatomic, copy) NSString *correlationID;
 @property (nonatomic, strong) NSNumber *eventParentID;
 @property (nonatomic, strong) NSNumber *targetID;
+@property (nonatomic, strong) NSNumber *value;
 @property (nonatomic, strong) NSArray *metaDataParameters;
 @property (nonatomic, copy) NSString *ipAddress;
 @property (nonatomic, strong) NSNumber *progress;

@@ -32,6 +32,7 @@ Mapping table: from .Net type to Objective-C type
     typeMapping.add("System.Int32", "NSNumber")
     typeMapping.add("System.Int16", "NSNumber")
     typeMapping.add("System.Int64", "NSNumber")    
+    typeMapping.add("System.Double", "NSNumber")    
     typeMapping.add("System.String", "NSString")
     typeMapping.add("System.DateTime", "NSDate")
     typeMapping.add("System.Boolean", "NSNumber")

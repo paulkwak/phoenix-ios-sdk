@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSForum.m
 //
-//  Created by Steve on May 26th 2014.
+//  Created by Steve on May 28th 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -106,11 +106,12 @@
 + (NSDictionary *)mappingDictionary {
 	return @{
 		@"Id" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"forumID"},
-		@"ProjectId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"projectID"},
 		@"CreateDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"createDate"},
 		@"ModifyDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"modifyDate"},
 		@"Name" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"name"},
 		@"MetaDataParameters" : @{@"type": @"List<KeyValuePair<string, string>>", @"mappedType":@"NSArray", @"mappedName": @"metaDataParameters"},
+		@"DefaultCommentStatusTypeId" : @{@"type": @"enumList", @"mappedType":@"NSNumber", @"mappedName": @"defaultCommentStatusTypeID"},
+		@"ProjectId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"projectID"},
 		@"Project" : @{@"type": @"relationship", @"mappedType":@"TSProject", @"mappedName": @"project"}
 	};
 }
@@ -154,5 +155,10 @@
 + (NSArray *)uncodableProperties {
 	return [self expandableProperties];
 }
+
+- (NSUInteger)hash {
+  return [self.dbKey hash];
+}
+
 
 @end

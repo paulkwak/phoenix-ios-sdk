@@ -436,6 +436,7 @@
             {
                 "name": "Value",
                 "type": "System.Double",
+                "ObjCPropertyType": "NSNumber",
                 "ObjCPropertyName": "value"
             },
             {
@@ -565,6 +566,7 @@
             {
                 "name": "Value",
                 "type": "System.Double",
+                "ObjCPropertyType": "NSNumber",
                 "ObjCPropertyName": "value"
             },
             {
@@ -700,6 +702,7 @@
             {
                 "name": "Value",
                 "type": "System.Double",
+                "ObjCPropertyType": "NSNumber",
                 "ObjCPropertyName": "value"
             },
             {
@@ -835,6 +838,7 @@
             {
                 "name": "Value",
                 "type": "System.Double",
+                "ObjCPropertyType": "NSNumber",
                 "ObjCPropertyName": "value"
             },
             {

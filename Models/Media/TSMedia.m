@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSMedia.m
 //
-//  Created by Steve on May 26th 2014.
+//  Created by Steve on May 28th 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -133,10 +133,10 @@
 		@"VoteCount_Weekly" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"voteCount_Weekly"},
 		@"VoteCount_Monthly" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"voteCount_Monthly"},
 		@"VoteCount_Overall" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"voteCount_Overall"},
-		@"Rating_Daily" : @{@"type": @"System.Double", @"mappedType":@"undefined", @"mappedName": @"rating_Daily"},
-		@"Rating_Weekly" : @{@"type": @"System.Double", @"mappedType":@"undefined", @"mappedName": @"rating_Weekly"},
-		@"Rating_Monthly" : @{@"type": @"System.Double", @"mappedType":@"undefined", @"mappedName": @"rating_Monthly"},
-		@"Rating_Overall" : @{@"type": @"System.Double", @"mappedType":@"undefined", @"mappedName": @"rating_Overall"},
+		@"Rating_Daily" : @{@"type": @"System.Double", @"mappedType":@"NSNumber", @"mappedName": @"rating_Daily"},
+		@"Rating_Weekly" : @{@"type": @"System.Double", @"mappedType":@"NSNumber", @"mappedName": @"rating_Weekly"},
+		@"Rating_Monthly" : @{@"type": @"System.Double", @"mappedType":@"NSNumber", @"mappedName": @"rating_Monthly"},
+		@"Rating_Overall" : @{@"type": @"System.Double", @"mappedType":@"NSNumber", @"mappedName": @"rating_Overall"},
 		@"ShareCount_Daily" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"shareCount_Daily"},
 		@"ShareCount_Weekly" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"shareCount_Weekly"},
 		@"ShareCount_Monthly" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"shareCount_Monthly"},
@@ -204,5 +204,10 @@
 + (NSArray *)uncodableProperties {
 	return [self expandableProperties];
 }
+
+- (NSUInteger)hash {
+  return [self.dbKey hash];
+}
+
 
 @end

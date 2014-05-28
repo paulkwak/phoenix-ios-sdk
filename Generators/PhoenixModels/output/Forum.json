@@ -34,7 +34,8 @@
                     "values": [
                         "Pending",
                         "Approved",
-                        "Declined"
+                        "Declined",
+                        "PreApproved"
                     ]
                 },
                 "type": "enumList",
@@ -57,6 +58,7 @@
             {
                 "name": "Rating_Overall",
                 "type": "System.Double",
+                "ObjCPropertyType": "NSNumber",
                 "ObjCPropertyName": "rating_Overall"
             },
             {
@@ -120,12 +122,6 @@
                 "ObjCPropertyName": "forumID"
             },
             {
-                "name": "ProjectId",
-                "type": "System.Int32",
-                "ObjCPropertyType": "NSNumber",
-                "ObjCPropertyName": "projectID"
-            },
-            {
                 "name": "CreateDate",
                 "type": "System.DateTime",
                 "ObjCPropertyType": "NSDate",
@@ -148,6 +144,29 @@
                 "type": "List<KeyValuePair<string, string>>",
                 "ObjCPropertyType": "NSArray",
                 "ObjCPropertyName": "metaDataParameters"
+            },
+            {
+                "name": "DefaultCommentStatusTypeId",
+                "enumList": {
+                    "name": "StatusTypeEnum",
+                    "type": "enum",
+                    "values": [
+                        "Pending",
+                        "Approved",
+                        "Declined",
+                        "PreApproved"
+                    ]
+                },
+                "type": "enumList",
+                "href": "#statustypeenummodal",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "defaultCommentStatusTypeID"
+            },
+            {
+                "name": "ProjectId",
+                "type": "System.Int32",
+                "ObjCPropertyType": "NSNumber",
+                "ObjCPropertyName": "projectID"
             },
             {
                 "name": "Project",

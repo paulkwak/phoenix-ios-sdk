@@ -137,6 +137,7 @@
             {
                 "name": "Rating_Overall",
                 "type": "System.Double",
+                "ObjCPropertyType": "NSNumber",
                 "ObjCPropertyName": "rating_Overall"
             },
             {
@@ -464,21 +465,25 @@
             {
                 "name": "Rating_Daily",
                 "type": "System.Double",
+                "ObjCPropertyType": "NSNumber",
                 "ObjCPropertyName": "rating_Daily"
             },
             {
                 "name": "Rating_Weekly",
                 "type": "System.Double",
+                "ObjCPropertyType": "NSNumber",
                 "ObjCPropertyName": "rating_Weekly"
             },
             {
                 "name": "Rating_Monthly",
                 "type": "System.Double",
+                "ObjCPropertyType": "NSNumber",
                 "ObjCPropertyName": "rating_Monthly"
             },
             {
                 "name": "Rating_Overall",
                 "type": "System.Double",
+                "ObjCPropertyType": "NSNumber",
                 "ObjCPropertyName": "rating_Overall"
             },
             {
@@ -933,6 +938,7 @@
             {
                 "name": "Rating_Overall",
                 "type": "System.Double",
+                "ObjCPropertyType": "NSNumber",
                 "ObjCPropertyName": "rating_Overall"
             },
             {

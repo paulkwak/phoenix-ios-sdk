@@ -2,13 +2,24 @@
 //  TSPhoenix
 //	TSForum.h
 //
-//  Created by Steve on May 26th 2014.
+//  Created by Steve on May 28th 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
 #import "TSModelAbstract.h"
 
 @class TSProject;
+
+#ifndef DefaultCommentStatusTypeIdEnum
+#define DefaultCommentStatusTypeIdEnum
+typedef NS_ENUM(NSUInteger, DefaultCommentStatusTypeId) {
+	kDefaultCommentStatusTypeIdPending = 1,
+	kDefaultCommentStatusTypeIdApproved,
+	kDefaultCommentStatusTypeIdDeclined,
+	kDefaultCommentStatusTypeIdPreApproved,
+};
+
+#endif
 
 
 
@@ -19,11 +30,12 @@
 - (void)mapFromDictionary: (NSDictionary *)dict;
 
 @property (nonatomic, strong) NSNumber *forumID;
-@property (nonatomic, strong) NSNumber *projectID;
 @property (nonatomic, strong) NSDate *createDate;
 @property (nonatomic, strong) NSDate *modifyDate;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, strong) NSArray *metaDataParameters;
+@property (nonatomic, strong) NSNumber *defaultCommentStatusTypeID;
+@property (nonatomic, strong) NSNumber *projectID;
 
 
 

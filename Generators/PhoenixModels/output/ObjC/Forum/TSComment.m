@@ -2,7 +2,7 @@
 //  TSPhoenix
 //	TSComment.m
 //
-//  Created by Steve on May 26th 2014.
+//  Created by Steve on May 28th 2014.
 //  Copyright (c) 2013 Tigerspike. All rights reserved.
 //
 
@@ -112,7 +112,7 @@
 		@"StatusTypeId" : @{@"type": @"enumList", @"mappedType":@"NSNumber", @"mappedName": @"statusTypeID"},
 		@"PhoenixIdentity_UserId" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"phoenixIDentity_UserId"},
 		@"Text" : @{@"type": @"System.String", @"mappedType":@"NSString", @"mappedName": @"text"},
-		@"Rating_Overall" : @{@"type": @"System.Double", @"mappedType":@"undefined", @"mappedName": @"rating_Overall"},
+		@"Rating_Overall" : @{@"type": @"System.Double", @"mappedType":@"NSNumber", @"mappedName": @"rating_Overall"},
 		@"CreateDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"createDate"},
 		@"ModifyDate" : @{@"type": @"System.DateTime", @"mappedType":@"NSDate", @"mappedName": @"modifyDate"},
 		@"VoteCount_Overall" : @{@"type": @"System.Int32", @"mappedType":@"NSNumber", @"mappedName": @"voteCount_Overall"},
@@ -164,5 +164,10 @@
 + (NSArray *)uncodableProperties {
 	return [self expandableProperties];
 }
+
+- (NSUInteger)hash {
+  return [self.dbKey hash];
+}
+
 
 @end
