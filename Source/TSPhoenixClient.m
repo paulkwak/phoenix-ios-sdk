@@ -218,8 +218,10 @@ static NSInteger phoenix_projectID;
     if (statusCode == 401 || statusCode == 403) {
         
         // Token expired
-        [self.identity logout];
+        //        [self.identity logout];
 
+        NSLog(@"HTTP error %@, Token may have expired.", operation.error);
+        // The next refreshToken call will log the user out
     }
     
 }
