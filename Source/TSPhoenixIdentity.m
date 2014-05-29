@@ -45,8 +45,19 @@
         [self refreshTokenWithSuccess:^(AFOAuthCredential *credential) {
             NSLog(@"Phoenix Identity: Refresh token success!");
         } failure:^(NSError *error) {
-            NSLog(@"Phoenix Identity: Refresh token failed. Logging out");
-            [self logout];
+            
+            if (error.code == NSURLErrorNotConnectedToInternet) {
+                NSLog(@"Phoenix Identity: Refresh token failed: no internet connection");
+                return;
+            }
+            
+           NSInteger errorCode =  [[[error userInfo] objectForKey:AFNetworkingOperationFailingURLResponseErrorKey] statusCode];
+
+            if (errorCode == 401 || errorCode == 403) {
+                NSLog(@"Phoenix Identity: Refresh token failed. Logging out. %@", error);
+                [self logout];
+            }
+
         }];
 
         
