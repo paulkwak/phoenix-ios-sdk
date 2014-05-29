@@ -232,9 +232,16 @@ static NSInteger phoenix_projectID;
 - (void)saveObjectsToDatabase: (NSArray *)objects {
     [self.writeDatabaseConnection readWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
         [objects enumerateObjectsUsingBlock:^(TSModelAbstract *obj, NSUInteger idx, BOOL *stop) {
-            [transaction setObject:obj
-                            forKey:obj.dbKey
-                      inCollection:obj.dbCollection];
+            if ([transaction hasObjectForKey:obj.dbKey
+                                inCollection:obj.dbCollection]) {
+                [transaction replaceObject:obj
+                                    forKey:obj.dbKey
+                              inCollection:obj.dbCollection];
+            } else {
+                [transaction setObject:obj
+                                forKey:obj.dbKey
+                          inCollection:obj.dbCollection];
+            }
             
         }];
     }];
@@ -263,8 +270,17 @@ static NSInteger phoenix_projectID;
 - (void)deleteObjectsInDatabase: (NSArray *)objects completion:(dispatch_block_t)completionBlock {
     [self.writeDatabaseConnection asyncReadWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
         [objects enumerateObjectsUsingBlock:^(TSModelAbstract *obj, NSUInteger idx, BOOL *stop) {
-            [transaction removeObjectForKey:obj.dbKey
-                               inCollection:obj.dbCollection];
+            if ([transaction hasObjectForKey:obj.dbKey
+                                inCollection:obj.dbCollection]) {
+                [transaction replaceObject:obj
+                                    forKey:obj.dbKey
+                              inCollection:obj.dbCollection];
+            } else {
+                [transaction setObject:obj
+                                forKey:obj.dbKey
+                          inCollection:obj.dbCollection];
+            }
+            
         }];
     } completionBlock:completionBlock];
 }
