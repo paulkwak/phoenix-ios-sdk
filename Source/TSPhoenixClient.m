@@ -200,6 +200,8 @@ static NSInteger phoenix_projectID;
         NSLog(@"Network error: %@", operation.error);
     }
     
+    /*
+     Leave error handling to SDK user
     if (operation.error.code == NSURLErrorNotConnectedToInternet) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                         message:operation.error.localizedDescription
@@ -212,7 +214,7 @@ static NSInteger phoenix_projectID;
         
         
     }
-    
+    */
     
     NSInteger statusCode = operation.response.statusCode;
     if (statusCode == 401 || statusCode == 403) {
@@ -259,17 +261,6 @@ static NSInteger phoenix_projectID;
 - (void)saveObjectsToDatabase: (NSArray *)objects completion:(dispatch_block_t)completionBlock {
     [self.writeDatabaseConnection asyncReadWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
         [objects enumerateObjectsUsingBlock:^(TSModelAbstract *obj, NSUInteger idx, BOOL *stop) {
-            [transaction setObject:obj
-                            forKey:obj.dbKey
-                      inCollection:obj.dbCollection];
-        }];
-    } completionBlock:completionBlock];
-
-}
-
-- (void)deleteObjectsInDatabase: (NSArray *)objects completion:(dispatch_block_t)completionBlock {
-    [self.writeDatabaseConnection asyncReadWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
-        [objects enumerateObjectsUsingBlock:^(TSModelAbstract *obj, NSUInteger idx, BOOL *stop) {
             if ([transaction hasObjectForKey:obj.dbKey
                                 inCollection:obj.dbCollection]) {
                 [transaction replaceObject:obj
@@ -281,6 +272,15 @@ static NSInteger phoenix_projectID;
                           inCollection:obj.dbCollection];
             }
             
+        }];
+    } completionBlock:completionBlock];
+
+}
+
+- (void)deleteObjectsInDatabase: (NSArray *)objects completion:(dispatch_block_t)completionBlock {
+    [self.writeDatabaseConnection asyncReadWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
+        [objects enumerateObjectsUsingBlock:^(TSModelAbstract *obj, NSUInteger idx, BOOL *stop) {
+            [transaction removeObjectForKey:obj.dbKey inCollection:obj.dbCollection];
         }];
     } completionBlock:completionBlock];
 }
