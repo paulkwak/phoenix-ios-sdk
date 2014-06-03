@@ -321,8 +321,8 @@
     NSParameterAssert(newPassword.length);
     
     if (!self.isClientAuthenticated) {
-        // No need to check for isClientAuthenticated
-        // return;
+        // uat does not work as self.clientCredential is nil
+        return;
     }
     
     NSAssert(self.client.projectID > 0, @"Missing project id");
