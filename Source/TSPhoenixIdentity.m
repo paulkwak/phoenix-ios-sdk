@@ -321,16 +321,8 @@
     NSParameterAssert(newPassword.length);
     
     if (!self.isClientAuthenticated) {
-        [self authenticateClientWithSuccess:^(AFOAuthCredential *credential) {
-            [self changePasswordWithOldPassword:oldPassword
-                                    newPassword:newPassword
-                                        success:success
-                                        failure:failure];
-        } failure:^(NSError *error) {
-            failure(nil, error);
-        }];
-
-        return;
+        // No need to check for isClientAuthenticated
+        // return;
     }
     
     NSAssert(self.client.projectID > 0, @"Missing project id");
