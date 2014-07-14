@@ -138,10 +138,11 @@ Iterate over the given files, call addMapping(), save to disk.
 
       
     for file in files
-      array = JSON.parse(fs.readFileSync(file, 'utf8'));
+      filePath = 'PhoenixModels/' + file
+      array = JSON.parse(fs.readFileSync(filePath, 'utf8'));
       for entity in array
         addMapping entity
           
       serializedText = JSON.stringify array,undefined,4
-      console.log('writing to ' + file)
-      fs.writeFileSync(file, serializedText)
+      console.log('writing to ' + filePath)
+      fs.writeFileSync(filePath, serializedText)

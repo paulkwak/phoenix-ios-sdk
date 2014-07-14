@@ -152,7 +152,7 @@ Serialize and save to disk
       filename=  urlparts.path.split('/').pop()
       filename = filename + '.json'
       console.log('writing to ' + filename)
-      fs.writeFileSync("output/" + filename, serializedText)
+      fs.writeFileSync("PhoenixModels/output/" + filename, serializedText)
 
 Unleash the workers     
 

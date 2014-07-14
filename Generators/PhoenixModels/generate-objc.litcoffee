@@ -57,13 +57,13 @@ All generated models are saved in this object
     
 Load handlebar.js templates
     
-    headerTemplateString = fs.readFileSync('templates/header.hbs', 'utf8')
+    headerTemplateString = fs.readFileSync('PhoenixModels/templates/header.hbs', 'utf8')
     headerTemplate = Handlebars.compile headerTemplateString 
     
-    bodyTemplateString = fs.readFileSync('templates/body.hbs', 'utf8')
+    bodyTemplateString = fs.readFileSync('PhoenixModels/templates/body.hbs', 'utf8')
     bodyTemplate = Handlebars.compile bodyTemplateString 
     
-    modelsImportTemplateString = fs.readFileSync('templates/models-import.hbs', 'utf8')
+    modelsImportTemplateString = fs.readFileSync('PhoenixModels/templates/models-import.hbs', 'utf8')
     modelsImportTemplate = Handlebars.compile modelsImportTemplateString  
     
 
@@ -248,7 +248,7 @@ Takes a property generate Objective-C source code
     	# generate Obj-C header file
     	result = headerTemplate entity
     	
-    	outputFolder = 'output/' + 'ObjC/' + path.split('/')[1] + '/'
+    	outputFolder = 'PhoenixModels/output/' + 'ObjC/' + path.split('/')[1] + '/'
     	
     	mkdirp outputFolder
     	
@@ -265,12 +265,13 @@ Takes a property generate Objective-C source code
     	
     	callback
     
-    mkdirp 'output/ObjC'
+    mkdirp 'PhoenixModels/output/ObjC'
     
 ## entry point to this script
 
     for file in files
-    	array = JSON.parse(fs.readFileSync(file, 'utf8'));
+        filePath = 'PhoenixModels/' + file
+    	array = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     	path = file.replace('.json', '/')
     	
     	for entity in array
@@ -289,7 +290,7 @@ Takes a property generate Objective-C source code
     console.log allObjCModels
     
     result = modelsImportTemplate allObjCModels
-    file = 'output/' + 'ObjC/' + 'TSPhoenixModels' + '.h'
+    file = 'PhoenixModels/output/' + 'ObjC/' + 'TSPhoenixModels' + '.h'
     console.log('\nwriting to ' + file)	
     fs.writeFileSync(file, result)
     
