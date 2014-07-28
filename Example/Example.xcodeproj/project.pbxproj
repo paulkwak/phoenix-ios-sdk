@@ -22,6 +22,7 @@
 		AAA3833218851AD80038A36D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA3831418851AD80038A36D /* UIKit.framework */; };
 		AAA3833A18851AD80038A36D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAA3833818851AD80038A36D /* InfoPlist.strings */; };
 		AAA3833C18851AD90038A36D /* ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA3833B18851AD90038A36D /* ExampleTests.m */; };
+		D4DE34E419861E5C00DD0D75 /* ServiceConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4DE34E319861E5C00DD0D75 /* ServiceConfig.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		AAA3833718851AD80038A36D /* ExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ExampleTests-Info.plist"; sourceTree = "<group>"; };
 		AAA3833918851AD80038A36D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AAA3833B18851AD90038A36D /* ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleTests.m; sourceTree = "<group>"; };
+		D4DE34E319861E5C00DD0D75 /* ServiceConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ServiceConfig.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 		AAA3831718851AD80038A36D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D4DE34E019861C9B00DD0D75 /* Service Configurations */,
 				AAA3831818851AD80038A36D /* Example-Info.plist */,
 				AAA3831918851AD80038A36D /* InfoPlist.strings */,
 				AAA3831C18851AD80038A36D /* main.m */,
@@ -160,6 +163,8 @@
 		D4DE34DB198609D200DD0D75 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D4DE34DF1986128700DD0D75 /* Home */,
+				D4DE34DE1986128200DD0D75 /* Login */,
 				AAA3832218851AD80038A36D /* Main.storyboard */,
 				AAA3832518851AD80038A36D /* ViewController.h */,
 				AAA3832618851AD80038A36D /* ViewController.m */,
@@ -180,6 +185,28 @@
 				AAA3832818851AD80038A36D /* Images.xcassets */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		D4DE34DE1986128200DD0D75 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		D4DE34DF1986128700DD0D75 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		D4DE34E019861C9B00DD0D75 /* Service Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				D4DE34E319861E5C00DD0D75 /* ServiceConfig.plist */,
+			);
+			name = "Service Configurations";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4DE34E419861E5C00DD0D75 /* ServiceConfig.plist in Resources */,
 				AAA3832918851AD80038A36D /* Images.xcassets in Resources */,
 				AAA3831B18851AD80038A36D /* InfoPlist.strings in Resources */,
 				AAA3832418851AD80038A36D /* Main.storyboard in Resources */,
@@ -448,6 +476,7 @@
 				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";
 				INFOPLIST_FILE = "Example/Example-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SERVICE_CONFIG_FILE = ServiceConfig.plist;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -462,6 +491,7 @@
 				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";
 				INFOPLIST_FILE = "Example/Example-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SERVICE_CONFIG_FILE = ServiceConfig.plist;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
