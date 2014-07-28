@@ -143,9 +143,9 @@ Handlebars.js template helper: generate sub-path of URL
             if requiredProp.Name isnt "Data"
                 replaceString = firstToLowerCase requiredProp.Name
                 str = str.replace "\{" + replaceString + "\}", "%@"
-                params += replaceString + ", "
+                params += replaceString + ","
         
-        result = "[NSString stringWithFormats:@\"" + str + "\", " + params.substr(0, params.length-3) + "]"
+        result = "[NSString stringWithFormats:@\"" + str + "\", " + params.substr(0, params.length-1) + "]"
 
 Handlebars.js template helper: generate
 
@@ -233,9 +233,6 @@ Helper function: converting proper data type name
         console.log('writing to ' + file)
         fs.writeFileSync(file, result)
 
-
-        console.log('start generate')
-
         #generate Obj-C class file
         result = classTemplate content
         outputFolder = 'PhoenixURLs/output/' + 'ObjC/'
@@ -243,5 +240,3 @@ Helper function: converting proper data type name
         file = outputFolder + 'TSPhoenix' + content.moduleName + '.c'
         console.log('writing to ' + file)
         fs.writeFileSync(file, result)
-
-        console.log('done')

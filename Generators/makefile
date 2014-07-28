@@ -60,8 +60,16 @@ generate-phoenix-api-urls-UAT:
 	mkdir -p ./PhoenixURLs/output/ObjC
 	coffee ./PhoenixURLs/generate-objc.litcoffee
 
-generate-phoenix-api-urls-LIVE:
+	mkdir -p ./output/PhoenixURLs-UAT
+	cp -r ./PhoenixURLs/output/ObjC ./output/PhoenixURLs-UAT/.
 
+generate-phoenix-api-urls-LIVE:
+	mkdir -p ./PhoenixURLs/output/ObjC
+	coffee ./PhoenixURLs/generate-objc.
+
+	mkdir -p ./output/PhoenixURLs-LIVE
+	cp -r ./PhonixURLs/output/ObjC ./output/PhoenixURLs-LIVE/.
+	
 clean:
 	# remove target JSON
 	rm -f ./PhoenixModels/env-target.json

@@ -11,4 +11,10 @@
 
 @interface TSPhoenix{{{moduleName}}}: TSPhoenixModuleAbastract
 
+{{#each apiMethods}}
+/* {{{Description}}} */
+- (void){{{api_method_name}}}WithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{{{generate_api_parameters}}};
+
+{{/each}}
+
 @end
