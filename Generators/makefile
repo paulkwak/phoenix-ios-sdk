@@ -6,7 +6,7 @@ all:
 	make generate-phoenix-models-UAT
 	make generate-phoenix-models-LIVE
 
-	# make generate-phoenix-api-urls-UAT
+	make generate-phoenix-api-urls-UAT
 	# make generate-phoenix-api-urls-LIVE
 
 # Sub-task - generate phoenix models
@@ -57,6 +57,8 @@ endif
 
 # Sub-rtask - generate phoenix api urls
 generate-phoenix-api-urls-UAT:
+	mkdir -p ./PhoenixURLs/output/ObjC
+	coffee ./PhoenixURLs/generate-objc.litcoffee
 
 generate-phoenix-api-urls-LIVE:
 
