@@ -74,29 +74,26 @@ Handlebar.js template helper: generate today's date, used in comments at the top
     Handlebars.registerHelper 'date', func = () ->
         moment().format 'MMMM Do YYYY'
 
-Handlebar.js template helper: generate API methods
+Handlebars.js template helper: generate any related class name for .h file
 
-    Handlebars.registerHelper 'generate_api_method', func = () ->
-        # get input parameters
-        #requiredPropertiesArray = this.RequiredProperties
-        #for (requiredProp in requiredPropertiesArray)
-        #    if (requiredProp.Name == 'Data')
-        #    else 
+    Handlebars.registerHelper 'generate_class_file_in_h', func = () ->
+        str = "";
+        for className, i in allObjCModels.modelNames
+            if className.substr(0, 2) is "TS"
+                str += className
+                str += ", "
 
+        if (str.length > 0)
+            str = "@class " + str.substr(0, str.length-2) + ";"
+        str
 
-        # /* description */
-        str = '/* ' + this.Description + ' */\n'
-
-        # -(void)methodName
-        str += '- (void)' + firstToLowerCase this.Name + ':' + 
-
-        str += ' completion: (void (^)(' + 
-
-
-        str += ' NSError *error))completion' 
-        str += '\n{\n'
-        str += '}\n\n'
-
+Handlebars.js template helper: generate any related class name for .c file
+    
+    Handlebars.registerHelper 'generate_class_file_in_c', func = () ->
+        str = "";
+        for className, i in allObjCModels.modelNames
+            if className.substr(0, 2) is "TS"
+                str += "#import \"" + className + ".h\n"
         str
 
 Handlebars.js template helper: generate API name
@@ -122,12 +119,7 @@ Handlebars.js template helper: generate API parameters
             str += ( dataName + ":(" )
             str += getProperDataTypeName requiredProp.Type
             str += ( " *)" + dataName )
-        str
 
-Handlebars.js template helper: generate API callback parameters
-
-    Handlebars.registerHelper 'generate_api_output_callback', func = () ->
-        str = ''
 
         str
 
@@ -194,13 +186,24 @@ Helper function: converting proper data type name
 
     getProperDataTypeName = (str) ->
         if str is 'Int32'
-            string = 'NSNumber'
-        else if str is 'String'
-            string = 'NSString'
+            string = "NSNumber"
+        else if str is "String"
+            string = "NSString"
         else 
-            string = 'TS' + str
+            string = "TS" + str
 
         string
+
+Helper function: get all customise objects
+
+    getAllCustomiseObject = (requiredPropertiesArray) ->
+        isFound = false
+        for requiredProp in requiredPropertiesArray
+            if isFound is false
+                if requiredProp.Name is "Data"
+                    isFound  = true
+                    objectType = getProperDataTypeName requiredProp.Type
+                    allObjCModels.modelNames.push objectType
         
 ## entry point to this script
 
@@ -225,7 +228,10 @@ Helper function: converting proper data type name
         content = JSON.parse(fs.readFileSync(filePath, 'utf8'))
         apiMethods = content.apiMethods
 
-        #generate Obj-C header file
+        for apiMethod in apiMethods
+            getAllCustomiseObject apiMethod.RequiredProperties
+
+        #generate Obj-C header file (.h)
         result = headerTemplate content
         outputFolder = 'PhoenixURLs/output/' + 'ObjC/'
         
@@ -233,10 +239,12 @@ Helper function: converting proper data type name
         console.log('writing to ' + file)
         fs.writeFileSync(file, result)
 
-        #generate Obj-C class file
+        #generate Obj-C class file (.c)
         result = classTemplate content
         outputFolder = 'PhoenixURLs/output/' + 'ObjC/'
 
         file = outputFolder + 'TSPhoenix' + content.moduleName + '.c'
         console.log('writing to ' + file)
         fs.writeFileSync(file, result)
+
+        
