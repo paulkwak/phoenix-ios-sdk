@@ -118,13 +118,12 @@
 		AAA3831618851AD80038A36D /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				D4DE34DD19860A0A00DD0D75 /* Resources */,
+				D4DE34DC198609DE00DD0D75 /* Data */,
+				D4DE34DB198609D200DD0D75 /* UI */,
+				AAA3831718851AD80038A36D /* Supporting Files */,
 				AAA3831F18851AD80038A36D /* AppDelegate.h */,
 				AAA3832018851AD80038A36D /* AppDelegate.m */,
-				AAA3832218851AD80038A36D /* Main.storyboard */,
-				AAA3832518851AD80038A36D /* ViewController.h */,
-				AAA3832618851AD80038A36D /* ViewController.m */,
-				AAA3832818851AD80038A36D /* Images.xcassets */,
-				AAA3831718851AD80038A36D /* Supporting Files */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -156,6 +155,31 @@
 				AAA3833818851AD80038A36D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D4DE34DB198609D200DD0D75 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				AAA3832218851AD80038A36D /* Main.storyboard */,
+				AAA3832518851AD80038A36D /* ViewController.h */,
+				AAA3832618851AD80038A36D /* ViewController.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		D4DE34DC198609DE00DD0D75 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		D4DE34DD19860A0A00DD0D75 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AAA3832818851AD80038A36D /* Images.xcassets */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
