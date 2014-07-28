@@ -23,6 +23,10 @@
 		AAA3833A18851AD80038A36D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAA3833818851AD80038A36D /* InfoPlist.strings */; };
 		AAA3833C18851AD90038A36D /* ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA3833B18851AD90038A36D /* ExampleTests.m */; };
 		D4DE34E419861E5C00DD0D75 /* ServiceConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4DE34E319861E5C00DD0D75 /* ServiceConfig.plist */; };
+		D4DE34EA198635CD00DD0D75 /* SyndicateStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4DE34E9198635CD00DD0D75 /* SyndicateStoryboard.storyboard */; };
+		D4DE34EC198635EC00DD0D75 /* MessageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4DE34EB198635EC00DD0D75 /* MessageStoryboard.storyboard */; };
+		D4DE34EE1986360200DD0D75 /* MediaStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4DE34ED1986360200DD0D75 /* MediaStoryboard.storyboard */; };
+		D4DE34F01986361A00DD0D75 /* AnalyticStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4DE34EF1986361A00DD0D75 /* AnalyticStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +62,10 @@
 		AAA3833918851AD80038A36D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AAA3833B18851AD90038A36D /* ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleTests.m; sourceTree = "<group>"; };
 		D4DE34E319861E5C00DD0D75 /* ServiceConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ServiceConfig.plist; sourceTree = "<group>"; };
+		D4DE34E9198635CD00DD0D75 /* SyndicateStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SyndicateStoryboard.storyboard; path = src/UI/Syndicate/SyndicateStoryboard.storyboard; sourceTree = "<group>"; };
+		D4DE34EB198635EC00DD0D75 /* MessageStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MessageStoryboard.storyboard; path = src/UI/Message/MessageStoryboard.storyboard; sourceTree = "<group>"; };
+		D4DE34ED1986360200DD0D75 /* MediaStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MediaStoryboard.storyboard; path = src/UI/Media/MediaStoryboard.storyboard; sourceTree = "<group>"; };
+		D4DE34EF1986361A00DD0D75 /* AnalyticStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AnalyticStoryboard.storyboard; path = src/UI/Analytic/AnalyticStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +171,10 @@
 		D4DE34DB198609D200DD0D75 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D4DE34E81986318800DD0D75 /* Syndicate */,
+				D4DE34E71986318300DD0D75 /* Message */,
+				D4DE34E61986317F00DD0D75 /* Media */,
+				D4DE34E5198630B200DD0D75 /* Analytics */,
 				D4DE34DF1986128700DD0D75 /* Home */,
 				D4DE34DE1986128200DD0D75 /* Login */,
 				AAA3832218851AD80038A36D /* Main.storyboard */,
@@ -207,6 +219,38 @@
 				D4DE34E319861E5C00DD0D75 /* ServiceConfig.plist */,
 			);
 			name = "Service Configurations";
+			sourceTree = "<group>";
+		};
+		D4DE34E5198630B200DD0D75 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				D4DE34EF1986361A00DD0D75 /* AnalyticStoryboard.storyboard */,
+			);
+			name = Analytics;
+			sourceTree = "<group>";
+		};
+		D4DE34E61986317F00DD0D75 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				D4DE34ED1986360200DD0D75 /* MediaStoryboard.storyboard */,
+			);
+			name = Media;
+			sourceTree = "<group>";
+		};
+		D4DE34E71986318300DD0D75 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				D4DE34EB198635EC00DD0D75 /* MessageStoryboard.storyboard */,
+			);
+			name = Message;
+			sourceTree = "<group>";
+		};
+		D4DE34E81986318800DD0D75 /* Syndicate */ = {
+			isa = PBXGroup;
+			children = (
+				D4DE34E9198635CD00DD0D75 /* SyndicateStoryboard.storyboard */,
+			);
+			name = Syndicate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,10 +331,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4DE34EA198635CD00DD0D75 /* SyndicateStoryboard.storyboard in Resources */,
 				D4DE34E419861E5C00DD0D75 /* ServiceConfig.plist in Resources */,
+				D4DE34F01986361A00DD0D75 /* AnalyticStoryboard.storyboard in Resources */,
 				AAA3832918851AD80038A36D /* Images.xcassets in Resources */,
 				AAA3831B18851AD80038A36D /* InfoPlist.strings in Resources */,
+				D4DE34EE1986360200DD0D75 /* MediaStoryboard.storyboard in Resources */,
 				AAA3832418851AD80038A36D /* Main.storyboard in Resources */,
+				D4DE34EC198635EC00DD0D75 /* MessageStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
