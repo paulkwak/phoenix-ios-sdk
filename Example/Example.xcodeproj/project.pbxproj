@@ -27,6 +27,8 @@
 		D4DE34EC198635EC00DD0D75 /* MessageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4DE34EB198635EC00DD0D75 /* MessageStoryboard.storyboard */; };
 		D4DE34EE1986360200DD0D75 /* MediaStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4DE34ED1986360200DD0D75 /* MediaStoryboard.storyboard */; };
 		D4DE34F2198636F500DD0D75 /* AnalyticStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4DE34F1198636F500DD0D75 /* AnalyticStoryboard.storyboard */; };
+		D4FFE83F19872083004C169A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FFE83E19872083004C169A /* LoginViewController.m */; };
+		D4FFE842198720F5004C169A /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FFE841198720F5004C169A /* HomeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,10 @@
 		D4DE34EB198635EC00DD0D75 /* MessageStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MessageStoryboard.storyboard; path = src/UI/Message/MessageStoryboard.storyboard; sourceTree = "<group>"; };
 		D4DE34ED1986360200DD0D75 /* MediaStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MediaStoryboard.storyboard; path = src/UI/Media/MediaStoryboard.storyboard; sourceTree = "<group>"; };
 		D4DE34F1198636F500DD0D75 /* AnalyticStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AnalyticStoryboard.storyboard; path = src/UI/Analytic/AnalyticStoryboard.storyboard; sourceTree = "<group>"; };
+		D4FFE83D19872083004C169A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = src/UI/LoginViewController.h; sourceTree = "<group>"; };
+		D4FFE83E19872083004C169A /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = src/UI/LoginViewController.m; sourceTree = "<group>"; };
+		D4FFE840198720F5004C169A /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = src/UI/HomeViewController.h; sourceTree = "<group>"; };
+		D4FFE841198720F5004C169A /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = src/UI/HomeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +208,8 @@
 		D4DE34DE1986128200DD0D75 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				D4FFE83D19872083004C169A /* LoginViewController.h */,
+				D4FFE83E19872083004C169A /* LoginViewController.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -209,6 +217,8 @@
 		D4DE34DF1986128700DD0D75 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				D4FFE840198720F5004C169A /* HomeViewController.h */,
+				D4FFE841198720F5004C169A /* HomeViewController.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -390,8 +400,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4FFE83F19872083004C169A /* LoginViewController.m in Sources */,
 				AAA3832718851AD80038A36D /* ViewController.m in Sources */,
 				AAA3832118851AD80038A36D /* AppDelegate.m in Sources */,
+				D4FFE842198720F5004C169A /* HomeViewController.m in Sources */,
 				AAA3831D18851AD80038A36D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
