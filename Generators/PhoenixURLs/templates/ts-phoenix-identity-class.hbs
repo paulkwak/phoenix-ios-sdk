@@ -1,0 +1,73 @@
+//
+//  TSPhoenix
+//	TSPhoenix{{{moduleName}}}.m
+//
+//  Created by Steve on {{{date}}}.
+//  Copyright (c) 2013 Tigerspike. All rights reserved.
+//
+
+#import "TSPhoenix{{{moduleName}}}.h"
+#import <AFOAuth2Client@phoenixplatform/AFOAuth2Client.h>
+
+{{{generate_class_file_in_c}}}
+
+@implementation TSPhoenix{{{moduleName}}}
+
+- (id) initWithPhoenixClient:(TSPhoenixClient *)client 
+{
+	self = [super initWithPhoenixClient:client];
+    
+    // self.paginators = [NSMutableSet new];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(userDidLogout)
+                                                 name:kPhoenixIdentityDidLogoutNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(userDidLogin)
+                                                 name:kPhoenixIdentityDidLoginNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(appDidResume)
+                                                 name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
+    
+    
+    
+    return self;
+}
+
+#pragma mark - Notifications
+- (void)appDidResume 
+{
+
+}
+
+- (void)userDidLogin 
+{
+
+}
+
+- (void)userDidLogout 
+{
+
+}
+
+#pragma mark - API methods
+{{#each apiMethods}}
+/* {{{Description}}} */
+- (void){{{api_method_name}}}WithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{{{generate_api_parameters}}}
+{
+    NSString *path = {{{generate_url_path}}};
+
+    {{{generate_request_parameters}}}
+
+    [self.client {{{UriVerb}}}:path
+              parameters:{{{request_parameters_result}}}
+                 success:success
+                 failure:failure];
+}
+{{/each}}
+
+@end

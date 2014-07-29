@@ -1,0 +1,22 @@
+//
+//  TSPhoenix
+//	TSPhoenix{{{moduleName}}}.h
+//
+//  Created by Steve on {{{date}}}.
+//  Copyright (c) 2013 Tigerspike. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import "TSPhoenixModuleAbastract.h"
+
+{{{generate_class_file_in_h}}}
+
+@interface TSPhoenix{{{moduleName}}}: TSPhoenixModuleAbastract
+
+{{#each apiMethods}}
+/* {{{Description}}} */
+- (void){{{api_method_name}}}WithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{{{generate_api_parameters}}};
+
+{{/each}}
+
+@end

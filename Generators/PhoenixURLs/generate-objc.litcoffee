@@ -13,7 +13,7 @@ TODO: put this in config.json
     
     files = [
     	# "output/Analytics.json",
-    	# "output/Identity.json",
+        "output/Identity.json",
     	# "output/Messaging.json",
     	# "output/Commerce.json",
     	# "output/Media.json",
@@ -63,6 +63,15 @@ Load handlebar.js templates
     classTemplateString = fs.readFileSync('PhoenixURLs/templates/class.hbs', 'utf8')
     classTemplate = Handlebars.compile classTemplateString 
 
+    #Template for phoenix identity header file (TSPhoenixIdentity.h and .c)
+    identityModuleHeaderTemplateString = fs.readFileSync('PhoenixURLs/templates/ts-phoenix-identity-header.hbs', 'utf8')
+    identityModuleHeaderTemplate = Handlebars.compile identityModuleHeaderTemplateString
+
+    #Template for phoenix identity class file
+    identityModuleClassTemplateString = fs.readFileSync('PhoenixURLs/templates/ts-phoenix-identity-class.hbs', 'utf8')
+    identityModuleClassTemplate = Handlebars.compile identityModuleClassTemplateString
+
+    #Template for TSModuleAbastract.h and .c
     moduleAbastractHeaderTemplateString = fs.readFileSync('PhoenixURLs/templates/module-abastract-header.hbs', 'utf8')
     moduleAbastractHeaderTemplate = Handlebars.compile moduleAbastractHeaderTemplateString
 
@@ -232,19 +241,30 @@ Helper function: get all customise objects
             getAllCustomiseObject apiMethod.RequiredProperties
 
         #generate Obj-C header file (.h)
-        result = headerTemplate content
+        moduleName = file.split('/')[1]
+        moduleName = moduleName.replace ".json", ""
+        console.log("module name: " + moduleName)
+        if moduleName isnt "Identity"
+            resultHeader = headerTemplate content
+            resultClass = classTemplate content
+        else 
+            resultHeader = identityModuleHeaderTemplate content
+            resultClass = identityModuleClassTemplate content
+
         outputFolder = 'PhoenixURLs/output/' + 'ObjC/'
-        
+
         file = outputFolder + 'TSPhoenix' + content.moduleName + '.h'
         console.log('writing to ' + file)
-        fs.writeFileSync(file, result)
+        fs.writeFileSync(file, resultHeader)
 
         #generate Obj-C class file (.c)
-        result = classTemplate content
         outputFolder = 'PhoenixURLs/output/' + 'ObjC/'
 
         file = outputFolder + 'TSPhoenix' + content.moduleName + '.c'
         console.log('writing to ' + file)
-        fs.writeFileSync(file, result)
+        fs.writeFileSync(file, resultClass)
+            
+
+
 
         
