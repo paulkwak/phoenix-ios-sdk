@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="lFK-ws-AFD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="OuF-fJ-WHz">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -7,7 +7,6 @@
         <!--Login View Controller-->
         <scene sceneID="uBo-to-O81">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sQ5-w5-406" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lFK-ws-AFD" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SCK-b0-psy"/>
@@ -30,7 +29,7 @@
                                 <rect key="frame" x="59" y="208" width="200" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qym-zL-AvR">
                                 <rect key="frame" x="221" y="248" width="38" height="30"/>
@@ -38,6 +37,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginButtonHandler:" destination="lFK-ws-AFD" eventType="touchUpInside" id="hsS-ad-zD6"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XmQ-59-cax">
                                 <rect key="frame" x="40" y="40" width="240" height="120"/>
@@ -65,14 +67,19 @@
                             <outletCollection property="gestureRecognizers" destination="uue-HX-d07" appends="YES" id="Lsc-2G-uAy"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="loginTextField" destination="FAB-HP-q1V" id="rYo-m5-7lk"/>
+                        <outlet property="passwordTextField" destination="avQ-d2-ilz" id="V3m-F2-nh5"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sQ5-w5-406" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="uue-HX-d07">
                     <connections>
                         <action selector="hideKeyboardTapGesture:" destination="lFK-ws-AFD" id="jcw-x8-OC1"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="250" y="72"/>
+            <point key="canvasLocation" x="980" y="72"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="LQD-R8-a8N">
