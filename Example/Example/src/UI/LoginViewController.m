@@ -23,16 +23,9 @@
     return self;
 }
 
-- (void)viewDidLoad
+- (IBAction)hideKeyboardTapGesture:(UITapGestureRecognizer *)sender
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self.view endEditing:YES];
 }
 
 /*
@@ -45,5 +38,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end

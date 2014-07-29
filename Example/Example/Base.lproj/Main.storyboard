@@ -7,6 +7,7 @@
         <!--Login View Controller-->
         <scene sceneID="uBo-to-O81">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sQ5-w5-406" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lFK-ws-AFD" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SCK-b0-psy"/>
@@ -16,25 +17,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FAB-HP-q1V">
-                                <rect key="frame" x="66" y="283" width="188" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FAB-HP-q1V">
+                                <rect key="frame" x="59" y="170" width="200" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="swA-OF-hHx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="avQ-d2-ilz">
+                                <rect key="frame" x="59" y="208" width="200" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="avQ-d2-ilz">
-                                <rect key="frame" x="66" y="321" width="188" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qym-zL-AvR">
+                                <rect key="frame" x="221" y="248" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <state key="normal" title="Login">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XmQ-59-cax">
+                                <rect key="frame" x="40" y="40" width="240" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="eQJ-ym-uXW"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="FAB-HP-q1V" firstAttribute="width" secondItem="avQ-d2-ilz" secondAttribute="width" id="PUp-4j-SW1"/>
+                            <constraint firstItem="FAB-HP-q1V" firstAttribute="top" secondItem="XmQ-59-cax" secondAttribute="bottom" constant="10" id="Qfh-wF-QIq"/>
+                            <constraint firstItem="Qym-zL-AvR" firstAttribute="top" secondItem="avQ-d2-ilz" secondAttribute="bottom" constant="10" id="S5n-e0-oXn"/>
+                            <constraint firstItem="XmQ-59-cax" firstAttribute="leading" secondItem="f8M-Hm-26T" secondAttribute="leading" constant="40" id="TCb-aY-vXp"/>
+                            <constraint firstItem="avQ-d2-ilz" firstAttribute="trailing" secondItem="FAB-HP-q1V" secondAttribute="trailing" id="W78-tn-dgQ"/>
+                            <constraint firstAttribute="trailing" secondItem="XmQ-59-cax" secondAttribute="trailing" constant="40" id="a1d-a2-c6J"/>
+                            <constraint firstItem="Qym-zL-AvR" firstAttribute="trailing" secondItem="avQ-d2-ilz" secondAttribute="trailing" id="qkh-5e-5qv"/>
+                            <constraint firstItem="XmQ-59-cax" firstAttribute="top" secondItem="SCK-b0-psy" secondAttribute="bottom" constant="20" id="vuO-Ub-uHE"/>
+                            <constraint firstItem="avQ-d2-ilz" firstAttribute="top" secondItem="FAB-HP-q1V" secondAttribute="bottom" constant="8" symbolic="YES" id="zQj-ze-rqe"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="uue-HX-d07" appends="YES" id="Lsc-2G-uAy"/>
+                        </connections>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sQ5-w5-406" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="uue-HX-d07">
+                    <connections>
+                        <action selector="hideKeyboardTapGesture:" destination="lFK-ws-AFD" id="jcw-x8-OC1"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="222" y="68"/>
+            <point key="canvasLocation" x="250" y="72"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="LQD-R8-a8N">
@@ -49,11 +87,14 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g7a-dd-Avl">
-                                <rect key="frame" x="-34" y="519" width="320" height="49"/>
+                                <rect key="frame" x="-17" y="514" width="354" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <tabBarItem systemItem="favorites" id="nv8-1x-7QX"/>
+                                    <tabBarItem title="Home" id="nv8-1x-7QX"/>
+                                    <tabBarItem title="Item" id="y3k-0V-WIP"/>
+                                    <tabBarItem title="Item" id="LhM-KM-BZO"/>
+                                    <tabBarItem title="Item" id="k1b-cx-RMX"/>
                                     <tabBarItem systemItem="more" id="WAS-w0-utl"/>
                                 </items>
                             </tabBar>
