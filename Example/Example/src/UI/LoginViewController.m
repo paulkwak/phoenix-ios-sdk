@@ -14,25 +14,28 @@
 
 @implementation LoginViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+#pragma mark - User Interaction
+
+- (IBAction)hideKeyboardTapGesture:(UITapGestureRecognizer *)sender
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    [self.view endEditing:YES];
+}
+
+- (IBAction)loginButtonHandler:(UIButton *)sender
+{
+    if (self.loginTextField.text.length > 0 && self.passwordTextField.text.length > 0)
+    {
+        [self loginWithUsername:self.loginTextField.text
+                       password:self.passwordTextField.text];
     }
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    else
+    {
+        [[[UIAlertView alloc] initWithTitle:@""
+                                    message:@"Please enter username & password"
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+    }
 }
 
 /*
@@ -45,5 +48,24 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - Login
+
+- (void)loginWithUsername:(NSString *)username password:(NSString *)password
+{
+    [[TSPhoenixClient identity] authenticateWithUsername:username
+                                                password:password
+                                                 success:^(AFOAuthCredential *credential) {
+                                                     [self dismissViewControllerAnimated:YES completion:nil];
+                                                 }
+                                                 failure:^(NSError *error) {
+                                                     [[[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                 message:error.localizedDescription
+                                                                                delegate:nil
+                                                                       cancelButtonTitle:@"OK"
+                                                                       otherButtonTitles:nil] show];
+                                                 }];
+}
+
 
 @end
