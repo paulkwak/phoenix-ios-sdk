@@ -15,7 +15,6 @@
 		AAA3831D18851AD80038A36D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA3831C18851AD80038A36D /* main.m */; };
 		AAA3832118851AD80038A36D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA3832018851AD80038A36D /* AppDelegate.m */; };
 		AAA3832418851AD80038A36D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAA3832218851AD80038A36D /* Main.storyboard */; };
-		AAA3832718851AD80038A36D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA3832618851AD80038A36D /* ViewController.m */; };
 		AAA3832918851AD80038A36D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA3832818851AD80038A36D /* Images.xcassets */; };
 		AAA3833018851AD80038A36D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA3832F18851AD80038A36D /* XCTest.framework */; };
 		AAA3833118851AD80038A36D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA3831018851AD80038A36D /* Foundation.framework */; };
@@ -57,8 +56,6 @@
 		AAA3831F18851AD80038A36D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AAA3832018851AD80038A36D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		AAA3832318851AD80038A36D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		AAA3832518851AD80038A36D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		AAA3832618851AD80038A36D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		AAA3832818851AD80038A36D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AAA3832E18851AD80038A36D /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA3832F18851AD80038A36D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -190,8 +187,6 @@
 				D4DE34DF1986128700DD0D75 /* Home */,
 				D4DE34DE1986128200DD0D75 /* Login */,
 				AAA3832218851AD80038A36D /* Main.storyboard */,
-				AAA3832518851AD80038A36D /* ViewController.h */,
-				AAA3832618851AD80038A36D /* ViewController.m */,
 				D4ED69E9198877EA00A3A71C /* RootTabBarController.h */,
 				D4ED69EA198877EA00A3A71C /* RootTabBarController.m */,
 			);
@@ -413,7 +408,6 @@
 				D4ED69EB198877EA00A3A71C /* RootTabBarController.m in Sources */,
 				D4FFE83F19872083004C169A /* LoginViewController.m in Sources */,
 				D4ED69E8198872EE00A3A71C /* AnalyticViewController.m in Sources */,
-				AAA3832718851AD80038A36D /* ViewController.m in Sources */,
 				AAA3832118851AD80038A36D /* AppDelegate.m in Sources */,
 				D4FFE842198720F5004C169A /* HomeViewController.m in Sources */,
 				AAA3831D18851AD80038A36D /* main.m in Sources */,
