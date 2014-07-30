@@ -1,0 +1,11 @@
+{
+  "urls": [
+	"http://developers.dev.phoenixplatform.com.sg/api/documentation/operationMap?moduleName=Identity",
+	"http://developers.dev.phoenixplatform.com.sg/api/documentation/operationMap?moduleName=Messaging", 
+	"http://developers.dev.phoenixplatform.com.sg/api/documentation/operationMap?moduleName=Media", 
+	"http://developers.dev.phoenixplatform.com.sg/api/documentation/operationMap?moduleName=Syndicate",
+	"http://developers.dev.phoenixplatform.com.sg/api/documentation/operationMap?moduleName=Commerce",
+	"http://developers.dev.phoenixplatform.com.sg/api/documentation/operationMap?moduleName=Analytics",
+  	"http://developers.dev.phoenixplatform.com.sg/api/documentation/operationMap?moduleName=Forum"
+]
+}
