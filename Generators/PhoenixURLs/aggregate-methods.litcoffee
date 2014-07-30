@@ -17,7 +17,6 @@ Helper function: fetch URL to get back JSON
 
     getJSONsSaveIntoDisk = (url) ->
       request.get { url, json: true }, (err, r, body) ->
-        console.log ('url inner :' + url)
         results = body
         filename =  url.split('=').pop()
         filename = firstToUpperCase filename
