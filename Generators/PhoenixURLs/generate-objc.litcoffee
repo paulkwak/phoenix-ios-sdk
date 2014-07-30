@@ -57,9 +57,11 @@ All generated models are saved in this object
     
 Load handlebar.js templates
     
+    #Template for normal phoenix header file
     headerTemplateString = fs.readFileSync('PhoenixURLs/templates/header.hbs', 'utf8')
     headerTemplate = Handlebars.compile headerTemplateString 
     
+    #Template for normal phoenix class file
     classTemplateString = fs.readFileSync('PhoenixURLs/templates/class.hbs', 'utf8')
     classTemplate = Handlebars.compile classTemplateString 
 
@@ -263,8 +265,4 @@ Helper function: get all customise objects
         file = outputFolder + 'TSPhoenix' + content.moduleName + '.c'
         console.log('writing to ' + file)
         fs.writeFileSync(file, resultClass)
-            
-
-
-
         
