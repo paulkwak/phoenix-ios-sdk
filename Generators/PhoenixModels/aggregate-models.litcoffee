@@ -11,7 +11,7 @@ env.json defines a set of URLs containing Phoenix API documentations.
 using different config.json allows us to switch between environments (live, uat, dev, whatever)
 
     # config = JSON.parse(fs.readFileSync('config.json', 'utf8'))
-    config = JSON.parse(fs.readFileSync('env-uat.json', 'utf8'))
+    config = JSON.parse(fs.readFileSync('./PhoenixModels/env-target.json', 'utf8'))
     
     urls = config.urls
     
@@ -25,7 +25,7 @@ this function takes a response which is an API webpage, and extracts content fro
     
     func = (error, response, body) ->
       if error
-        consoloe.log error
+        console.log error
         return
   
 DOM magic      

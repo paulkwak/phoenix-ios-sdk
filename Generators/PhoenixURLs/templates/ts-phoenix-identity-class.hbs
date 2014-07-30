@@ -251,6 +251,7 @@
 #pragma mark - API methods
 {{#each apiMethods}}
 /* {{{Description}}} */
+/*
 - (void){{{api_method_name}}}WithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{{{generate_api_parameters}}}
 {
     NSString *path = {{{generate_url_path}}};
@@ -262,6 +263,7 @@
                  success:success
                  failure:failure];
 }
+*/
 {{/each}}
 
 #pragma mark - 

@@ -12,12 +12,12 @@ add mapping information to the properties in JSON object tree
 TODO: put this in config.json
     
     files = [
-    	# "output/Analytics.json",
+    	"output/Analytics.json",
         "output/Identity.json",
-    	# "output/Messaging.json",
-    	# "output/Commerce.json",
-    	# "output/Media.json",
-    	# "output/Syndicate.json",
+    	"output/Messaging.json",
+    	"output/Commerce.json",
+    	"output/Media.json",
+    	"output/Syndicate.json",
         "output/Forum.json"
     ]
     
@@ -104,7 +104,7 @@ Handlebars.js template helper: generate any related class name for .c file
         str = "";
         for className, i in allObjCModels.modelNames
             if className.substr(0, 2) is "TS"
-                str += "#import \"" + className + ".h\n"
+                str += "#import \"" + className + ".h\"\n"
         str
 
 Handlebars.js template helper: generate API name
@@ -229,7 +229,7 @@ Helper function: get all customise objects
 
     result = moduleAbastractClassTemplate allObjCModels
     file = 'PhoenixURLs/output/' + 'ObjC/' + 'TSPhoenixModuleAbastract' + '.m'
-    console.log('\nwriting to ' + file)
+    console.log('writing to ' + file)
     fs.writeFileSync(file, result)
 
     #generate Phoenix API classes
@@ -239,13 +239,13 @@ Helper function: get all customise objects
         content = JSON.parse(fs.readFileSync(filePath, 'utf8'))
         apiMethods = content.apiMethods
 
+
         for apiMethod in apiMethods
             getAllCustomiseObject apiMethod.RequiredProperties
 
         #generate Obj-C header file (.h)
         moduleName = file.split('/')[1]
         moduleName = moduleName.replace ".json", ""
-        console.log("module name: " + moduleName)
         if moduleName isnt "Identity"
             resultHeader = headerTemplate content
             resultClass = classTemplate content
@@ -256,7 +256,7 @@ Helper function: get all customise objects
         outputFolder = 'PhoenixURLs/output/' + 'ObjC/'
 
         file = outputFolder + 'TSPhoenix' + content.moduleName + '.h'
-        console.log('writing to ' + file)
+        console.log('\nwriting to ' + file)
         fs.writeFileSync(file, resultHeader)
 
         #generate Obj-C class file (.c)
