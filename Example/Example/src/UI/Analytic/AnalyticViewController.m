@@ -1,19 +1,27 @@
 //
-//  HomeViewController.m
+//  AnalyticViewController.m
 //  Example
 //
-//  Created by Son Nguyen on 29/07/2014.
+//  Created by Son Nguyen on 30/07/2014.
 //  Copyright (c) 2014 Tigerspike Products. All rights reserved.
 //
 
-#import "HomeViewController.h"
+#import "AnalyticViewController.h"
 
-@interface HomeViewController ()
+@interface AnalyticViewController ()
 
 @end
 
-@implementation HomeViewController
+@implementation AnalyticViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
 
 /*
 #pragma mark - Navigation
