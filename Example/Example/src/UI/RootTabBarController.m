@@ -8,8 +8,6 @@
 
 #import "RootTabBarController.h"
 
-#import "HomeViewController.h"
-
 #import "LoginViewController.h"
 
 @interface RootTabBarController ()
@@ -22,20 +20,29 @@
 {
     [super awakeFromNib];
     
-    
-    HomeViewController *homeViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeViewController"];
+    UINavigationController *homeNavigationController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeNavigationController"];
     UINavigationController *mediaNavigationController = [[UIStoryboard storyboardWithName:@"MediaStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"MediaNavigationController"];
     UINavigationController *analyticViewController = [[UIStoryboard storyboardWithName:@"AnalyticStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"AnalyticNavigationController"];
     UINavigationController *messageNavigationController = [[UIStoryboard storyboardWithName:@"MessageStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"MessageNavigationController"];
     UINavigationController *syndicateNavigationController = [[UIStoryboard storyboardWithName:@"SyndicateStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"SyndicateNavigationController"];
     
-    self.viewControllers = @[homeViewController, syndicateNavigationController, mediaNavigationController, messageNavigationController, analyticViewController];
+    self.viewControllers = @[homeNavigationController, syndicateNavigationController, mediaNavigationController, messageNavigationController, analyticViewController];
+    
+    
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidLoad
 {
-    [super viewWillAppear:animated];
+    [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(showLoginIfNotAuthenticated)
+                                                 name:kPhoenixIdentityDidLogoutNotification
+                                               object:nil];
+}
+
+- (void)showLoginIfNotAuthenticated
+{
     if (![TSPhoenixClient identity].isUserAuthenticated)
     {
         LoginViewController *loginViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];

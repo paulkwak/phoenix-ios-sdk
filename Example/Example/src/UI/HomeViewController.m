@@ -14,6 +14,10 @@
 
 @implementation HomeViewController
 
+- (IBAction)logoutButtonHandler:(UIButton *)sender
+{
+    [[TSPhoenixClient identity] logout];
+}
 
 /*
 #pragma mark - Navigation
