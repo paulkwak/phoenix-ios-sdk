@@ -25,7 +25,7 @@ this function takes a response which is an API webpage, and extracts content fro
     
     func = (error, response, body) ->
       if error
-        consoloe.log error
+        console.log error
         return
   
 DOM magic      

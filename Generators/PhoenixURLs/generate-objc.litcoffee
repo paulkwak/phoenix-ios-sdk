@@ -12,12 +12,12 @@ add mapping information to the properties in JSON object tree
 TODO: put this in config.json
     
     files = [
-    	# "output/Analytics.json",
+    	"output/Analytics.json",
         "output/Identity.json",
-    	# "output/Messaging.json",
-    	# "output/Commerce.json",
-    	# "output/Media.json",
-    	# "output/Syndicate.json",
+    	"output/Messaging.json",
+    	"output/Commerce.json",
+    	"output/Media.json",
+    	"output/Syndicate.json",
         "output/Forum.json"
     ]
     

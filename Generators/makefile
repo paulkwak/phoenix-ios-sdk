@@ -7,7 +7,7 @@ all:
 	#make generate-phoenix-SDK-LIVE
 
 generate-phoenix-SDK-UAT:
-	make generate-phoenix-models-UAT
+	#make generate-phoenix-models-UAT
 	make generate-phoenix-api-urls-UAT
 
 generate-phoenix-SDK-LIVE:
@@ -66,15 +66,18 @@ ifeq ($(wildcard $(PHOENIX_APIS_ENV_UAT_JSON_FILE)), )
 #This will stop the make trying to resolve HEADER_FILES for echo :)
 	echo "ERROR: $(PHOENIX_APIS_ENV_UAT_JSON_FILE)"
 else
-	mkdir -p ./PhoenixURLs/output/ObjC
+	cp $(PHOENIX_APIS_ENV_UAT_JSON_FILE) ./PhoenixURLs/env-target.json
 
-	
+	mkdir -p ./PhoenixModels/output
+	coffee ./PhoenixURLs/aggregate-methods.litcoffee
+
+	mkdir -p ./PhoenixURLs/output/ObjC
 	coffee ./PhoenixURLs/generate-objc.litcoffee
 
 	mkdir -p ./output/PhoenixURLs-UAT
 	cp -r ./PhoenixURLs/output/ObjC ./output/PhoenixURLs-UAT/.
 
-	make clean-urls
+	#make clean-urls
 endif
 
 generate-phoenix-api-urls-LIVE:
@@ -82,13 +85,18 @@ ifeq ($(wildcard $(PHOENIX_APIS_ENV_LIVE_JSON_FILE)), )
 #This will stop the make trying to resolve HEADER_FILES for echo :)
 	echo "ERROR: $(PHOENIX_APIS_ENV_LIVE_JSON_FILE)"
 else
+	cp $(PHOENIX_APIS_ENV_LIVE_JSON_FILE) ./PhoenixURLs/env-target.json
+
+	mkdir -p ./PhoenixModels/output
+	coffee ./PhoenixURLs/aggregate-methods.litcoffee
+
 	mkdir -p ./PhoenixURLs/output/ObjC
-	coffee ./PhoenixURLs/generate-objc.
+	coffee ./PhoenixURLs/generate-objc.litcoffee
 
 	mkdir -p ./output/PhoenixURLs-LIVE
 	cp -r ./PhonixURLs/output/ObjC ./output/PhoenixURLs-LIVE/.
 
-	make clean-urls
+	#make clean-urls
 endif
 
 clean-models:

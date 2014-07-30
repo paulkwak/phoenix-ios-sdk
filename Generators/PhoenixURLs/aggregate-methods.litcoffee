@@ -1,94 +1,163 @@
-Aggregate URLs from C# source code, save to JSON files
-______________________________________________________
 
-This is a simple parser script that uses regex to inspect a source file and extract URLs
 
-    # Parser = require "simple-text-parser"
-    fs = require "fs"
-    url = require "url"
-    #VerEx = require("verbal-expressions");
-    
-    #beginRegionEx = VerEx().startOfLine().multiple(" ").then("#region").multiple(" ").then("\"").word().then("\"").anything()
-    
-    # matches         #region "ActivateModule"
-    # beginRegionRegex = /^\s+\#region\s\"[\w]+"/im
+    request = require 'request'
+    cheerio = require 'cheerio'
+    fs = require 'fs'
+    url = require 'url'
+    async = require 'async'
 
-matching Description(xxxxx)
-    
-    descriptionRegex = /\[Description\(\"\w+\"\)\]/i
-    
-matching         public const string ListActivity = "/projects/{projectId}/activity"; 
+env.json defines a set of URLs containing Phoenix API documentations.
 
-    methodPathRegex = /^\s+public const string.+"\/.+"/im
-    
-matching        public const string ListActivityVerb = "GET"; 
+using different config.json allows us to switch between environments (live, uat, dev, whatever)
 
-    methodVerbRegex = /^\s+public const string.+"\w+"/im
+    # config = JSON.parse(fs.readFileSync('config.json', 'utf8'))
+    config = JSON.parse(fs.readFileSync('./PhoenixURLs/env-target.json', 'utf8'))
     
-extract		what's in between "quotes"
+    urls = config.urls
+    
 
-    extractionRegex = /".*?"/g
+print out all URLs that this script is working with
+
+    for aUrl in urls
+      console.log aUrl
+
+this function takes a response which is an API webpage, and extracts content from it.
     
-TODO put in phoenix-config.json
+    func = (error, response, body) ->
+      if error
+        console.log error
+        return
+  
+DOM magic      
+
+      # each section correspond to a class
+      $ = cheerio.load(body)
+      console.log('response result: ' + $)
+      sections = $ 'section'    
+
+Each DOM section corresponds to a type, such as "Project", "User" or "Article"
+
+The resulting JSON model is saved in "allModels" array
+
+      allModels = []
+      
+      for aSection in sections
+      
+Scrape the DOM and convert it into a model in JS
+      
+        model = {}
+        model.name = $(aSection).attr 'id'
+        # console.log model.name
+        
+Navigate through DOM to extract content    
     
-    paths = [
-    	"PhoenixSRC/PhoenixAnalyticsServiceEndPoint.cs",
-    	"PhoenixSRC/PhoenixCommerceServiceEndPoint.cs",
-    	"PhoenixSRC/PhoenixDataCaptureServiceEndPoint.cs",
-    	"PhoenixSRC/PhoenixIdentityServiceEndPoint.cs",
-    	"PhoenixSRC/PhoenixMediaServiceEndPoint.cs",
-    	"PhoenixSRC/PhoenixMessagingServiceEndPoint.cs",
-    	"PhoenixSRC/PhoenixProjectServiceEndPoint.cs",
-    	"PhoenixSRC/PhoenixSyndicateServiceEndPoint.cs"
-    ]
+All properties are contained in a table
+
+        model.properties = []
+        table = $(aSection).find('table')[0]
+        tbody = $(table).find('tbody')[0]
+        # rows = $(tbody).find('tr')
+        rows = $(tbody).children()
+        
+Each row describes the property's name, type (integeter, string, ...) and possible values.
+        
+        
+        for aRow in rows
+          newProperty = {}
+          newProperty.name = $(aRow.children[0]).text()
+          typeTD = aRow.children[1]
+          if typeTD
+            typeAnchor = $(aRow.children[1]).find('.systype')[0]
+            
+If the type is not an URL link, it's a primitive type (e.g. string, numbers) 
+            
+            if typeAnchor
+              type = $(typeAnchor).text()
+              newProperty.type = type
+            else
+            
+Otherwise, it is either an enum or relationship, or list of key value pairs
+            
+              # This is not a primitive type
+              # may be a enum
+              anchor = $(aRow.children[1]).find('a')[0]
+              
+Special case: list of key value pairs??
+              
+              # if anchor is null
+              #   newProperty.type = $(aRow.children[1]).text()
+              if newProperty.name is 'MetaDataParameters'
+                newProperty.type = "List<KeyValuePair<string, string>>"
+              
+              
+              if (anchor)
+                href = $(anchor).attr('href')
+
+Is this an array expansion?
+
+                anchorText = $(anchor).text()
+                if anchorText.match(/\[/) isnt null
+                  newProperty.anchor = response.request.uri.path + href
+                  newProperty.type = "relationship.array"
+
+Or a property expansion
+
+                else if href.match("enum") is null
+                  # this is a link
+                  newProperty.anchor = response.request.uri.path + href
+                  newProperty.type = "relationship"
+
+                
+
+this is a enum
+
+                else
+                  enumList = {name:$(anchor).text(), type:"enum"}
+                  enumList.values = []
+                  
+                  enumRows = $(aRow.children[1]).find('tr')
+                  
+The first row is table header 
+                  
+                  for enumRow in enumRows
+                    tds = $(enumRow).find('td')
+                    
+Skip empty row
+
+                    if tds.length is 0
+                      continue
+                      
+                    enumList.values.push $(tds[0]).text()
+                  
+TODO: extract enum value as well
+                  
+                  newProperty.enumList = enumList
+                  newProperty.type = "enumList"
+                  
+                newProperty.href = $(anchor).attr('href')
+              
+              # or a relation ship to other Object. E.g. article.section
+              # we will ignore the relationshiop, and use article.sectionId instead
+          else
+            # console.log('This row ' + $(aRow).text() + 'doesn't have type anchor')
+          model.properties.push newProperty
+        
+        allModels.push model
     
-    
-    handler = (path, data) ->
-    	methods = []
-    	methodName = ""
-    	methodPath = ""
-    	methodVerb = ""
-    	
-    	lines = data.split "\n"
-    	for aLine in lines
-    
-    		if methodPathRegex.test(aLine)
-    			# console.log aLine
-    			if (!newMethod)
-    				newMethod = {}
-    				# newMethod.name = methodName
-    				# methods.push newMethod
-    			methodPath = aLine.match(extractionRegex)[0].split("\"").join("")
-    			newMethod.path = methodPath
-    			continue
-    
-    		if methodVerbRegex.test(aLine)
-    			# console.log aLine
-    			methodVerb = aLine.match(extractionRegex)[0].split("\"").join("")
-    			newMethod.verb = methodVerb
-    			continue
-    			
-    		if descriptionRegex.test(aLine)
-    			# console.log aLine
-    			# newMethod = {}
-    			methodName = aLine.match(extractionRegex)[0].split("\"").join("")
-    			newMethod.name = methodName
-    			methods.push newMethod
-    			newMethod = false
-    			continue
-    			
-    	serializedText = JSON.stringify methods,undefined,4
-    		
-    	urlparts = url.parse(path, true)
-    	filename =  urlparts.path.split('/').pop()
-    	filename = filename.split('.')[0] # strip .cs file extension
-    	filename = filename + '.json'
-    	console.log('writing to ' + filename)
-    	fs.writeFileSync("output/" + filename, serializedText)
-    	
-    
-    for path in paths
-    	data = fs.readFileSync(path, "utf8")
-    	if data
-    		handler path, data
+
+Serialize and save to disk
+            
+      serializedText = JSON.stringify allModels,undefined,4
+        
+      urlparts = url.parse(response.request.uri.path, true)
+      filename =  urlparts.path.split('/').pop()
+      filename = filename.split('=')[1]
+      filename = filename + '.json'
+      console.log('writing to ' + filename)
+      fs.writeFileSync("PhoenixURLs/output/" + filename, serializedText)
+
+Unleash the workers     
+
+    async.forEach urls, ((apiUrl) -> (request apiUrl,func))
+
     
