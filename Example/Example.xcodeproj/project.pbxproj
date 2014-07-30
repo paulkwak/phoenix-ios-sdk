@@ -27,6 +27,8 @@
 		D4DE34EC198635EC00DD0D75 /* MessageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4DE34EB198635EC00DD0D75 /* MessageStoryboard.storyboard */; };
 		D4DE34EE1986360200DD0D75 /* MediaStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4DE34ED1986360200DD0D75 /* MediaStoryboard.storyboard */; };
 		D4DE34F2198636F500DD0D75 /* AnalyticStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4DE34F1198636F500DD0D75 /* AnalyticStoryboard.storyboard */; };
+		D4ED69E8198872EE00A3A71C /* AnalyticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ED69E7198872EE00A3A71C /* AnalyticViewController.m */; };
+		D4ED69EB198877EA00A3A71C /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ED69EA198877EA00A3A71C /* RootTabBarController.m */; };
 		D4FFE83F19872083004C169A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FFE83E19872083004C169A /* LoginViewController.m */; };
 		D4FFE842198720F5004C169A /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FFE841198720F5004C169A /* HomeViewController.m */; };
 /* End PBXBuildFile section */
@@ -68,6 +70,10 @@
 		D4DE34EB198635EC00DD0D75 /* MessageStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MessageStoryboard.storyboard; path = src/UI/Message/MessageStoryboard.storyboard; sourceTree = "<group>"; };
 		D4DE34ED1986360200DD0D75 /* MediaStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MediaStoryboard.storyboard; path = src/UI/Media/MediaStoryboard.storyboard; sourceTree = "<group>"; };
 		D4DE34F1198636F500DD0D75 /* AnalyticStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AnalyticStoryboard.storyboard; path = src/UI/Analytic/AnalyticStoryboard.storyboard; sourceTree = "<group>"; };
+		D4ED69E6198872EE00A3A71C /* AnalyticViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnalyticViewController.h; path = src/UI/Analytic/AnalyticViewController.h; sourceTree = "<group>"; };
+		D4ED69E7198872EE00A3A71C /* AnalyticViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnalyticViewController.m; path = src/UI/Analytic/AnalyticViewController.m; sourceTree = "<group>"; };
+		D4ED69E9198877EA00A3A71C /* RootTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootTabBarController.h; path = src/UI/RootTabBarController.h; sourceTree = "<group>"; };
+		D4ED69EA198877EA00A3A71C /* RootTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootTabBarController.m; path = src/UI/RootTabBarController.m; sourceTree = "<group>"; };
 		D4FFE83D19872083004C169A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = src/UI/LoginViewController.h; sourceTree = "<group>"; };
 		D4FFE83E19872083004C169A /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = src/UI/LoginViewController.m; sourceTree = "<group>"; };
 		D4FFE840198720F5004C169A /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = src/UI/HomeViewController.h; sourceTree = "<group>"; };
@@ -186,6 +192,8 @@
 				AAA3832218851AD80038A36D /* Main.storyboard */,
 				AAA3832518851AD80038A36D /* ViewController.h */,
 				AAA3832618851AD80038A36D /* ViewController.m */,
+				D4ED69E9198877EA00A3A71C /* RootTabBarController.h */,
+				D4ED69EA198877EA00A3A71C /* RootTabBarController.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -235,6 +243,8 @@
 			isa = PBXGroup;
 			children = (
 				D4DE34F1198636F500DD0D75 /* AnalyticStoryboard.storyboard */,
+				D4ED69E6198872EE00A3A71C /* AnalyticViewController.h */,
+				D4ED69E7198872EE00A3A71C /* AnalyticViewController.m */,
 			);
 			name = Analytics;
 			sourceTree = "<group>";
@@ -400,7 +410,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4ED69EB198877EA00A3A71C /* RootTabBarController.m in Sources */,
 				D4FFE83F19872083004C169A /* LoginViewController.m in Sources */,
+				D4ED69E8198872EE00A3A71C /* AnalyticViewController.m in Sources */,
 				AAA3832718851AD80038A36D /* ViewController.m in Sources */,
 				AAA3832118851AD80038A36D /* AppDelegate.m in Sources */,
 				D4FFE842198720F5004C169A /* HomeViewController.m in Sources */,
