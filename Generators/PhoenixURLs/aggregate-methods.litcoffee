@@ -18,6 +18,18 @@ Helper function: fetch URL to get back JSON
     getJSONsSaveIntoDisk = (url) ->
       request.get { url, json: true }, (err, r, body) ->
         results = body
+
+        for apiMethod in results
+            str = apiMethod.Name
+            if str.substr(0, 6) is 'Create'
+                apiMethod.createAPI = "Yes"
+            else if str.substr(0, 4) is 'List'
+                apiMethod.listAPI = "Yes"
+            else if str.substr(0, 6) is 'Delete'
+                apiMethod.deleteAPI = "Yes"
+            else 
+                apiMethod.otherAPI = "Yes"
+
         filename =  url.split('=').pop()
         filename = firstToUpperCase filename
 

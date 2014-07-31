@@ -40,16 +40,7 @@ EventLogAggregate is empty in Documentation site...
     ]
     
 A few outliers that don't follow convention
-    
-    identifierOverride = {
-    	'ProjectAccountMap': 'accountID',
-    	'ArticleInteraction': 'createDate',
-    	'ProjectModuleMap': 'moduleID'
-    }
-    
-    collectionNameOverride = {
-    	
-    }
+
 
 All generated models are saved in this object
     
@@ -184,8 +175,14 @@ Handlebars.js template helper: generate parameters string for calling webservice
 
         if this.UriVerb isnt 'GET' and this.UriVerb isnt 'DELETE'
             str = 'parameters'
-        str 
+        str
 
+Handlebars.js template helper: generate object type for sucess block
+
+    Handlebars.registerHelper 'generate_success_response_object', func = () ->
+        str = 'id'
+
+        str
 
 Helper function: converting first character to lower case
     

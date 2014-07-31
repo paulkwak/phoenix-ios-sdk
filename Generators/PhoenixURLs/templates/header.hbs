@@ -15,7 +15,7 @@
 
 {{#each apiMethods}}
 /* {{{Description}}} */
-- (void){{{api_method_name}}}WithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{{{generate_api_parameters}}};
+- (void){{{api_method_name}}}WithCompletion:(void (^)({{{generate_success_response_object_type}}} response, NSError *error))completion{{{generate_api_parameters}}};
 
 {{/each}}
 

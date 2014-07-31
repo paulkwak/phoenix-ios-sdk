@@ -8,6 +8,7 @@
 
 #import "TSPhoenix{{{moduleName}}}.h"
 #import <AFOAuth2Client@phoenixplatform/AFOAuth2Client.h>
+#import "TSPaginator.h"
 
 {{{generate_class_file_in_c}}}
 
@@ -57,16 +58,90 @@
 #pragma mark - API methods
 {{#each apiMethods}}
 /* {{{Description}}} */
-- (void){{{api_method_name}}}WithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{{{generate_api_parameters}}}
+- (void){{{api_method_name}}}WithCompletion:(void (^)({{{generate_success_response_object_type}}} response, NSError *error))completion{{{generate_api_parameters}}}
 {
     NSString *path = {{{generate_url_path}}};
 
+    // request params
     {{{generate_request_parameters}}}
 
-    [self.client {{{UriVerb}}}:path
-              parameters:{{{request_parameters_result}}}
-                 success:success
-                 failure:failure];
+    {{#if createAPI}}
+    [self.client {{{UriVerb}}}:path parameters:{{{request_parameters_result}}} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSArray *results;
+
+        id data = [responseObject valueForKey:@"Data"];
+
+        if ([data isKindOfClass:[{{{generate_success_response_object_type}}} class]]) {
+            NSArray *array = data;
+            results = [array mapObjectsUsingBlock:^id(id obj, NSUInteger idx) {
+                return [[{{{generate_success_response_object_type}}} alloc] initWithDictionary:obj];
+            }];
+        }
+
+        TS_BLOCK_SAFE_RUN(completion, [results firstObject], nil);
+                
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TS_BLOCK_SAFE_RUN(completion, nil, error);
+    }];
+    {{/if}}
+
+    {{#if deleteAPI}}
+    [self.client {{{UriVerb}}}:path parameters:{{{request_parameters_result}}} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        TS_BLOCK_SAFE_RUN(completion,comment,nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TS_BLOCK_SAFE_RUN(completion, nil, error);
+    }];
+    {{/if}}
+
+    {{#if listAPI}}
+    NSString *parameterString = [TSPhoenixParameter parameterStringFromParameters:parameters];
+    
+    NSString *pattern = [path stringByAppendingString:parameterString];
+    pattern = [pattern stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
+    
+    TSPaginator *paginator = [[TSPaginator alloc] initWithRequestPatternPath:pattern
+                                                                  httpClient:self.client];
+    
+    [self.client.paginators addObject:paginator];
+    
+    [paginator setObjectMappingBlock:^NSArray *(NSArray *sourceObjects) {
+        __block NSArray *destinationObjects;
+        
+        destinationObjects = [sourceObjects mapObjectsUsingBlock:^id(id obj, NSUInteger idx) {
+            {{{generate_success_response_object_type}}} *returnObj = [[{{{generate_success_response_object_type}}} alloc] initWithDictionary:obj];
+            return returnObj;
+        }];
+        
+        return destinationObjects;
+    }];
+    
+    // Need to do later
+    /*
+    [paginator loadFirstPageWithSuccess:^(TSPaginator *paginator, NSArray *objects, NSUInteger page) {
+        
+        [self.client saveObjectsToDatabase:objects
+                                completion:^{
+                                    [FUSEMANAGER connectCommentsFromArticle:article
+                                                                 toComments:objects];
+                                    
+                                    TS_BLOCK_SAFE_RUN(completion,paginator,objects, nil);
+                                    
+                                }];
+
+    */
+        
+    } failure:^(TSPaginator *paginator, NSError *error) {
+        NSLog(@"List comments failed with error: %@", error);
+        
+        TS_BLOCK_SAFE_RUN(completion, paginator, nil, error);
+    }];
+    {{/if}}
+    
+    {{#if otherAPI}}
+
+    {{/if}}
+    
 }
 {{/each}}
 
