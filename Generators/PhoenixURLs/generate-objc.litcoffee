@@ -6,7 +6,7 @@ add mapping information to the properties in JSON object tree
     mkdirp = require 'mkdirp'
     Handlebars = require 'handlebars'
     moment = require 'moment'
-    async = require 'async'
+    Set = require 'Set'
 
 
 TODO: put this in config.json
@@ -45,6 +45,8 @@ A few outliers that don't follow convention
 All generated models are saved in this object
     
     allObjCModels = {'modelNames':[]}
+
+    modelsSet = new Set()
     
 Load handlebar.js templates
     
@@ -80,10 +82,9 @@ Handlebars.js template helper: generate any related class name for .h file
 
     Handlebars.registerHelper 'generate_class_file_in_h', func = () ->
         str = "";
-        for className, i in allObjCModels.modelNames
-            if className.substr(0, 2) is "TS"
-                str += className
-                str += ", "
+        for className, i in modelsSet.toArray()
+            str += className
+            str += ", "
 
         if (str.length > 0)
             str = "@class " + str.substr(0, str.length-2) + ";"
@@ -93,9 +94,8 @@ Handlebars.js template helper: generate any related class name for .c file
     
     Handlebars.registerHelper 'generate_class_file_in_c', func = () ->
         str = "";
-        for className, i in allObjCModels.modelNames
-            if className.substr(0, 2) is "TS"
-                str += "#import \"" + className + ".h\"\n"
+        for className, i in modelsSet.toArray()
+            str += "#import \"" + className + ".h\"\n"
         str
 
 Handlebars.js template helper: generate API name
@@ -211,7 +211,7 @@ Helper function: get all customise objects
                 if requiredProp.Name is "Data"
                     isFound  = true
                     objectType = getProperDataTypeName requiredProp.Type
-                    allObjCModels.modelNames.push objectType
+                    modelsSet.add objectType
         
 ## entry point to this script
 
