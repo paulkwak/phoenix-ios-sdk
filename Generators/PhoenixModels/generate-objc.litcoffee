@@ -8,7 +8,6 @@ add mapping information to the properties in JSON object tree
     moment = require 'moment'
     async = require 'async'
 
-
 TODO: put this in config.json
     
     files = [
