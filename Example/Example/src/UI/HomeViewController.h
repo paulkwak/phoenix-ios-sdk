@@ -10,4 +10,7 @@
 
 @interface HomeViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UILabel *welcomeLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *profileImageView;
+
 @end

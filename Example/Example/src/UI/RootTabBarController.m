@@ -27,8 +27,6 @@
     UINavigationController *syndicateNavigationController = [[UIStoryboard storyboardWithName:@"SyndicateStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"SyndicateNavigationController"];
     
     self.viewControllers = @[homeNavigationController, syndicateNavigationController, mediaNavigationController, messageNavigationController, analyticViewController];
-    
-    
 }
 
 - (void)viewDidLoad

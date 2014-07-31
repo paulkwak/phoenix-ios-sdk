@@ -19,6 +19,35 @@
     [[TSPhoenixClient identity] logout];
 }
 
+- (IBAction)moreInfoButtonHandler:(UIButton *)sender
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://developers.phoenixplatform.com.sg/"]];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [self getUserData];
+}
+
+- (void)getUserData
+{
+    [[TSPhoenixClient identity] getMyUserWithCompletion:^(TSUser *user, NSError *error) {
+        if (error) {
+            [[[UIAlertView alloc] initWithTitle:@"Error"
+                                        message:error.localizedDescription
+                                       delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil] show];
+            return;
+        }
+        
+        self.welcomeLabel.text = [NSString stringWithFormat:@"%@ %@", user.firstName, user.lastName];
+        self.profileImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:user.imageUrl]]];
+    }];
+}
+
 /*
 #pragma mark - Navigation
 
