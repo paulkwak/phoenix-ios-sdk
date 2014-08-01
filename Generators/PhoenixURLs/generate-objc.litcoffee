@@ -197,7 +197,7 @@ Handlebars.js template helper: generate object parameters for success block
         if this.listAPI
             str = "TSPaginator *paginator, NSArray *object,"
         else if this.createAPI or this.deleteAPI or this.getAPI or this.updateAPI
-            str = getProperDataTypeName this.ResponseModelType + " *object,"
+            str = getProperDataTypeName this.ResponseModelType + " *object, "
         else
             
 

@@ -64,10 +64,12 @@
     // Build URL
     NSString *path = {{{generate_url_path}}};
 
+    
+
+    {{#if createAPI}}
     // request params
     {{{generate_request_parameters}}}
 
-    {{#if createAPI}}
     [self.client {{{UriVerb}}}:path parameters:{{{request_parameters_result}}} success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray *results;
 
@@ -104,14 +106,17 @@
     {{/if}}
 
     {{#if deleteAPI}}
+    // request params
+    {{{generate_request_parameters}}}
     [self.client {{{UriVerb}}}:path parameters:{{{request_parameters_result}}} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        TS_BLOCK_SAFE_RUN(completion,comment,nil);
+        TS_BLOCK_SAFE_RUN(completion, object, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         TS_BLOCK_SAFE_RUN(completion, nil, error);
     }];
     {{/if}}
 
     {{#if listAPI}}
+    NSArray *parameters = @[];
     NSString *parameterString = [TSPhoenixParameter parameterStringFromParameters:parameters];
     
     NSString *pattern = [path stringByAppendingString:parameterString];
