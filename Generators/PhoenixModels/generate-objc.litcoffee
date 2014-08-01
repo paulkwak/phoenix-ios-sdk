@@ -110,11 +110,11 @@ Handlebar.js template helper: identifier. Each class has its own unique identifi
     	if collectionName
     		this.collectionName = collectionName
     
-    	# assume the identifer is name + ID
+    	# assume the identifer is name + Id
     	if identifier
     		console.log '	using identifier override ' + identifier + ' for class ' + this.name
     	else
-    		identifier = firstToLowerCase this.name + 'ID'
+    		identifier = firstToLowerCase this.name + 'Id'
     	
     	found = false
     	for property in this.properties

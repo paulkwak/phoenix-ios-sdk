@@ -106,23 +106,27 @@ Handlebars.js template helper: generate API name
 Handlebars.js template helper: generate API parameters
 
     Handlebars.registerHelper 'generate_api_parameters', func = () ->
-        str = ""
+        str = " "
 
-        requiredPropertiesArray = this.RequiredProperties
-        for requiredProp, i in requiredPropertiesArray
-            str += " "
+        requireBodyData = this.RequiredBodyData
+        if requireBodyData
+            dataName = firstToLowerCase requireBodyData.Type
+            str += ( dataName + ":(" )
+            str += getProperDataTypeName requireBodyData.Type
+            str += ( " *)" + dataName ) + " "
 
-            dataName = ""
-            if requiredProp.Name is "Data"
-                dataName = firstToLowerCase requiredProp.Type
-            else 
-                dataName = firstToLowerCase requiredProp.Name
-            
+        requiredPropertiesArray = this.RequiredProperties.reverse()
+        uriString = this.Uri
+        for requiredProp in requiredPropertiesArray
+            lastIndexOpen = uriString.lastIndexOf "\{"
+            lastIndexClose = uriString.lastIndexOf "\}"
+
+            replaceString = uriString.substr(lastIndexOpen+1, (lastIndexClose-lastIndexOpen)-1)
+            uriString = uriString.replace "\{" + replaceString + "\}", "%@"
+            dataName = firstToLowerCase replaceString
             str += ( dataName + ":(" )
             str += getProperDataTypeName requiredProp.Type
-            str += ( " *)" + dataName )
-
-
+            str += ( " *)" + dataName + " ") 
         str
 
 Handlebars.js template helper: generate sub-path of URL
@@ -130,16 +134,16 @@ Handlebars.js template helper: generate sub-path of URL
     Handlebars.registerHelper 'generate_url_path', func = () ->
         str = this.Uri
         params = "";
-
-        requiredPropertiesArray = this.RequiredProperties
+        requiredPropertiesArray = this.RequiredProperties.reverse()
         for requiredProp in requiredPropertiesArray
+            lastIndexOpen = str.lastIndexOf "\{"
+            lastIndexClose = str.lastIndexOf "\}"
 
-            if requiredProp.Name isnt "Data"
-                replaceString = firstToLowerCase requiredProp.Name
-                str = str.replace "\{" + replaceString + "\}", "%@"
-                params += replaceString + ","
+            replaceString = str.substr(lastIndexOpen+1, (lastIndexClose-lastIndexOpen)-1)
+            str = str.replace "\{" + replaceString + "\}", "%@"
+            params = replaceString + "," + params
         
-        result = "[NSString stringWithFormats:@\"" + str + "\", " + params.substr(0, params.length-1) + "]"
+        result = "[NSString stringWithFormat:@\"" + str + "\", " + params.substr(0, params.length-1) + "]"
 
 Handlebars.js template helper: generate
 
@@ -147,25 +151,20 @@ Handlebars.js template helper: generate
         str = ''
 
         if this.UriVerb is 'POST' or this.UriVerb is 'PUT'
-            requiredPropertiesArray = this.RequiredProperties
+            requiredBodyData = this.RequiredBodyData
 
-            isFound = false
-            for requiredProp in requiredPropertiesArray
-                if isFound is false
-                    if requiredProp.Name is "Data"
-                        isFound = true
-                        str = "NSDictionary *parameters = @{ "
+            if requiredBodyData
+                str = "NSDictionary *parameters = @{ "
 
-                        subTypes = requiredProp.SubType
-                        for subType, i in subTypes
-                            str += ( "\"" + subType.Name + "\"" )
-                            str += " : "
-                            str += (firstToLowerCase requiredProp.Type + "." + firstToLowerCase subType.Name)
+                subTypes = requiredBodyData.SubType
+                for subType, i in subTypes
+                    str += ( "@\"" + subType.Name + "\"" )
+                    str += " : "
+                    str += (firstToLowerCase requiredBodyData.Type + "." + firstToLowerCase subType.Name)
 
-                            if (i isnt subTypes.length-1)
-                                str += ", "
-                        str += "};"
-
+                    if (i isnt subTypes.length-1)
+                        str += ", "
+                str += "};"
         str
 
 Handlebars.js template helper: generate parameters string for calling webservice method
@@ -177,12 +176,37 @@ Handlebars.js template helper: generate parameters string for calling webservice
             str = 'parameters'
         str
 
-Handlebars.js template helper: generate object type for sucess block
+Handlebars.js template helper: generate object type for success block
 
-    Handlebars.registerHelper 'generate_success_response_object', func = () ->
+    Handlebars.registerHelper 'generate_success_response_object_type', func = () ->
         str = 'id'
 
+        if this.listAPI
+            str = "NSArray"
+        else if this.createAPI or this.getAPI or this.deleteAPI or this.updateAPI
+            str = getProperDataTypeName this.ResponseModelType 
+        else
+
+        str 
+
+Handlebars.js template helper: generate object parameters for success block
+
+    Handlebars.registerHelper 'generate_success_response_objects_parameters', func = () ->
+        str = ''
+
+        if this.listAPI
+            str = "TSPaginator *paginator, NSArray *object,"
+        else if this.createAPI or this.deleteAPI or this.getAPI or this.updateAPI
+            str = getProperDataTypeName this.ResponseModelType + " *object,"
+        else
+            
+
         str
+
+Handlebars.js template helper: generate object in the success block
+
+    Handlebars.registerHelper 'generate_success_response_object_type', func = () ->
+        getProperDataTypeName this.ResponseModelType
 
 Helper function: converting first character to lower case
     
@@ -204,14 +228,8 @@ Helper function: converting proper data type name
 
 Helper function: get all customise objects
 
-    getAllCustomiseObject = (requiredPropertiesArray) ->
-        isFound = false
-        for requiredProp in requiredPropertiesArray
-            if isFound is false
-                if requiredProp.Name is "Data"
-                    isFound  = true
-                    objectType = getProperDataTypeName requiredProp.Type
-                    modelsSet.add objectType
+    getAllCustomiseObject = (RequiredBodyData) ->
+        objectType = getProperDataTypeName RequiredBodyData.Type
         
 ## entry point to this script
 
@@ -238,7 +256,8 @@ Helper function: get all customise objects
 
 
         for apiMethod in apiMethods
-            getAllCustomiseObject apiMethod.RequiredProperties
+            if apiMethods.RequiredBodyData
+                getAllCustomiseObject apiMethod.RequiredBodyData
 
         #generate Obj-C header file (.h)
         moduleName = file.split('/')[1]
@@ -259,7 +278,7 @@ Helper function: get all customise objects
         #generate Obj-C class file (.c)
         outputFolder = 'PhoenixURLs/output/' + 'ObjC/'
 
-        file = outputFolder + 'TSPhoenix' + content.moduleName + '.c'
+        file = outputFolder + 'TSPhoenix' + content.moduleName + '.m'
         console.log('writing to ' + file)
         fs.writeFileSync(file, resultClass)
         
