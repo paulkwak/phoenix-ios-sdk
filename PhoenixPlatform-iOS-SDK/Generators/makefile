@@ -93,7 +93,7 @@ else
 endif
 
 package-up-xcode:
-	cp -r ./PhoenixModels/output/ObjC/. ../Pod/Classes
+	cp -r ./PhoenixModels/output/ObjC/*/. ../Pod/Classes
 	cp -r ./PhoenixURLs/output/ObjC/. ../Pod/Classes
 
 	cd ../Example && pod install

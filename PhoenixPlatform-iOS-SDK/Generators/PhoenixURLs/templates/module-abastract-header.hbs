@@ -1,0 +1,19 @@
+//
+//  TSPhoenixModuleAbastract.h
+//  TSPhoenix
+//
+//  Created by Steve on {{date}}.
+//  Copyright (c) 2013 Tigerspike. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@class TSPhoenixClient;
+
+@interface TSPhoenixModuleAbastract : NSObject
+
+- (id)initWithPhoenixClient: (TSPhoenixClient *)client;
+
+@property (weak) TSPhoenixClient *client;
+
+@end
