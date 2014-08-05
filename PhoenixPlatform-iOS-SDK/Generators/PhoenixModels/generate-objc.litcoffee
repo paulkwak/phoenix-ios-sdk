@@ -269,10 +269,11 @@ Takes a property generate Objective-C source code
 ## entry point to this script
 
     for file in files
-        filePath = 'PhoenixModels/' + file
-    	array = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    	path = file.replace('.json', '/')
     	
+    	filePath = 'PhoenixModels/' + file
+    	array = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+    	path = file.replace('.json', '/')
+
     	for entity in array
     		generateClass entity, path
     	

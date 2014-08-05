@@ -3,8 +3,13 @@
 include makefile_definitions.mk
 
 all:
+	make install-npm-package
+
 	make generate-phoenix-SDK-UAT
 	#make generate-phoenix-SDK-LIVE
+
+install-npm-package:
+	sudo npm install
 
 generate-phoenix-SDK-UAT:
 	make generate-phoenix-models-UAT
@@ -12,7 +17,7 @@ generate-phoenix-SDK-UAT:
 
 	make package-up-xcode-UAT
 
-	#make clean
+	make clean
 
 generate-phoenix-SDK-LIVE:
 	make generate-phoenix-models-LIVE
@@ -20,7 +25,7 @@ generate-phoenix-SDK-LIVE:
 
 	make package-up-xcode-LIVE
 
-	#make clean
+	make clean
 
 # Sub-task - generate phoenix models
 generate-phoenix-models-UAT:
@@ -38,10 +43,6 @@ else
 	coffee ./PhoenixModels/add-mapping.litcoffee
 
 	coffee ./PhoenixModels/generate-objc.litcoffee
-
-	mkdir -p ./output/GeneratedCode/UAT
-	cp -r ./PhoenixModels/output/ObjC/. ./output/GeneratedCode/UAT/.
-
 endif
 
 generate-phoenix-models-LIVE:
@@ -59,9 +60,7 @@ else
 	coffee ./PhoenixModels/add-mapping.litcoffee
 
 	coffee ./PhoenixModels/generate-objc.litcoffee
-
-	mkdir -p ./output/PhoenixModels-LIVE
-	cp -r ./PhoenixModels/output/ObjC ./output/PhoenixModels-LIVE/.
+	
 
 endif
 
@@ -73,14 +72,14 @@ ifeq ($(wildcard $(PHOENIX_APIS_ENV_UAT_JSON_FILE)), )
 else
 	cp $(PHOENIX_APIS_ENV_UAT_JSON_FILE) ./PhoenixURLs/env-target.json
 
-	mkdir -p ./PhoenixModels/output
+	mkdir -p ./PhoenixURLs/output
 	coffee ./PhoenixURLs/aggregate-methods.litcoffee
 
 	mkdir -p ./PhoenixURLs/output/ObjC
 	coffee ./PhoenixURLs/generate-objc.litcoffee
 
 	mkdir -p ./output/GeneratedCode/UAT
-	cp -r ./PhoenixURLs/output/ObjC/. ./output/GeneratedCode/UAT/.
+	cp -r ./PhoenixURLs/output/ObjC/. ../Pod/Classes
 
 endif
 
@@ -97,15 +96,12 @@ else
 	mkdir -p ./PhoenixURLs/output/ObjC
 	coffee ./PhoenixURLs/generate-objc.litcoffee
 
-	mkdir -p ./output/PhoenixURLs-LIVE
-	cp -r ./PhonixURLs/output/ObjC ./output/PhoenixURLs-LIVE/.
-
 endif
 
 package-up-xcode-UAT:
-	cp -r ./output/GeneratedCode/UAT/ObjC/. ./output/Workspace/TSPhoenixSDK/Pod/Classes
-	cp -r ./output/GeneratedCode/UAT/ObjC/. ./output/Workspace/TSPhoenixSDK/Pod/Classes
-	cd output/Workspace/TSPhoenixSDK
+	cp -r ./PhoenixModels/output/ObjC/. ../Pod/Classes
+	cp -r ./PhonixURLs/output/ObjC/. ../Pod/Classes
+
 	pod install
 
 package-up-xcode-LIVE:
@@ -113,6 +109,8 @@ package-up-xcode-LIVE:
 clean:
 	make clean-models
 	make clean-urls
+
+	make clean-pod-classes
 
 clean-models:
 	# remove target JSON
@@ -122,3 +120,6 @@ clean-models:
 clean-urls:
 	rm -f ./PhoenixURLs/env-target.json
 	rm -r ./PhoenixURLs/output
+
+clean-pod-classes:
+	rm -f ../Pod/Classes/.
