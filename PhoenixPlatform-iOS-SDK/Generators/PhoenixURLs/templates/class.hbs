@@ -1,0 +1,178 @@
+//
+//  TSPhoenix
+//	TSPhoenix{{{moduleName}}}.m
+//
+//  Created by Steve on {{{date}}}.
+//  Copyright (c) 2013 Tigerspike. All rights reserved.
+//
+
+#import "TSPhoenix{{{moduleName}}}.h"
+#import <AFOAuth2Client@phoenixplatform/AFOAuth2Client.h>
+#import "TSPaginator.h"
+#import "TSPhoenixClient.h"
+
+{{{generate_class_file_in_c}}}
+
+@implementation TSPhoenix{{{moduleName}}}
+
+- (id) initWithPhoenixClient:(TSPhoenixClient *)client 
+{
+	self = [super initWithPhoenixClient:client];
+    
+    // self.paginators = [NSMutableSet new];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(userDidLogout)
+                                                 name:kPhoenixIdentityDidLogoutNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(userDidLogin)
+                                                 name:kPhoenixIdentityDidLoginNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(appDidResume)
+                                                 name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
+    
+    
+    
+    return self;
+}
+
+#pragma mark - Notifications
+- (void)appDidResume 
+{
+
+}
+
+- (void)userDidLogin 
+{
+
+}
+
+- (void)userDidLogout 
+{
+
+}
+
+#pragma mark - API methods
+{{#each apiMethods}}
+/* {{{Description}}} */
+- (void){{{api_method_name}}}WithCompletion:(void (^)({{{generate_success_response_objects_parameters}}} NSError *error))completion{{{generate_api_parameters}}}
+{
+    // Build URL
+    NSString *path = {{{generate_url_path}}};
+
+    // request params
+    {{{generate_request_parameters}}}
+
+    {{#if createAPI}}
+    [self.client {{{UriVerb}}}:path parameters:{{{request_parameters_result}}} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSArray *results;
+
+        id data = [responseObject valueForKey:@"Data"];
+
+        if ([data isKindOfClass:[NSArray class]]) {
+            NSArray *array = data;
+            results = [array mapObjectsUsingBlock:^id(id obj, NSUInteger idx) {
+                return [[{{{generate_success_response_object_type}}} alloc] initWithDictionary:obj];
+            }];
+        }
+
+        TS_BLOCK_SAFE_RUN(completion, [results firstObject], nil);
+                
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TS_BLOCK_SAFE_RUN(completion, nil, error);
+    }];
+    {{/if}}
+
+    {{#if getAPI}}
+    [self.client GET:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        id data = [responseObject[@"Data"] firstObject];
+                 NSParameterAssert(data);
+                 
+                 {{{generate_success_response_object_type}}} *object = [[{{{generate_success_response_object_type}}} alloc]  initWithDictionary:data];
+                 [TSPhoenixClient saveObjectsToDatabase:@[object]
+                                             completion:nil];
+                 
+                 TS_BLOCK_SAFE_RUN(completion,object,nil);
+
+             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                 TS_BLOCK_SAFE_RUN(completion,nil,error);
+             }];
+    {{/if}}
+
+    {{#if deleteAPI}}
+    [self.client {{{UriVerb}}}:path parameters:{{{request_parameters_result}}} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        TS_BLOCK_SAFE_RUN(completion,comment,nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TS_BLOCK_SAFE_RUN(completion, nil, error);
+    }];
+    {{/if}}
+
+    {{#if listAPI}}
+    NSString *parameterString = [TSPhoenixParameter parameterStringFromParameters:parameters];
+    
+    NSString *pattern = [path stringByAppendingString:parameterString];
+    pattern = [pattern stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
+    
+    TSPaginator *paginator = [[TSPaginator alloc] initWithRequestPatternPath:pattern
+                                                                  httpClient:self.client];
+    
+    [self.client.paginators addObject:paginator];
+    
+    [paginator setObjectMappingBlock:^NSArray *(NSArray *sourceObjects) {
+        __block NSArray *destinationObjects;
+        
+        destinationObjects = [sourceObjects mapObjectsUsingBlock:^id(id obj, NSUInteger idx) {
+            {{{generate_success_response_object_type}}} *returnObj = [[{{{generate_success_response_object_type}}} alloc] initWithDictionary:obj];
+            return returnObj;
+        }];
+        
+        return destinationObjects;
+    }];
+    
+    [paginator loadFirstPageWithSuccess:^(TSPaginator *paginator, NSArray *objects, NSUInteger page) {
+        
+        [self.client saveObjectsToDatabase:objects
+                                completion:^{
+                                    // TODO
+                                    //[FUSEMANAGER connectCommentsFromArticle:article toComments:objects];
+                                    
+                                    TS_BLOCK_SAFE_RUN(completion,paginator,objects, nil);
+                                    
+                                }];
+        
+    } failure:^(TSPaginator *paginator, NSError *error) {
+        NSLog(@"List failed with error: %@", error);
+        
+        TS_BLOCK_SAFE_RUN(completion, paginator, nil, error);
+    }];
+    {{/if}}
+
+    {{#if updateAPI}}
+    [self.client GET:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        id data = [responseObject[@"Data"] firstObject];
+                 NSParameterAssert(data);
+                 
+                 {{{generate_success_response_object_type}}} *object = [[{{{generate_success_response_object_type}}} alloc]  initWithDictionary:data];
+                 [TSPhoenixClient saveObjectsToDatabase:@[object]
+                                             completion:nil];
+                 
+                 TS_BLOCK_SAFE_RUN(completion,object,nil);
+
+             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                 TS_BLOCK_SAFE_RUN(completion,nil,error);
+             }];
+    {{/if}}
+    
+    {{#if otherAPI}}
+
+    {{/if}}
+    
+}
+{{/each}}
+
+@end
