@@ -15,7 +15,7 @@ generate-phoenix-SDK-UAT:
 	make generate-phoenix-models-UAT
 	make generate-phoenix-api-urls-UAT
 
-	make package-up-xcode-UAT
+	make package-up-xcode
 
 	make clean
 
@@ -23,7 +23,7 @@ generate-phoenix-SDK-LIVE:
 	make generate-phoenix-models-LIVE
 	make generate-phoenix-api-urls-LIVE
 
-	make package-up-xcode-LIVE
+	make package-up-xcode
 
 	make clean
 
@@ -60,8 +60,6 @@ else
 	coffee ./PhoenixModels/add-mapping.litcoffee
 
 	coffee ./PhoenixModels/generate-objc.litcoffee
-	
-
 endif
 
 # Sub-rtask - generate phoenix api urls
@@ -77,10 +75,6 @@ else
 
 	mkdir -p ./PhoenixURLs/output/ObjC
 	coffee ./PhoenixURLs/generate-objc.litcoffee
-
-	mkdir -p ./output/GeneratedCode/UAT
-	cp -r ./PhoenixURLs/output/ObjC/. ../Pod/Classes
-
 endif
 
 generate-phoenix-api-urls-LIVE:
@@ -98,19 +92,17 @@ else
 
 endif
 
-package-up-xcode-UAT:
+package-up-xcode:
 	cp -r ./PhoenixModels/output/ObjC/. ../Pod/Classes
-	cp -r ./PhonixURLs/output/ObjC/. ../Pod/Classes
+	cp -r ./PhoenixURLs/output/ObjC/. ../Pod/Classes
 
-	pod install
-
-package-up-xcode-LIVE:
+	cd ../Example && pod install
 
 clean:
 	make clean-models
 	make clean-urls
 
-	make clean-pod-classes
+	#make clean-pod-classes
 
 clean-models:
 	# remove target JSON
