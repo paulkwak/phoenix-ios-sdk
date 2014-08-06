@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PhoenixPlatform</key>
+	<dict>
+		<key>ProjectID</key>
+		<integer>0</integer>
+		<key>ClientID</key>
+		<string>Enter Client ID here</string>
+		<key>ClientSecret</key>
+		<string>Enter Client Secret here</string>
+		<key>ServiceRoot</key>
+		<string>Enter Phoenix SDK Base URL here</string>
+	</dict>
+</dict>
+</plist>

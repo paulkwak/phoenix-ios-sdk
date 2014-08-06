@@ -35,7 +35,8 @@ EventLogAggregate is empty in Documentation site...
     	'Media/Project',
     	'Syndicate/Project',
     	'Commerce/Application',
-      'Forum/Project'
+      'Forum/Project',
+      'Forum/Boolean'
     ]
     
 A few outliers that don't follow convention
@@ -114,7 +115,7 @@ Handlebar.js template helper: identifier. Each class has its own unique identifi
     	if identifier
     		console.log '	using identifier override ' + identifier + ' for class ' + this.name
     	else
-    		identifier = firstToLowerCase this.name + 'Id'
+    		identifier = firstToLowerCase this.name + 'ID'
     	
     	found = false
     	for property in this.properties
