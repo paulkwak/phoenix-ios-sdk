@@ -93,6 +93,10 @@ else
 endif
 
 package-up-xcode:
+	#copy the static code from the directory
+	cp -r ../StaticCodes/. ../Pod/Classes
+
+	#copy the generated code
 	cp -r ./PhoenixModels/output/ObjC/*/. ../Pod/Classes
 	cp -r ./PhoenixURLs/output/ObjC/. ../Pod/Classes
 
