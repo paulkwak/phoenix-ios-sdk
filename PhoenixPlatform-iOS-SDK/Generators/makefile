@@ -98,6 +98,8 @@ package-up-xcode:
 
 	#copy the generated code
 	cp -r ./PhoenixModels/output/ObjC/*/. ../Pod/Classes
+	cp -r ./PhoenixModels/output/ObjC/TSPhoenixModels.h ../Pod/Classes
+	
 	cp -r ./PhoenixURLs/output/ObjC/. ../Pod/Classes
 
 	cd ../Example && pod install

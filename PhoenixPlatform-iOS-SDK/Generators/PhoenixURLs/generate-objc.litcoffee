@@ -26,7 +26,7 @@ These are excluded because of duplication
 **Project** is a class in Identitiy, which other modules re-uses.
 
 EventLogAggregate is empty in Documentation site...
-    
+
     excludedClasses = [
         'Analytics/Project',
       'Analytics/Action',
@@ -162,7 +162,7 @@ Handlebars.js template helper: generate
                 for subType, i in subTypes
                     str += ( "@\"" + subType.Name + "\"" )
                     str += " : "
-                    str += (firstToLowerCase requiredBodyData.Type + "." + firstToLowerCase subType.Name)
+                    str += (firstToLowerCase requiredBodyData.Type + "." + formatParameterName subType.Name )
 
                     if (i isnt subTypes.length-1)
                         str += ", "
@@ -233,6 +233,14 @@ Helper function: get all customise objects
     getAllCustomiseObject = (RequiredBodyData) ->
         objectType = getProperDataTypeName RequiredBodyData.Type
 
+Helper function: change "Id" to "ID"
+
+    formatParameterName = (variableName) ->
+        str = firstToLowerCase variableName
+        if str.substr(str.length-2, 2) is "Id"
+            str = str.substr(0, str.length-2) + "ID"
+        str
+
         
 ## entry point to this script
 
@@ -258,8 +266,13 @@ Helper function: get all customise objects
         apiMethods = content.apiMethods
 
         for apiMethod in apiMethods
+            #RequiredBodyData
             if apiMethod.RequiredBodyData
                 str = getAllCustomiseObject apiMethod.RequiredBodyData
+                modelsSet.add str
+            #ResponseModelType
+            if apiMethod.ResponseModelType
+                str = getProperDataTypeName apiMethod.ResponseModelType
                 modelsSet.add str
 
         #generate Obj-C header file (.h)

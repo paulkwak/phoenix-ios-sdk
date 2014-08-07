@@ -11,7 +11,7 @@ add mapping information to the properties in JSON object tree
 TODO: put this in config.json
     
     files = [
-    	"output/Analytics.json",
+    	#"output/Analytics.json",
     	"output/Identity.json",
     	"output/Messaging.json",
     	"output/Commerce.json",
@@ -36,7 +36,18 @@ EventLogAggregate is empty in Documentation site...
     	'Syndicate/Project',
     	'Commerce/Application',
       'Forum/Project',
-      'Forum/Boolean'
+      'Forum/Boolean',
+      'Media/Boolean',
+      'Identity/Boolean',
+      'Messaging/Boolean',
+      'Media/Boolean',
+      'Syndicate/Boolean',
+      'Commerce/Boolean',
+      'Analytics/Boolean',
+      'DataCapture/Boolean',
+      'DataCapture/DeleteResponse',
+      'Survey/Boolean',
+      'Analytics/Task`1'
     ]
     
 A few outliers that don't follow convention

@@ -6,6 +6,28 @@
 
 env.json defines a set of URLs containing Phoenix API documentations.
 
+    excludedAPIMethods = [
+        'Syndicate/ListImporterPlugin',
+        'Syndicate/UploadArticlePreview',
+        'Syndicate/UploadAsset',
+        'Syndicate/UploadImporterPlugin'
+        'Media/GetModuleSettings',
+        'Media/ActivateModule',
+        'Media/UploadChannelImage',
+        'Media/GetMediaFileType',
+        'Media/ListMediaFileType',
+        'Media/UpdateMediaFileType',
+        'Media/CreateMediaFileType',
+        'Media/UploadMediaFile',
+        'Media/UploadMedia',
+        'Media/UploadProfile',
+        'Messaging/UploadAccountCertificate',
+        'Messaging/UpdateMessage',
+        'Messaging/UploadAttachment',
+        'Analytics/GetTrigger',
+        'Identity/Validate',
+        'Identity/GrantToken'
+    ];
 
 Helper function: converting first character to lower case
     
@@ -18,40 +40,46 @@ Helper function: fetch URL to get back JSON
     getJSONsSaveIntoDisk = (url) ->
       request.get { url, json: true }, (err, r, body) ->
         result = []
-        for apiMethod in body
-            str = apiMethod.Name
-            if str.substr(0, 6) isnt "Equals"
-                requiredProperties = apiMethod.RequiredProperties
-
-                # get out of the "Data" property in the JSON and make it seperate attribute
-                newRequiredProperties = []
-                for requiredProperty in requiredProperties
-                    if requiredProperty.Name is "Data"
-                        requireDataBody = requiredProperty
-                    else
-                        newRequiredProperties.push requiredProperty
-
-                apiMethod.RequiredProperties = newRequiredProperties
-                apiMethod.RequiredBodyData = requireDataBody
-
-                
-                if str.substr(0, 6) is "Create"
-                    apiMethod.createAPI = "Yes"
-                else if str.substr(0, 4) is "List"
-                    apiMethod.listAPI = "Yes"
-                else if str.substr(0, 6) is "Delete"
-                    apiMethod.deleteAPI = "Yes"
-                else if str.substr(0, 3) is "Get"
-                    apiMethod.getAPI = "Yes"
-                else if str.substr(0, 6) is "Update"
-                    apiMethod.updateAPI = "Yes"
-                else
-                    apiMethod.otherAPI = "Yes"
-
-                result.push apiMethod
 
         filename =  url.split('=').pop()
         filename = firstToUpperCase filename
+
+        for apiMethod in body
+            str = apiMethod.Name
+
+            classPath = filename + '/' + str
+            if ((excludedAPIMethods.indexOf classPath) > -1)
+                console.log '\n     skipping excluded method ' + classPath + '\n'
+            else 
+                if str.substr(0, 6) isnt "Equals"
+                    requiredProperties = apiMethod.RequiredProperties
+
+                    # get out of the "Data" property in the JSON and make it seperate attribute
+                    newRequiredProperties = []
+                    for requiredProperty in requiredProperties
+                        if requiredProperty.Name is "Data"
+                            requireDataBody = requiredProperty
+                        else
+                            newRequiredProperties.push requiredProperty
+
+                    apiMethod.RequiredProperties = newRequiredProperties
+                    apiMethod.RequiredBodyData = requireDataBody
+
+                    
+                    if str.substr(0, 6) is "Create"
+                        apiMethod.createAPI = "Yes"
+                    else if str.substr(0, 4) is "List"
+                        apiMethod.listAPI = "Yes"
+                    else if str.substr(0, 6) is "Delete"
+                        apiMethod.deleteAPI = "Yes"
+                    else if str.substr(0, 3) is "Get"
+                        apiMethod.getAPI = "Yes"
+                    else if str.substr(0, 6) is "Update"
+                        apiMethod.updateAPI = "Yes"
+                    else
+                        apiMethod.otherAPI = "Yes"
+
+                    result.push apiMethod
 
         #declare model in the JSON file
         model = {}
