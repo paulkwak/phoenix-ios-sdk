@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSArray+Mapping.h"
 #import "TSPhoenixModuleAbastract.h"
 
 {{{generate_class_file_in_h}}}
@@ -15,7 +16,7 @@
 
 {{#each apiMethods}}
 /* {{{Description}}} */
-- (void){{{api_method_name}}}WithCompletion:(void (^)({{{generate_success_response_object_type}}} response, NSError *error))completion{{{generate_api_parameters}}};
+- (void){{{api_method_name}}}WithCompletion:(void (^)({{{generate_success_response_object_type}}} *response, NSError *error))completion{{{generate_api_parameters}}};
 
 {{/each}}
 

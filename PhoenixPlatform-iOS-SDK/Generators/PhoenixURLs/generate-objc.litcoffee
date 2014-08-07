@@ -12,12 +12,12 @@ add mapping information to the properties in JSON object tree
 TODO: put this in config.json
     
     files = [
-    	"output/Analytics.json",
+        "output/Analytics.json",
         "output/Identity.json",
-    	"output/Messaging.json",
-    	"output/Commerce.json",
-    	"output/Media.json",
-    	"output/Syndicate.json",
+        "output/Messaging.json",
+        "output/Commerce.json",
+        "output/Media.json",
+        "output/Syndicate.json",
         "output/Forum.json"
     ]
     
@@ -28,14 +28,14 @@ These are excluded because of duplication
 EventLogAggregate is empty in Documentation site...
     
     excludedClasses = [
-    	'Analytics/Project',
+        'Analytics/Project',
       'Analytics/Action',
       'Analytics/EventLogAggregate',
-    	'Messaging/Project',
-    	'Commerce/Project',
-    	'Media/Project',
-    	'Syndicate/Project',
-    	'Commerce/Application',
+        'Messaging/Project',
+        'Commerce/Project',
+        'Media/Project',
+        'Syndicate/Project',
+        'Commerce/Application',
       'Forum/Project'
     ]
     
@@ -82,9 +82,10 @@ Handlebars.js template helper: generate any related class name for .h file
 
     Handlebars.registerHelper 'generate_class_file_in_h', func = () ->
         str = "";
-        for className, i in modelsSet.toArray()
-            str += className
-            str += ", "
+        for className in modelsSet.toArray()
+            if className.substr(0, 2) is "TS"
+                str += className
+                str += ", "
 
         if (str.length > 0)
             str = "@class " + str.substr(0, str.length-2) + ";"
@@ -92,10 +93,11 @@ Handlebars.js template helper: generate any related class name for .h file
 
 Handlebars.js template helper: generate any related class name for .c file
     
-    Handlebars.registerHelper 'generate_class_file_in_c', func = () ->
+    Handlebars.registerHelper 'generate_class_file_in_m', func = () ->
         str = "";
-        for className, i in modelsSet.toArray()
-            str += "#import \"" + className + ".h\"\n"
+        for className in modelsSet.toArray()
+            if className.substr(0, 2) is "TS"
+                str += "#import \"" + className + ".h\"\n"
         str
 
 Handlebars.js template helper: generate API name
@@ -197,7 +199,7 @@ Handlebars.js template helper: generate object parameters for success block
         if this.listAPI
             str = "TSPaginator *paginator, NSArray *object,"
         else if this.createAPI or this.deleteAPI or this.getAPI or this.updateAPI
-            str = getProperDataTypeName this.ResponseModelType + " *object,"
+            str = getProperDataTypeName this.ResponseModelType + " *object, "
         else
             
 
@@ -230,6 +232,7 @@ Helper function: get all customise objects
 
     getAllCustomiseObject = (RequiredBodyData) ->
         objectType = getProperDataTypeName RequiredBodyData.Type
+
         
 ## entry point to this script
 
@@ -239,7 +242,7 @@ Helper function: get all customise objects
     # generate TSPhoenixModuleAbastract .h and .c files
     result = moduleAbastractHeaderTemplate allObjCModels
     file = 'PhoenixURLs/output/' + 'ObjC/' + 'TSPhoenixModuleAbastract' + '.h'
-    console.log('\nwriting to ' + file)	
+    console.log('\nwriting to ' + file) 
     fs.writeFileSync(file, result)
 
     result = moduleAbastractClassTemplate allObjCModels
@@ -254,31 +257,24 @@ Helper function: get all customise objects
         content = JSON.parse(fs.readFileSync(filePath, 'utf8'))
         apiMethods = content.apiMethods
 
-
         for apiMethod in apiMethods
-            if apiMethods.RequiredBodyData
-                getAllCustomiseObject apiMethod.RequiredBodyData
+            if apiMethod.RequiredBodyData
+                str = getAllCustomiseObject apiMethod.RequiredBodyData
+                modelsSet.add str
 
         #generate Obj-C header file (.h)
-        moduleName = file.split('/')[1]
-        moduleName = moduleName.replace ".json", ""
-        if moduleName isnt "Identity"
-            resultHeader = headerTemplate content
-            resultClass = classTemplate content
-        else 
-            resultHeader = identityModuleHeaderTemplate content
-            resultClass = identityModuleClassTemplate content
-
+        result = headerTemplate content
         outputFolder = 'PhoenixURLs/output/' + 'ObjC/'
-
+        
         file = outputFolder + 'TSPhoenix' + content.moduleName + '.h'
-        console.log('\nwriting to ' + file)
-        fs.writeFileSync(file, resultHeader)
+        console.log('writing to ' + file)
+        fs.writeFileSync(file, result)
 
         #generate Obj-C class file (.c)
+        result = classTemplate content
         outputFolder = 'PhoenixURLs/output/' + 'ObjC/'
 
         file = outputFolder + 'TSPhoenix' + content.moduleName + '.m'
         console.log('writing to ' + file)
-        fs.writeFileSync(file, resultClass)
+        fs.writeFileSync(file, result)
         
