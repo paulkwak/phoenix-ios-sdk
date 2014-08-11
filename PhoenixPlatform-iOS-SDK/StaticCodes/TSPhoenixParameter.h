@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class TSPhoenixSort;
+
 @interface TSPhoenixParameter : NSObject
 
 
@@ -22,7 +24,8 @@
 
 + (NSString *)parameterStringFromParameters: (NSArray *)parameters
                                   expansion: (NSArray *)expansion
-                                    filters: (NSArray *)filters;
+                                    filters: (NSArray *)filters
+                                     sortBy: (TSPhoenixSort *)sortBy;
 
 
 

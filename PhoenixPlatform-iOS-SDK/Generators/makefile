@@ -15,9 +15,9 @@ generate-phoenix-SDK-UAT:
 	make generate-phoenix-models-UAT
 	make generate-phoenix-api-urls-UAT
 
-	make package-up-xcode
+	#make package-up-xcode
 
-	make clean
+	#make clean
 
 generate-phoenix-SDK-LIVE:
 	make generate-phoenix-models-LIVE

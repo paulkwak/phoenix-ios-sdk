@@ -8,6 +8,7 @@
 
 #import "TSPhoenixParameter.h"
 #import "TSPhoenixFilter.h"
+#import "TSPhoenixSort.h"
 
 @implementation TSPhoenixParameter
 
@@ -82,7 +83,8 @@
 
 + (NSString *)parameterStringFromParameters: (NSArray *)parameters
                                   expansion: (NSArray *)expansion
-                                    filters: (NSArray *)filters {
+                                    filters: (NSArray *)filters
+                                     sortBy: (TSPhoenixSort *)sortBy {
     NSMutableArray *allParameters = [NSMutableArray new];
     if (expansion) {
         [expansion enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -92,6 +94,10 @@
     
     if (filters) {
         [allParameters addObject:[TSPhoenixFilter filterStringFromFilters:filters]];
+    }
+
+    if (sortBy) {
+        [allParameters addObject:[TSPhoenixFilter filterStringFromFilters:[sortBy sortingParameterArray]]];
     }
     
     if (parameters)
