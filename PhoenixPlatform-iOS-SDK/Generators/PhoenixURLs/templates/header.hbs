@@ -10,13 +10,15 @@
 #import "NSArray+Mapping.h"
 #import "TSPhoenixModuleAbastract.h"
 
+@class TSPhoenixSort;
+
 {{{generate_class_file_in_h}}}
 
 @interface TSPhoenix{{{moduleName}}}: TSPhoenixModuleAbastract
 
 {{#each apiMethods}}
 /* {{{Description}}} */
-- (void){{{api_method_name}}}WithCompletion:(void (^)({{{generate_success_response_object_type}}} *response, NSError *error))completion{{{generate_api_parameters}}};
+- (void){{{api_method_name}}}WithCompletion:(void (^)({{{generate_success_response_objects_parameters}}} NSError *error))completion{{{generate_api_parameters}}}{{#if listAPI}}filters: (NSArray *)filters orders:(TSPhoenixSort *)orders{{/if}};
 
 {{/each}}
 

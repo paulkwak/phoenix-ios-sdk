@@ -10,6 +10,8 @@
 #import <AFOAuth2Client@phoenixplatform/AFOAuth2Client.h>
 #import "TSPaginator.h"
 #import "TSPhoenixClient.h"
+#import "TSPhoenixSort.h"
+#import "TSPhoenixParameter.h"
 
 {{{generate_class_file_in_m}}}
 
@@ -59,7 +61,7 @@
 #pragma mark - API methods
 {{#each apiMethods}}
 /* {{{Description}}} */
-- (void){{{api_method_name}}}WithCompletion:(void (^)({{{generate_success_response_objects_parameters}}} NSError *error))completion{{{generate_api_parameters}}}
+- (void){{{api_method_name}}}WithCompletion:(void (^)({{{generate_success_response_objects_parameters}}} NSError *error))completion{{{generate_api_parameters}}}{{#if listAPI}}filters: (NSArray *)filters orders:(TSPhoenixSort *)orders{{/if}}
 {
     // Build URL
     NSString *path = {{{generate_url_path}}};
@@ -117,7 +119,14 @@
 
     {{#if listAPI}}
     NSArray *parameters = @[];
-    NSString *parameterString = [TSPhoenixParameter parameterStringFromParameters:parameters];
+    NSString * parameterString = @"";
+
+    // apply filter
+    if ( (filters != nil && filters.count > 0) || (orders != nil) ) {
+        parameterString = [TSPhoenixParameter parameterStringFromParameters:parameters expansion:nil filters:filters sortBy:orders];
+    } else {
+        parameterString = [TSPhoenixParameter parameterStringFromParameters:parameters];
+    }
     
     NSString *pattern = [path stringByAppendingString:parameterString];
     pattern = [pattern stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
