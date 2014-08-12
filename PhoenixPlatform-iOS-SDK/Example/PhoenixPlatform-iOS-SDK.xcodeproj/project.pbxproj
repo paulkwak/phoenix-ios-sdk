@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2DCEA7D855704765A7902FA7 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF72022F809409584EDC439 /* libPods-Tests.a */; };
 		3FD31EA12BCD4CACB49B98B3 /* libPods-PhoenixPlatform-iOS-SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EAB79033DDC42AFA9215CA4 /* libPods-PhoenixPlatform-iOS-SDK.a */; };
+		4DE789621999D64A0077DE39 /* SyndicateStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DE789611999D64A0077DE39 /* SyndicateStoryboard.storyboard */; };
 		4DF98ACA19920DC1000E3C08 /* ServiceConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DF98AC919920DC1000E3C08 /* ServiceConfig.plist */; };
 		4DF98AD719921206000E3C08 /* AnalyticStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DF98AD419921206000E3C08 /* AnalyticStoryboard.storyboard */; };
 		4DF98AD819921206000E3C08 /* AnalyticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF98AD619921206000E3C08 /* AnalyticViewController.m */; };
@@ -46,6 +47,7 @@
 		0ADE3D6C6EDB4360823ECF05 /* Pods-Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.xcconfig"; path = "Pods/Pods-Tests.xcconfig"; sourceTree = "<group>"; };
 		3A8FF075151D4C2BABA8C0A7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		4CF72022F809409584EDC439 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DE789611999D64A0077DE39 /* SyndicateStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SyndicateStoryboard.storyboard; path = src/UI/Syndicate/SyndicateStoryboard.storyboard; sourceTree = "<group>"; };
 		4DF98AC919920DC1000E3C08 /* ServiceConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ServiceConfig.plist; sourceTree = "<group>"; };
 		4DF98AD419921206000E3C08 /* AnalyticStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AnalyticStoryboard.storyboard; path = src/UI/Analytic/AnalyticStoryboard.storyboard; sourceTree = "<group>"; };
 		4DF98AD519921206000E3C08 /* AnalyticViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnalyticViewController.h; path = src/UI/Analytic/AnalyticViewController.h; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		4DF98ACE19920E20000E3C08 /* Syndicate */ = {
 			isa = PBXGroup;
 			children = (
+				4DE789611999D64A0077DE39 /* SyndicateStoryboard.storyboard */,
 			);
 			name = Syndicate;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 			files = (
 				4DF98AE71992136D000E3C08 /* Main.storyboard in Resources */,
 				4DF98ACA19920DC1000E3C08 /* ServiceConfig.plist in Resources */,
+				4DE789621999D64A0077DE39 /* SyndicateStoryboard.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				4DF98AD719921206000E3C08 /* AnalyticStoryboard.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,

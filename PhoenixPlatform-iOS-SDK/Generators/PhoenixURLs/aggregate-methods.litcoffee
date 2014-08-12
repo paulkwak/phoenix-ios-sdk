@@ -10,7 +10,9 @@ env.json defines a set of URLs containing Phoenix API documentations.
         'Syndicate/ListImporterPlugin',
         'Syndicate/UploadArticlePreview',
         'Syndicate/UploadAsset',
-        'Syndicate/UploadImporterPlugin'
+        'Syndicate/UploadImporterPlugin',
+        'Syndicate/ListAllPendingFeed',
+        'Media/AddMediaFileType',
         'Media/GetModuleSettings',
         'Media/ActivateModule',
         'Media/UploadChannelImage',

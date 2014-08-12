@@ -28,15 +28,9 @@ These are excluded because of duplication
 EventLogAggregate is empty in Documentation site...
 
     excludedClasses = [
-        'Analytics/Project',
-      'Analytics/Action',
-      'Analytics/EventLogAggregate',
-        'Messaging/Project',
-        'Commerce/Project',
-        'Media/Project',
-        'Syndicate/Project',
-        'Commerce/Application',
-      'Forum/Project'
+        'output/Messaging.json',
+        'output/Analytics.json',
+        'output/Commerce.json'
     ]
     
 A few outliers that don't follow convention
@@ -260,34 +254,44 @@ Helper function: change "Id" to "ID"
 
     #generate Phoenix API classes
     for file in files
-        filePath = 'PhoenixURLs/' + file
+        if ((excludedClasses.indexOf file) > -1) #class Phoenix APIs did not fully using RESTful, just keep it at the moment
+            console.log '\n     skipping excluded method ' + file + '\n'
+        else 
+            filePath = 'PhoenixURLs/' + file
 
-        content = JSON.parse(fs.readFileSync(filePath, 'utf8'))
-        apiMethods = content.apiMethods
+            content = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+            apiMethods = content.apiMethods
 
-        for apiMethod in apiMethods
-            #RequiredBodyData
-            if apiMethod.RequiredBodyData
-                str = getAllCustomiseObject apiMethod.RequiredBodyData
-                modelsSet.add str
-            #ResponseModelType
-            if apiMethod.ResponseModelType
-                str = getProperDataTypeName apiMethod.ResponseModelType
-                modelsSet.add str
+            for apiMethod in apiMethods
+                #RequiredBodyData
+                if apiMethod.RequiredBodyData
+                    str = getAllCustomiseObject apiMethod.RequiredBodyData
+                    modelsSet.add str
+                #ResponseModelType
+                if apiMethod.ResponseModelType
+                    str = getProperDataTypeName apiMethod.ResponseModelType
+                    modelsSet.add str
 
-        #generate Obj-C header file (.h)
-        result = headerTemplate content
-        outputFolder = 'PhoenixURLs/output/' + 'ObjC/'
-        
-        file = outputFolder + 'TSPhoenix' + content.moduleName + '.h'
-        console.log('writing to ' + file)
-        fs.writeFileSync(file, result)
+            #generate Obj-C header file (.h)
+            if filePath isnt 'PhoenixURLs/output/Identity.json'
+                result = headerTemplate content
+            else
+                result = identityModuleHeaderTemplate content
 
-        #generate Obj-C class file (.c)
-        result = classTemplate content
-        outputFolder = 'PhoenixURLs/output/' + 'ObjC/'
+            outputFolder = 'PhoenixURLs/output/' + 'ObjC/'
+            
+            file = outputFolder + 'TSPhoenix' + content.moduleName + '.h'
+            console.log('writing to ' + file)
+            fs.writeFileSync(file, result)
 
-        file = outputFolder + 'TSPhoenix' + content.moduleName + '.m'
-        console.log('writing to ' + file)
-        fs.writeFileSync(file, result)
+            #generate Obj-C class file (.c)
+            if filePath isnt 'PhoenixURLs/output/Identity.json'
+                result = classTemplate content
+            else 
+                result = identityModuleClassTemplate content
+            outputFolder = 'PhoenixURLs/output/' + 'ObjC/'
+
+            file = outputFolder + 'TSPhoenix' + content.moduleName + '.m'
+            console.log('writing to ' + file)
+            fs.writeFileSync(file, result)
         

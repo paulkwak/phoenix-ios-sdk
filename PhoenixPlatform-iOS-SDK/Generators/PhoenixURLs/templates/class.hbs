@@ -111,7 +111,7 @@
     // request params
     {{{generate_request_parameters}}}
     [self.client {{{UriVerb}}}:path parameters:{{{request_parameters_result}}} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        TS_BLOCK_SAFE_RUN(completion, object, nil);
+        TS_BLOCK_SAFE_RUN(completion, responseObject, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         TS_BLOCK_SAFE_RUN(completion, nil, error);
     }];

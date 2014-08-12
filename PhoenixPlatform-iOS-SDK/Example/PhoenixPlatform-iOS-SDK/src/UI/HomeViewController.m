@@ -33,7 +33,7 @@
 
 - (void)getUserData
 {
-    [[TSPhoenixClient identity] getMyUserWithCompletion:^(TSUser *user, NSError *error) {
+    /*[[TSPhoenixClient identity] getMyUserWithCompletion:^(TSUser *user, NSError *error) {
         if (error) {
             [[[UIAlertView alloc] initWithTitle:@"Error"
                                         message:error.localizedDescription
@@ -45,7 +45,7 @@
         
         self.welcomeLabel.text = [NSString stringWithFormat:@"%@ %@", user.firstName, user.lastName];
         self.profileImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:user.imageUrl]]];
-    }];
+    }];*/
 }
 
 /*
