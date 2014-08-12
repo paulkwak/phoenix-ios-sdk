@@ -74,7 +74,7 @@ else
 	coffee ./PhoenixURLs/aggregate-methods.litcoffee
 
 	mkdir -p ./PhoenixURLs/output/ObjC
-	coffee ./PhoenixURLs/generate-objc.litcoffee
+	coffee ./PhoenixURLs/generate-methods.litcoffee
 endif
 
 generate-phoenix-api-urls-LIVE:
@@ -88,7 +88,7 @@ else
 	coffee ./PhoenixURLs/aggregate-methods.litcoffee
 
 	mkdir -p ./PhoenixURLs/output/ObjC
-	coffee ./PhoenixURLs/generate-objc.litcoffee
+	coffee ./PhoenixURLs/generate-methods.litcoffee
 
 endif
 
