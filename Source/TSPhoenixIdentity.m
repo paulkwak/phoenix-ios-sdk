@@ -320,11 +320,6 @@
     NSParameterAssert(oldPassword.length);
     NSParameterAssert(newPassword.length);
     
-    if (!self.isClientAuthenticated) {
-        // uat does not work as self.clientCredential is nil
-        return;
-    }
-    
     NSAssert(self.client.projectID > 0, @"Missing project id");
     
     NSString *path = [NSString stringWithFormat:kPhoenixIdentityChangePasswordPath, self.client.projectID];
