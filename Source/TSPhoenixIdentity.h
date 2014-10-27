@@ -72,7 +72,7 @@
                               failure:(void (^)(NSError *))failure;
 
 
-
+- (void)authenticateWithCredential:(AFOAuthCredential *) credential;
 
 
 @property (assign) BOOL isUserAuthenticated;
