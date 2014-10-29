@@ -74,6 +74,7 @@
 
 - (void)authenticateWithCredential:(AFOAuthCredential *) credential;
 
+- (void)refreshWithCredential:(AFOAuthCredential *) credential;
 
 @property (assign) BOOL isUserAuthenticated;
 

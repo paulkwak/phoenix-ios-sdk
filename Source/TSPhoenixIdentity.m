@@ -181,11 +181,27 @@
     
     self.isUserAuthenticated = YES;
     
-    [AFOAuthCredential storeCredential:credential withIdentifier:kPhoenixUserAuthenticationCredentialKey];
+    [AFOAuthCredential storeCredential:credential
+                        withIdentifier:kPhoenixUserAuthenticationCredentialKey];
     
     [self setUpProject];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kPhoenixIdentityDidLoginNotification
+                                                        object:self];
+}
+
+- (void)refreshWithCredential:(AFOAuthCredential *) credential {
+    self.userCredential = credential;
+    
+    [self.oauth2Client setAuthorizationHeaderWithCredential:credential];
+    [self.client setAuthorizationHeaderWithToken:credential.accessToken];
+    
+    self.isUserAuthenticated = YES;
+    
+    [AFOAuthCredential storeCredential:credential
+                        withIdentifier:kPhoenixUserAuthenticationCredentialKey];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kPhoenixIdentityDidRefreshTokenNotification
                                                         object:self];
 }
 
