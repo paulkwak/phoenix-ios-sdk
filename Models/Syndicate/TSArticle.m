@@ -35,7 +35,10 @@
         
         // Phoenix date ISO 8601/
         if ([dotNetType isEqualToString:@"System.DateTime"]) {
-            NSDate *date = [[TSPhoenixClient sharedInstance].defaultDateFormatter dateFromString:value];
+            
+            NSString *newDateString = [NSString stringWithFormat:@"%@Z", value];
+            
+            NSDate *date = [[TSPhoenixClient sharedInstance].defaultDateFormatter dateFromString:newDateString];
             [self setValue:date forKey:info[@"mappedName"]];
             return;
         }
