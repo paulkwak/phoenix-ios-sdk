@@ -12,5 +12,4 @@
 
 - (NSArray *)mapObjectsUsingBlock:(id (^)(id obj, NSUInteger idx))block;
 
-
 @end

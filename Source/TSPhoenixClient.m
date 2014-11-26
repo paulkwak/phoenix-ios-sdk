@@ -259,13 +259,23 @@ static NSInteger phoenix_projectID;
 }
 
 - (void)saveObjectsToDatabase: (NSArray *)objects completion:(dispatch_block_t)completionBlock {
+    [self saveObjectsToDatabase:objects skipExistingObjects:NO completion:completionBlock];
+
+}
+
+- (void)saveObjectsToDatabase: (NSArray *)objects
+          skipExistingObjects: (BOOL)skipExisting
+                   completion:(dispatch_block_t)completionBlock {
     [self.writeDatabaseConnection asyncReadWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
         [objects enumerateObjectsUsingBlock:^(TSModelAbstract *obj, NSUInteger idx, BOOL *stop) {
             if ([transaction hasObjectForKey:obj.dbKey
                                 inCollection:obj.dbCollection]) {
-                [transaction replaceObject:obj
-                                    forKey:obj.dbKey
-                              inCollection:obj.dbCollection];
+                if (!skipExisting) {
+                    [transaction replaceObject:obj
+                                        forKey:obj.dbKey
+                                  inCollection:obj.dbCollection];
+                }
+
             } else {
                 [transaction setObject:obj
                                 forKey:obj.dbKey
@@ -274,8 +284,10 @@ static NSInteger phoenix_projectID;
             
         }];
     } completionBlock:completionBlock];
-
+    
 }
+
+
 
 - (void)deleteObjectsInDatabase: (NSArray *)objects completion:(dispatch_block_t)completionBlock {
     [self.writeDatabaseConnection asyncReadWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {

@@ -100,6 +100,11 @@ extern NSString * const TSPhoenixKeyValueDatabaseSQLiteName;
 
 // Async
 - (void)saveObjectsToDatabase: (NSArray *)objects completion:(dispatch_block_t)completionBlock;
+
+- (void)saveObjectsToDatabase: (NSArray *)objects
+          skipExistingObjects: (BOOL)skipExisting
+                   completion:(dispatch_block_t)completionBlock;
+
 - (void)deleteObjectsInDatabase: (NSArray *)objects completion:(dispatch_block_t)completionBlock;
 
 
