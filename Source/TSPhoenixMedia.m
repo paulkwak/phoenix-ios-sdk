@@ -32,11 +32,7 @@
                                                  name:kPhoenixIdentityDidLoginNotification
                                                object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(appDidResume)
-                                                 name:UIApplicationDidBecomeActiveNotification
-                                               object:nil];
-    
+   
     
     
     return self;
@@ -44,10 +40,6 @@
 
 
 #pragma mark - Notifications
-
-- (void)appDidResume {
-
-}
 
 - (void)userDidLogin {
 
