@@ -378,20 +378,16 @@
 - (void)logout {
     if (!self.isUserAuthenticated) return; // Already logged out
     
-    [self invalidateCredential];
-    
     _companyProject = nil;
     
-    NSError *error;
     [self.client.operationQueue cancelAllOperations];
     
+    [self invalidateCredential];
     
     [self.client.writeDatabaseConnection readWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
         [transaction removeAllObjectsInAllCollections];
     }];
-    
-    if (error)
-        NSLog(@"Logout clear Core Data error: %@", error);
+
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kPhoenixIdentityDidLogoutNotification
                                                         object:self];
