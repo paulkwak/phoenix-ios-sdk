@@ -18,7 +18,7 @@
 
 // Max = 100
 // Using a smaller value to improve SharePoint IL performance
-#define kPhoenixResponsePageSize              20
+#define kPhoenixResponsePageSize              10
 
 // Notifications
 
