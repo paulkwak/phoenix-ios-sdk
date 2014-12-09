@@ -16,12 +16,9 @@
 
 #define kPhoenixStatusBarNotificationDuration 1.5
 
-
 // Max = 100
 // Using a smaller value to improve SharePoint IL performance
-#define kPhoenixResponsePageSize              50
-
-
+#define kPhoenixResponsePageSize              20
 
 // Notifications
 
