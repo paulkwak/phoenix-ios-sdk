@@ -122,9 +122,12 @@
     return value;
 }
 
+// This method is async
 - (void)setValue:(id)value forDBMetadataKey:(NSString *)key {
+    
     NSParameterAssert(key);
-    [[TSPhoenixClient writeDatabaseConnection] readWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
+    
+    [[TSPhoenixClient writeDatabaseConnection] asyncReadWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
         NSDictionary *dict = [transaction metadataForKey:[self dbKey]
                                             inCollection:[self dbCollection]];
         NSMutableDictionary *mutableDict = [dict mutableCopy];
