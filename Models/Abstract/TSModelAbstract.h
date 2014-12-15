@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class YapDatabaseReadWriteTransaction;
 
 @interface TSModelAbstract : NSObject <NSCoding, NSCopying>
 
@@ -21,6 +22,10 @@
 + (NSString *)dbCollection;
 
 + (NSDictionary *)mappingDictionary;
+
+
+- (void)saveWithTransaction: (YapDatabaseReadWriteTransaction *)transaction
+          overwriteExisting: (BOOL)overwriteExisting;
 
 #pragma mark - Metadata field in YapDatabase
 

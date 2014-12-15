@@ -100,6 +100,23 @@
     return nil;
 }
 
+- (void)saveWithTransaction: (YapDatabaseReadWriteTransaction *)transaction
+          overwriteExisting: (BOOL)overwriteExisting {
+    if ([transaction hasObjectForKey:self.dbKey
+                        inCollection:self.dbCollection]) {
+        if (overwriteExisting) {
+            [transaction replaceObject:self
+                                forKey:self.dbKey
+                          inCollection:self.dbCollection];
+        }
+        
+    } else {
+        [transaction setObject:self
+                        forKey:self.dbKey
+                  inCollection:self.dbCollection];
+    }
+}
+
 // Handle undefined key, which is likely due to server side model changes
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {
     NSLog(@"warning: %@ setting value for undefined key: %@", self, key);
