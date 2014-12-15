@@ -30,4 +30,6 @@
 
 - (void)setValue:(id)value forDBMetadataKey:(NSString *)key;
 
+- (void)setValue:(id)value forDBMetadataKey:(NSString *)key withTransaction: (YapDatabaseReadWriteTransaction *)transaction;
+
 @end

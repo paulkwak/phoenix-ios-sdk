@@ -128,6 +128,16 @@
     NSParameterAssert(key);
     
     [[TSPhoenixClient writeDatabaseConnection] asyncReadWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
+        [self setValue:value forDBMetadataKey:key withTransaction:transaction];
+    }];
+    
+}
+
+- (void)setValue:(id)value forDBMetadataKey:(NSString *)key withTransaction: (YapDatabaseReadWriteTransaction *)transaction {
+    
+    NSParameterAssert(key);
+    
+
         NSDictionary *dict = [transaction metadataForKey:[self dbKey]
                                             inCollection:[self dbCollection]];
         NSMutableDictionary *mutableDict = [dict mutableCopy];
@@ -143,8 +153,8 @@
         [transaction replaceMetadata:dict
                               forKey:self.dbKey
                         inCollection:self.dbCollection];
-    }];
     
 }
+
 
 @end
